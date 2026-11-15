@@ -7,270 +7,192 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: #091B2B; line-height: 1.6; }
-
-  .wrap { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 32px; }
-
-  /* CABEÇALHO E RODAPÉ (MINIMALISTAS) */
-  .rl-header, .rl-footer {
-    background: #000000;
-    color: #ffffff;
-    font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  }
-  .rl-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding-top: env(safe-area-inset-top);
-  }
-  .rl-header-inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    max-width: 1280px;
-    height: 64px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  .rl-logo {
-    justify-self: start;
-    display: flex;
-    width: 36px;
-    height: 36px;
-  }
-  .rl-logo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .rl-social svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-  }
-  .rl-nav {
-    display: flex;
-    gap: 32px;
-  }
-  .rl-nav a, .rl-footer-nav a {
-    padding: 4px 0;
-    font-size: 15px;
-    line-height: 1.4;
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color .2s ease, opacity .2s ease;
-  }
-  .rl-nav a[aria-current="page"], .rl-footer-nav a[aria-current="page"] {
-    border-bottom-color: #ffffff;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .rl-nav a:hover, .rl-footer-nav a:hover {
-      border-bottom-color: #ffffff;
-    }
-  }
-  .rl-social {
-    display: flex;
-    width: 28px;
-    height: 28px;
-    color: #ffffff;
-  }
-  .rl-header .rl-social {
-    justify-self: end;
-  }
-  .rl-footer {
-    margin-top: 96px;
-    padding: 48px 32px calc(28px + env(safe-area-inset-bottom));
-  }
-  .rl-footer-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  .rl-footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 32px;
-  }
-  .rl-footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, .16);
-    font-size: 13px;
-    color: rgba(255, 255, 255, .6);
-  }
-  .rl-footer .rl-social {
-    width: 22px;
-    height: 22px;
+  
+  body {
+    background-color: #F7F5F0;
+    color: #2C3E50;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    line-height: 1.8;
+    font-size: 18px;
   }
 
-  /* CONTEÚDO DO LIVRO */
-  .book-container {
-    padding: 64px 0 96px;
+  .book-wrapper {
+    max-width: 740px;
+    margin: 40px auto;
+    background: #FFFFFF;
+    padding: 64px 56px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
   }
+
+  /* CAPA / CABEÇALHO DO LIVRO */
   .book-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #EAE6DF;
   }
   .book-header h1 {
-    font-size: 36px;
-    font-weight: 800;
-    color: #091B2B;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
     margin-bottom: 12px;
+    font-family: system-ui, -apple-system, sans-serif;
   }
   .book-header h2 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #10283E;
-    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4B5563;
+    margin-bottom: 16px;
+    font-style: italic;
   }
   .book-header .author {
     font-size: 16px;
-    font-weight: 700;
-    color: #19C995;
-    margin-bottom: 16px;
+    font-weight: 600;
+    color: #0D9488;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin-bottom: 12px;
   }
   .book-header .isbn {
     font-size: 14px;
-    color: #94A7B8;
+    color: #9CA3AF;
+    font-family: system-ui, -apple-system, sans-serif;
   }
 
+  /* CITAÇÃO */
   .quote-box {
-    margin: 40px auto;
-    padding: 24px 32px;
-    border-left: 4px solid #19C995;
-    background: #F4F7FA;
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-left: 3px solid #0D9488;
+    background: #FAFAF9;
     font-style: italic;
-    color: #17344D;
-    max-width: 700px;
-    border-radius: 0 8px 8px 0;
+    color: #374151;
+    font-size: 17px;
   }
   .quote-box cite {
     display: block;
     margin-top: 12px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
-    color: #091B2B;
+    color: #111827;
     text-align: right;
+    font-family: system-ui, -apple-system, sans-serif;
   }
 
+  /* SUMÁRIO */
   .sumario-box {
-    background: #091B2B;
-    color: #D4DEE8;
-    padding: 32px 40px;
-    border-radius: 12px;
-    margin: 48px 0;
+    background: #1E293B;
+    color: #F1F5F9;
+    padding: 32px 36px;
+    border-radius: 6px;
+    margin: 48px 0 64px;
+    font-family: system-ui, -apple-system, sans-serif;
   }
   .sumario-box h3 {
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
   }
   .sumario-box ol {
     padding-left: 20px;
   }
   .sumario-box li {
     margin-bottom: 10px;
+    font-size: 16px;
   }
   .sumario-box a {
-    color: #72E2BD;
+    color: #5EEAD4;
     text-decoration: none;
-    font-weight: 600;
+    transition: color 0.2s;
   }
   .sumario-box a:hover {
+    color: #99F6E4;
     text-decoration: underline;
   }
 
+  /* CAPÍTULOS */
   .capitulo {
     margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(148, 167, 184, 0.3);
+    padding-top: 40px;
+    border-top: 1px solid #EAE6DF;
   }
   .capitulo h2 {
-    font-size: 26px;
-    font-weight: 800;
-    color: #091B2B;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
     margin-bottom: 24px;
+    font-family: system-ui, -apple-system, sans-serif;
   }
   .capitulo p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #17344D;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     text-align: justify;
+    text-indent: 1.5em;
+  }
+  .capitulo p:first-of-type {
+    text-indent: 0;
   }
 
+  /* NOTA AO LEITOR */
   .nota-leitor {
     margin-top: 80px;
-    padding: 32px;
-    background: #F4F7FA;
-    border-radius: 12px;
-    border: 1px solid rgba(148, 167, 184, 0.2);
+    padding: 36px;
+    background: #FAFAF9;
+    border-radius: 6px;
+    border: 1px solid #EAE6DF;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    color: #4B5563;
   }
   .nota-leitor h3 {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 700;
     margin-bottom: 12px;
-    color: #091B2B;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   .nota-leitor p {
-    font-size: 15px;
-    color: #526779;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  @media (max-width: 640px) {
-    .rl-header-inner {
-      grid-template-columns: 1fr auto;
-      grid-template-areas:
-        "logo social"
-        "nav  nav";
-      height: auto;
-      padding: 12px 20px 0;
-      row-gap: 4px;
+  /* RODAPÉ DO LEITOR */
+  .reader-footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #EAE6DF;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: #6B7280;
+  }
+  .reader-footer a {
+    color: #0D9488;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .book-wrapper {
+      margin: 0;
+      padding: 32px 20px;
+      box-shadow: none;
+      border-radius: 0;
     }
-    .rl-logo { grid-area: logo; width: 30px; height: 30px; }
-    .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
-    .rl-nav {
-      grid-area: nav;
-      justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 10px;
+    body {
+      font-size: 17px;
     }
-    .rl-nav a { font-size: 13px; }
-    .wrap { padding: 0 20px; }
-    .book-header h1 { font-size: 28px; }
   }
 </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
-  <header class="rl-header">
-    <div class="rl-header-inner">
-      <a href="index.html" class="rl-logo" aria-label="Rafael Linhares — Início">
-        <img src="00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="Logo Rafael Linhares">
-      </a>
-      <nav class="rl-nav" aria-label="Principal">
-        <a href="index.html">Início</a>
-        <a href="para-empresas.html">Para Empresas</a>
-        <a href="para-voce.html">Para Você</a>
-        <a href="agendamento.html">Agendamento</a>
-      </nav>
-      <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
-      </a>
-    </div>
-  </header>
-
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main class="book-container wrap">
+  <div class="book-wrapper">
     
     <div class="book-header">
       <h1>Decisões em um mundo de incertezas</h1>
@@ -404,25 +326,11 @@
       rafael.linhares@live.com</p>
     </section>
 
-  </main>
+    <footer class="reader-footer">
+      <p><a href="#top">↑ Voltar ao topo</a></p>
+    </footer>
 
-  <!-- RODAPÉ -->
-  <footer class="rl-footer">
-    <div class="rl-footer-inner">
-      <nav class="rl-footer-nav" aria-label="Rodapé">
-        <a href="index.html">Início</a>
-        <a href="para-voce.html">Para Você</a>
-        <a href="para-empresas.html">Para Empresas</a>
-        <a href="agendamento.html">Agendamento</a>
-      </nav>
-      <div class="rl-footer-bottom">
-        <span>© 2026 Rafael Linhares · CORECON/SP 38615</span>
-        <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
+  </div>
 
 </body>
 </html>
