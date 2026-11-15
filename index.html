@@ -76,54 +76,6 @@
 
 
     /* =====================================================
-        MENU SUPERIOR
-    ===================================================== */
-
-    .rl-header {
-      width: 100%;
-      border-bottom: 1px solid var(--line);
-      background: #ffffff;
-    }
-
-    .rl-header-inner {
-      width: 100%;
-      max-width: 888px;
-      margin: 0 auto;
-      padding: 20px var(--gutter);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .rl-brand {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      color: var(--navy-1);
-    }
-
-    .rl-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .rl-nav a {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-soft);
-      transition: color .2s ease;
-    }
-
-    .rl-nav a:hover,
-    .rl-nav a.active {
-      color: var(--green-text);
-    }
-
-
-    /* =====================================================
         CONTEÚDO PRINCIPAL
     ===================================================== */
 
@@ -131,7 +83,7 @@
       width: 100%;
       max-width: 888px;
       margin: 0 auto;
-      padding: 56px var(--gutter) 64px;
+      padding: 72px var(--gutter) 0;
     }
 
     .rl-content-section {
@@ -297,13 +249,6 @@
       object-fit: cover;
     }
 
-    .rl-formacao-nome {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy-1);
-      margin-bottom: 8px;
-    }
-
     .rl-formacao {
       list-style: none;
     }
@@ -362,22 +307,13 @@
 
     .rl-final {
       margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
       padding-bottom: env(safe-area-inset-bottom);
     }
 
     .rl-final-grid {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .rl-copy {
-      font-size: 14px;
-      color: var(--text-muted);
+      justify-content: flex-end;
     }
 
     .rl-linkedin {
@@ -399,21 +335,13 @@
     @media (max-width: 640px) {
 
       :root {
-        --gutter: 24px;
-      }
-
-      .rl-header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .rl-nav {
-        gap: 16px;
+        --gutter: 32px;
       }
 
       .rl-content {
-        padding-top: 40px;
+        padding-top: calc(52px + env(safe-area-inset-top));
+        padding-left: calc(var(--gutter) + env(safe-area-inset-left));
+        padding-right: calc(var(--gutter) + env(safe-area-inset-right));
       }
 
       .rl-content-section {
@@ -440,31 +368,337 @@
         min-height: 150px;
       }
 
+      .rl-btn-number {
+        top: -12px;
+        right: 12px;
+        font-size: 5.5rem;
+      }
+
+      .rl-btn-content {
+        padding: 24px 64px 24px 24px;
+      }
+
+      .rl-btn-title {
+        font-size: 22px;
+      }
+
+      .rl-btn-arrow {
+        right: 20px;
+        bottom: 20px;
+      }
+
       .rl-economista {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .rl-formacao {
+        width: 100%;
+      }
+
+      .rl-formacao li {
+        font-size: 15px;
+      }
+
+      .rl-formacao li::before {
+        top: 14px;
+      }
+
+      .rl-aspas {
+        font-size: 48px;
       }
 
       .rl-frase h2 {
         font-size: 26px;
       }
+
+      .rl-frase p {
+        font-size: 16px;
+      }
+
+      .rl-final {
+        margin-top: 40px;
+      }
+
+      .rl-final-grid {
+        justify-content: center;
+      }
     }
+
+
+    /* =====================================================
+        REDUÇÃO DE MOVIMENTO
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .rl-btn:hover,
+      .rl-btn:hover .rl-btn-arrow {
+        transform: none;
+      }
+    }
+
   </style>
 </head>
 
-<body>
 
-  <header class="rl-header">
-    <div class="rl-header-inner">
-      <a href="index.html" class="rl-brand">Rafael Linhares</a>
-      <nav class="rl-nav" aria-label="Navegação principal">
-        <a href="index.html" class="active">Início</a>
-        <a href="para-empresas.html">Para Empresas</a>
-        <a href="para-voce.html">Para Você</a>
-        <a href="agendamento.html">Agendamento</a>
-      </nav>
-    </div>
-  </header>
+<body>
 
   <main class="rl-content">
 
+
+    <!-- ===================================================
+         INTRO
+    =================================================== -->
+
+    <section class="rl-intro">
+
+      <h1 class="rl-nome">
+
+        RAFAEL LINHARES
+
+        <span>
+          Economista - CORECON/SP 38615
+        </span>
+
+      </h1>
+
+
+      <p class="rl-intro-text">
+
+        Vivemos em um mundo de recursos limitados,
+        informações incompletas e incertezas.
+        Ainda assim, todos os dias escolhemos como
+        utilizar nosso
+
+        <strong>
+          tempo, dinheiro, trabalho e atenção.
+        </strong>
+
+      </p>
+
+
+      <!-- ===============================================
+           ACESSOS
+      ================================================ -->
+
+      <div class="rl-cta-buttons">
+
+
+        <!-- PARA VOCÊ -->
+
+        <a
+          href="para-voce.html"
+          class="rl-btn"
+          target="_top"
+          rel="noopener noreferrer"
+          aria-label="Acessar recursos para você"
+        >
+
+          <span
+            class="rl-btn-number"
+            aria-hidden="true"
+          >
+            01
+          </span>
+
+
+          <div class="rl-btn-content">
+
+            <span class="rl-btn-label">
+              Para você
+            </span>
+
+            <span class="rl-btn-title">
+              Recursos Gratuitos
+            </span>
+
+          </div>
+
+
+          <span
+            class="rl-btn-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
+
+        <!-- PARA EMPRESAS -->
+
+        <a
+          href="para-empresas.html"
+          class="rl-btn"
+          target="_top"
+          rel="noopener noreferrer"
+          aria-label="Acessar desenvolvimento para empresas"
+        >
+
+          <span
+            class="rl-btn-number"
+            aria-hidden="true"
+          >
+            02
+          </span>
+
+
+          <div class="rl-btn-content">
+
+            <span class="rl-btn-label">
+              Para empresas
+            </span>
+
+            <span class="rl-btn-title">
+         Ação Voluntária
+            </span>
+
+          </div>
+
+
+          <span
+            class="rl-btn-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ECONOMISTA / FORMAÇÃO
+    =================================================== -->
+
+    <section class="rl-content-section">
+
+      <div class="rl-economista">
+
+
+        <div class="rl-economista-foto">
+
+          <img
+            src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/44942c4f-471d-4033-9203-405e8b52fe22-3mnupJi8PmW6jzjQ.jpeg"
+            alt="Rafael Linhares de Souza"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="rl-economista-info">
+
+
+          <ul class="rl-formacao">
+
+            <li>
+              Bacharel em Ciências Econômicas – PUC Minas
+            </li>
+
+            <li>
+              Pós-Graduação em Gestão da Qualidade,
+              Controle e Auditoria – PUC Minas
+            </li>
+
+            <li>
+              Programa de Especialização em Economia
+              Gerencial e Análise de Negócios –
+              University of Illinois/Coursera
+            </li>
+
+            <li>
+              Certificação Lean Six Sigma Green Belt – FM2S
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FRASE FINAL
+    =================================================== -->
+
+    <section class="rl-frase rl-content-section">
+
+      <div
+        class="rl-aspas"
+        aria-hidden="true"
+      >
+        “
+      </div>
+
+
+      <h2>
+        Uma boa escolha
+      </h2>
+
+
+      <p>
+
+        pode produzir efeitos que ultrapassam
+        o próprio indivíduo, assim como as ondas
+        de uma pedra lançada na água se espalham
+        para além do ponto onde ela caiu.
+
+        <br><br>
+
+        Nunca saberemos até onde os efeitos de
+        uma escolha poderão reverberar, mas podemos
+        garantir que tenham um bom começo.
+
+      </p>
+
+    </section>
+
+
+    <!-- ===================================================
+         RODAPÉ
+    =================================================== -->
+
+    <footer class="rl-final">
+
+      <div class="rl-final-grid">
+
+        <a
+          href="https://linkedin.com/in/rafael-souza-econ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rl-linkedin"
+          aria-label="Visitar LinkedIn de Rafael Linhares"
+        >
+          LinkedIn ↗
+        </a>
+
+      </div>
+
+    </footer>
+
+
+  </main>
+
+</body>
+
+</html>
