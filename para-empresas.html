@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projeto Voluntário nas Empresas</title>
+<style>
+  :root {
+    --navy-1: #091B2B; --navy-2: #10283E; --navy-3: #17344D;
+    --green: #19C995; --green-light: #72E2BD; --white: #FFFFFF;
+    --text-light: #D4DEE8; --text-muted: #94A7B8;
+    --line: rgba(148, 167, 184, .22); --gutter: 64px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
+  .wrap { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* CONVITE PARA A EMPRESA */
+  .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 56px 0 40px; }
+  .empresa-intro h1.page-title { font-size: 34px; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); margin-bottom: 32px; }
+  .passos-empresa ul { list-style: none; }
+  .passos-empresa li { font-size: 17px; line-height: 1.5; color: var(--navy-3); padding: 8px 0; display: flex; align-items: baseline; gap: 12px; }
+  .passos-empresa li a { color: var(--green); text-decoration: underline; font-weight: 700; }
+  .passos-empresa li::before { content: "→"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 20px; line-height: 1; }
+
+  .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
+
+  /* CARD (EXPORTADO EM JPEG) */
+  .card { width: 100%; padding-bottom: 72px; color: var(--text-light); background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .brand-bar { background: #000; border-bottom: 2px solid var(--green); padding: 16px 0; margin-bottom: 64px; }
+  .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand img { height: 60px; width: auto; max-width: 180px; object-fit: contain; border-radius: 8px; }
+  .brand span { font-size: 14px; font-weight: 500; color: var(--text-muted); line-height: 1.35; text-align: right; }
+
+  .card h1 { font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 24px; }
+  .verde { color: var(--green); }
+  .card .intro { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--text-light); }
+
+  .bloco { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--line); }
+  .bloco h2 { font-size: 26px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+  .bloco .meta { font-size: 15px; font-weight: 600; color: var(--green); margin-bottom: 14px; }
+  .bloco .lead { font-size: 16px; line-height: 1.5; color: var(--text-light); margin-bottom: 8px; }
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 18px; padding: 20px 0; }
+  .checklist li:first-child { padding-top: 0; }
+  .checklist li:last-child { padding-bottom: 0; }
+  .modulos { list-style: none; margin-top: 6px; }
+  .modulos li { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; font-size: 16px; line-height: 1.5; color: var(--text-light); }
+  .modulos li::before { content: "+"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 20px; line-height: 1; }
+  .modulos strong { color: var(--white); font-weight: 800; }
+  .checklist li::before {
+    content: "✓"; flex-shrink: 0; width: 28px; height: 28px; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--green); border-radius: 50%;
+    color: var(--green); font-weight: 900; font-size: 15px; line-height: 1;
+  }
+  .item-title { display: block; font-size: 20px; line-height: 1.3; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+  .item-desc { display: block; font-size: 16px; line-height: 1.6; color: var(--text-light); }
+  .item-desc .meta-item { color: var(--green); font-weight: 600; }
+  .box-meta-line .g { white-space: nowrap; }
+
+  .como-participar-box { margin-top: 80px; padding: 40px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
+  .como-participar-box h2 { font-size: 26px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+  .como-participar-box p { font-size: 16px; line-height: 1.65; color: var(--text-light); }
+  .como-participar-box .box-sub { margin-bottom: 24px; font-size: 17px; line-height: 1.45; font-weight: 700; color: var(--green); }
+  .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .como-participar-box .box-sessao li { padding: 0; }
+  .como-participar-box .box-sessao .item-title { font-size: 18px; }
+  .como-participar-box .box-meta { margin-bottom: 10px; font-size: 15px; font-weight: 700; color: var(--green); }
+  .como-participar-box .box-passo { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; color: var(--text-light); }
+  .como-participar-box .box-passo strong { display: block; margin-bottom: 10px; color: var(--white); font-weight: 700; }
+  .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
+
+  .site { margin-top: 56px; font-size: 22px; font-weight: 800; color: var(--green); }
+  .disclaimer { margin-top: 20px; font-size: 14px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
+
+  /* FAQ */
+  .extra-sections { background: #FFFFFF; color: var(--navy-1); padding: 24px 0 0; }
+  .extra-section { border-top: 1px solid rgba(23, 52, 77, .16); border-bottom: 1px solid rgba(23, 52, 77, .16); }
+  .extra-summary { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; font-size: 20px; font-weight: 800; }
+  .extra-summary::-webkit-details-marker, .faq-question::-webkit-details-marker { display: none; }
+  .extra-summary::after { content: "+"; flex-shrink: 0; font-size: 26px; line-height: 1; color: var(--green); }
+  details[open] > .extra-summary::after { content: "−"; }
+  .extra-content { padding: 0 0 28px; color: var(--navy-3); }
+  .faq-item { border-top: 1px solid rgba(23, 52, 77, .12); }
+  .faq-item:first-child { border-top: none; }
+  .faq-question { padding: 16px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; font-size: 15px; line-height: 1.4; font-weight: 700; }
+  .faq-question::after { content: "+"; flex-shrink: 0; color: var(--green); font-size: 20px; font-weight: 700; }
+  .faq-item[open] > .faq-question::after { content: "−"; }
+  .faq-answer { padding: 0 0 16px; font-size: 14px; line-height: 1.55; color: #526779; }
+  .extra-summary:focus-visible, .faq-question:focus-visible, .download-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+  /* DOWNLOAD */
+  .download-area { padding: 64px 0 80px; background: #FFFFFF; display: flex; justify-content: center; }
+  .download-btn { width: 36px; height: 36px; border-radius: 8px; background: transparent; border: 1px solid rgba(23, 52, 77, .15); color: var(--text-muted); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s ease; }
+  .download-btn:hover { border-color: var(--green); color: var(--green); background: rgba(25, 201, 149, .05); }
+  .download-btn:disabled { opacity: .4; cursor: wait; }
+  .download-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  @media (max-width: 640px) {
+    :root { --gutter: 32px; }
+    .brand-bar { padding: 12px 0; margin-bottom: 48px; }
+    .card { padding-bottom: 56px; }
+    .brand img { height: 48px; max-width: 140px; }
+    .brand span { font-size: 12px; }
+    .card h1 { font-size: 28px; margin-bottom: 20px; }
+    .card .intro { font-size: 17px; }
+    .bloco { margin-top: 36px; padding-top: 36px; }
+    .bloco h2 { font-size: 22px; }
+    .como-participar-box h2 { font-size: 24px; }
+    .box-meta-line .g { display: block; }
+    .box-meta-line .sep { display: none; }
+    .item-title { font-size: 18px; }
+    .item-desc { font-size: 15px; }
+    .como-participar-box { margin-top: 56px; padding: 28px 22px; }
+    .site { margin-top: 44px; }
+    .empresa-intro h1.page-title { font-size: 26px; }
+    .empresa-intro p.convite { font-size: 17px; }
+    .extra-summary { font-size: 18px; padding: 18px 0; }
+    .download-area { padding: 48px 0 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- APRESENTAÇÃO E COMO PARTICIPAR (PARA A EMPRESA) -->
+<header class="empresa-intro">
+  <div class="wrap">
+    <h1 class="page-title">Ação Gratuita nas Empresas</h1>
+    <p class="convite">Participe do <strong>Mês do Bem-Estar Financeiro</strong>!</p>
+    <nav class="passos-empresa">
+      <ul>
+        <li>No <a href="https://www.linkedin.com/in/rafael-souza-econ" target="_blank" rel="noopener">LinkedIn</a>, solicite a participação e indique o mês escolhido</li>
+        <li>Baixe o card de divulgação sugerido abaixo e compartilhe com a equipe</li>
+        <li>Os colaboradores interessados podem agendar livremente no mês indicado</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="card-label">Card de Divulgação</div>
+
+<!-- CARD (Área exportável em JPEG) -->
+<main class="card" id="card">
+
+  <div class="brand-bar">
+    <header class="wrap brand">
+      <img src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/1756917922612-uvo8MUehuEk0x0lw.jpg" alt="Logo Rafael Linhares" crossorigin="anonymous">
+      <span>CORECON/SP 38.615</span>
+    </header>
+  </div>
+
+  <div class="wrap">
+
+    <section>
+      <h1>Portal com Recursos Gratuitos</h1>
+      <p class="intro">O economista Rafael Linhares disponibiliza:</p>
+    </section>
+
+    <section class="bloco">
+      <ul class="checklist">
+        <li>
+          <div>
+            <span class="item-title">Finanças pessoais</span>
+            <span class="item-desc">Módulos para planejamento e diagnóstico financeiro, definição do custo de vida e perfil pessoal.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="item-title">Melhoria contínua</span>
+            <span class="item-desc">Módulo estatístico para avaliar dados e validar melhorias, e guia para projetos de melhoria nas empresas.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span class="item-title">Conteúdos complementares</span>
+            <span class="item-desc">Jogo interativo, livro sobre decisões e mais.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="como-participar-box">
+      <h2>Mês do Bem-estar Financeiro</h2>
+      <p class="box-sub">Neste mês, nossa equipe conta com um apoio extra.</p>
+      <ul class="checklist box-sessao">
+        <li>
+          <div>
+            <span class="item-title">1 sessão gratuita por colaborador</span>
+            <span class="item-desc box-meta-line"><span class="meta-item g">50 min · Online</span><span class="meta-item sep"> · </span><span class="meta-item g">Individual · Confidencial</span></span>
+          </div>
+        </li>
+      </ul>
+      <p>Utilize o encontro para aprender sobre os módulos financeiros, a metodologia de melhoria, decisões e estratégias de comportamento.</p>
+      <p class="box-passo"><strong>Como participar?</strong> Agende pelo site abaixo e informe o nome da nossa empresa no cadastro.</p>
+    </section>
+
+    <p class="site">rafaellinhares.com.br</p>
+    <p class="disclaimer">Atendimento de caráter educacional e consultivo.</p>
+
+  </div>
+</main>
+
+<!-- PERGUNTAS FREQUENTES -->
+<section class="extra-sections">
+  <div class="wrap">
+    <details class="extra-section">
+      <summary class="extra-summary">Perguntas frequentes</summary>
+      <div class="extra-content">
+        <details class="faq-item">
+          <summary class="faq-question">Quem pode participar?</summary>
+          <div class="faq-answer">Todos os colaboradores das empresas participantes do Mês do Bem-Estar Financeiro.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Quantas sessões cada colaborador pode fazer?</summary>
+          <div class="faq-answer">1 atendimento individual gratuito durante o mês da iniciativa.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Como são realizados os atendimentos?</summary>
+          <div class="faq-answer">Online, individualmente e com total sigilo e confidencialidade.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">O que pode ser tratado nas sessões?</summary>
+          <div class="faq-answer">Organização financeira, planejamento pessoal, comportamento de consumo e apoio no processo de tomada de decisões financeiras.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">A empresa tem acesso ao conteúdo das conversas?</summary>
+          <div class="faq-answer">Não. O atendimento é estritamente confidencial entre o colaborador e o economista.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Existe algum custo para a empresa ou para o colaborador?</summary>
+          <div class="faq-answer">Não. Trata-se de uma iniciativa 100% gratuita, sem taxa de contratação, mensalidade ou qualquer vínculo financeiro.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">O serviço inclui recomendação de investimentos?</summary>
+          <div class="faq-answer">Não. O atendimento possui caráter exclusivamente educacional e orientativo, não constituindo recomendação de investimentos ou análise de carteiras.</div>
+        </details>
+      </div>
+    </details>
+  </div>
+</section>
+
+<div class="download-area">
+  <button class="download-btn" id="saveJpeg" title="Salvar Card em JPEG" aria-label="Salvar Card em JPEG">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+  </button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  document.getElementById("saveJpeg").addEventListener("click", async function () {
+    const button = this;
+    const card = document.getElementById("card");
+    button.disabled = true;
+    try {
+      await document.fonts.ready;
+      const images = Array.from(card.querySelectorAll("img"));
+      await Promise.all(images.map(async (img) => {
+        if (!img.complete) {
+          await new Promise((resolve) => { img.onload = resolve; img.onerror = resolve; });
+        }
+        if (img.decode) { try { await img.decode(); } catch (_) {} }
+      }));
+      const canvas = await html2canvas(card, {
+        scale: 4, backgroundColor: "#10283E", useCORS: true, allowTaint: false,
+        logging: false, imageTimeout: 20000, scrollX: 0, scrollY: 0,
+        width: card.clientWidth, height: card.scrollHeight
+      });
+      const blob = await new Promise((resolve, reject) => {
+        canvas.toBlob((r) => r ? resolve(r) : reject(new Error("Falha ao gerar JPEG.")), "image/jpeg", 1.0);
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "card-rafael-linhares.jpg";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    } catch (error) {
+      console.error("Erro ao gerar JPEG:", error);
+      alert("Não foi possível gerar o JPEG. Tente novamente.");
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
