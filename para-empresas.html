@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Projeto Voluntário nas Empresas</title>
 <style>
   :root {
@@ -12,6 +12,7 @@
     --line: rgba(148, 167, 184, .22); --gutter: 64px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
   .wrap { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 var(--gutter); }
 
@@ -124,6 +125,9 @@
     /* =====================================================
         CABEÇALHO E RODAPÉ (MINIMALISTAS)
     ===================================================== */
+
+    .rl-header a,
+    .rl-footer a { text-decoration: none; }
 
     .rl-header,
     .rl-footer {
@@ -271,6 +275,7 @@
 
 
     .rl-footer { margin-top: 0; }
+    .rl-header { box-shadow: 0 1px 0 rgba(255, 255, 255, .14); }
     @media (max-width: 640px) { .rl-footer { margin-top: 0; } }
 </style>
 </head>
@@ -299,7 +304,7 @@
 
 
 <!-- APRESENTAÇÃO E COMO PARTICIPAR (PARA A EMPRESA) -->
-<header class="empresa-intro">
+<section class="empresa-intro">
   <div class="wrap">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
     <p class="convite">Participe do <strong>Mês do Bem-Estar Financeiro</strong>!</p>
@@ -311,7 +316,7 @@
       </ul>
     </nav>
   </div>
-</header>
+</section>
 
 <div class="card-label">Card de Divulgação</div>
 
@@ -319,10 +324,10 @@
 <main class="card" id="card">
 
   <div class="brand-bar">
-    <header class="wrap brand">
+    <div class="wrap brand">
       <img src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/1756917922612-uvo8MUehuEk0x0lw.jpg" alt="Logo Rafael Linhares" crossorigin="anonymous">
       <span>CORECON/SP 38.615</span>
-    </header>
+    </div>
   </div>
 
   <div class="wrap">
