@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflação Pessoal</title>
+<style>
+:root{--bg-main:#f8fafc;--card-bg:#fff;--text-primary:#0f172a;--text-muted:#64748b;--brand-blue:#2563eb;--border-color:#e2e8f0;--danger:#ef4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg-main);color:var(--text-primary);padding:0;font-size:13px;line-height:1.4}
+.container{max-width:1000px;margin:auto;background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid var(--border-color);box-shadow:0 4px 12px rgba(0,0,0,.03)}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;border-bottom:1px solid var(--border-color);padding-bottom:12px}
+.title{font-size:20px;font-weight:700;color:var(--brand-blue)}
+.controls{display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start}
+.btn{border:1px solid var(--border-color);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text-primary)}
+.btn:hover{background:#f1f5f9}
+.btn:focus-visible,input:focus-visible,.tab-btn:focus-visible{outline:2px solid var(--brand-blue);outline-offset:1px}
+.btn-danger{background:#fef2f2;color:var(--danger);border-color:#fecaca}
+.tabs{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--border-color);padding-bottom:4px}
+.tab-btn{padding:6px 12px;border-radius:6px 6px 0 0;border:1px solid transparent;background:transparent;font-weight:600;font-size:12px;cursor:pointer;color:var(--text-muted)}
+.tab-btn.active{background:#fff;border-color:var(--border-color);border-bottom-color:#fff;color:var(--brand-blue)}
+.tab-content{display:none}.tab-content.active{display:block}
+.box{background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:14px;margin-bottom:12px}
+.box-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.hint{font-size:12px;color:var(--text-muted)}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:3px;text-transform:uppercase}
+.field input,.row input{width:100%;border:1px solid var(--border-color);border-radius:6px;padding:7px 10px;font-size:13px;background:#fff}
+.nudge{display:none;font-size:11px;color:var(--danger);font-weight:600;margin-top:3px}
+.nudge.show{display:block}
+input.erro{border-color:var(--danger)!important;box-shadow:0 0 0 2px rgba(239,68,68,.12)}
+.row{display:grid;grid-template-columns:2fr 1fr 1fr .8fr auto;gap:8px;align-items:center;margin-bottom:6px;background:#f8fafc;padding:8px;border-radius:6px;border:1px solid var(--border-color)}
+.row.head{background:none;border:0;padding:0 8px;font-size:10px;font-weight:600;color:var(--text-muted);text-transform:uppercase}
+.dif{font-weight:600;text-align:right;font-size:12px}
+.remove-btn{background:none;border:0;color:var(--text-muted);font-size:16px;cursor:pointer;padding:0 4px}
+.remove-btn:hover{color:var(--danger)}
+.add-btn{width:100%;padding:8px;border-radius:6px;border:1px dashed var(--border-color);background:#fff;color:var(--brand-blue);font-weight:600;cursor:pointer;font-size:12px;margin-top:8px}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+@media(min-width:768px){.metrics{grid-template-columns:repeat(4,1fr)}}
+.metric-card{background:#f8fafc;border:1px solid var(--border-color);border-radius:8px;padding:10px;text-align:center}
+.metric-lbl{font-size:10px;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.metric-val{font-size:18px;font-weight:700;margin-top:4px}
+.bar-line{display:grid;grid-template-columns:140px 1fr 100px;gap:8px;align-items:center;margin-bottom:6px;font-size:12px}
+.bar-track{background:#f1f5f9;border-radius:4px;height:12px;overflow:hidden}
+.bar-fill{height:100%;background:var(--brand-blue);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{padding:8px 10px;border:1px solid var(--border-color);text-align:left}
+th{background:#f8fafc;font-weight:600;color:var(--text-muted);text-transform:uppercase;font-size:10px}
+.badge{display:inline-block;font-weight:600;padding:2px 8px;border-radius:12px;font-size:11px}
+.b-red{background:#fef2f2;color:#991b1b}.b-green{background:#f0fdf4;color:#166534}.b-gray{background:#f1f5f9;color:#475569}
+.drop{border:2px dashed var(--border-color);padding:18px;text-align:center;border-radius:8px;background:#f8fafc;cursor:pointer;margin-bottom:12px;font-weight:600;color:var(--brand-blue)}
+.drop:hover{border-color:var(--brand-blue);background:#eff6ff}
+.foot{font-size:11px;color:var(--text-muted);margin-top:10px;text-align:center}
+.aviso{background:#fffbeb;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:8px;margin-bottom:12px;font-size:12px}
+.metodo{background:#f8fafc;border-left:3px solid var(--brand-blue);padding:10px;font-size:11px;color:var(--text-muted);margin-top:14px;border-radius:0 6px 6px 0;line-height:1.6}
+@media(max-width:700px){.row{grid-template-columns:1fr 1fr}.row.head{display:none}.bar-line{grid-template-columns:100px 1fr 80px}}
+@media print{.controls,.tabs,.add-btn,.remove-btn,.drop{display:none}body{padding:0}.container{border:0;box-shadow:none}}
+
+.page-wrap{padding:16px}
+.rl-footer{margin-top:32px}
+@media print{.rl-header,.rl-footer{display:none}.page-wrap{padding:0}}
+
+    /* =====================================================
+        CABEÇALHO E RODAPÉ (MINIMALISTAS)
+    ===================================================== */
+
+    .rl-header,
+    .rl-footer {
+      background: #000000;
+      color: #ffffff;
+      font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    }
+
+    .rl-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .rl-header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      max-width: 1280px;
+      height: 64px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .rl-logo {
+      justify-self: start;
+      display: flex;
+      width: 36px;
+      height: 36px;
+    }
+
+    .rl-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .rl-social svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .rl-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .rl-nav a,
+    .rl-footer-nav a {
+      padding: 4px 0;
+      font-size: 15px;
+      line-height: 1.4;
+      color: #ffffff;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s ease, opacity .2s ease;
+    }
+
+    .rl-nav a[aria-current="page"],
+    .rl-footer-nav a[aria-current="page"] {
+      border-bottom-color: #ffffff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .rl-nav a:hover,
+      .rl-footer-nav a:hover {
+        border-bottom-color: #ffffff;
+      }
+    }
+
+    .rl-social {
+      display: flex;
+      width: 28px;
+      height: 28px;
+      color: #ffffff;
+    }
+
+    .rl-header .rl-social {
+      justify-self: end;
+    }
+
+    .rl-footer {
+      margin-top: 96px;
+      padding: 48px 32px calc(28px + env(safe-area-inset-bottom));
+    }
+
+    .rl-footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .rl-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 32px;
+    }
+
+    .rl-footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .16);
+      font-size: 13px;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .rl-footer .rl-social {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (max-width: 640px) {
+
+      .rl-header-inner {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo social"
+          "nav  nav";
+        height: auto;
+        padding: 12px 20px 0;
+        row-gap: 4px;
+      }
+
+      .rl-logo { grid-area: logo; width: 30px; height: 30px; }
+      .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
+
+      .rl-nav {
+        grid-area: nav;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 10px;
+      }
+
+      .rl-nav a { font-size: 13px; }
+
+      .rl-footer { margin-top: 64px; padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
+      .rl-footer-nav { gap: 10px 24px; }
+      .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
+    }
+
+</style>
+</head>
+<body>
+
+  <header class="rl-header">
+    <div class="rl-header-inner">
+
+      <a href="index.html" class="rl-logo" aria-label="Rafael Linhares — Início">
+        <img src="00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="Logo Rafael Linhares">
+      </a>
+
+      <nav class="rl-nav" aria-label="Principal">
+        <a href="index.html">Início</a>
+        <a href="para-empresas.html">Para Empresas</a>
+        <a href="para-voce.html">Para Você</a>
+        <a href="agendamento.html">Agendamento</a>
+      </nav>
+
+      <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+      </a>
+
+    </div>
+  </header>
+
+<main class="page-wrap">
+<div class="container">
+<div class="header">
+  <div class="title">Inflação Pessoal</div>
+  <div class="controls">
+    <div class="field" style="display:flex;align-items:center;gap:4px">
+      <label style="margin:0;white-space:nowrap">Mês ref.:</label>
+      <div>
+        <input id="mesRef" type="month" style="padding:4px 6px;font-size:12px" oninput="mesRefMudou()">
+        <div id="nudge" class="nudge">Informe o mês e o ano para exportar.</div>
+      </div>
+    </div>
+    <button class="btn" onclick="importarPassado()">Importar mês anterior</button>
+    <button class="btn" onclick="exportar()">Exportar mês</button>
+  </div>
+</div>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn active" onclick="aba(event,'tab-comparar')">Comparar</button>
+  <button class="tab-btn" onclick="aba(event,'tab-historico')">Histórico</button>
+</div>
+
+<!-- COMPARAR -->
+<div id="tab-comparar" class="tab-content active">
+  <div class="aviso"><strong>Compare itens com a mesma grandeza e quantidade.</strong> Exemplo: se antes você pagava R$ 6,00 por 1 kg de arroz, informe hoje o preço de 1 kg de arroz, e não de um pacote de 5 kg.</div>
+  <div class="box">
+    <div class="box-title"><span>Itens que você compra</span><span id="infoPassado" class="hint" style="font-weight:400"></span></div>
+    <div class="row head"><span>Item</span><span id="hAntes">Preço antes (R$)</span><span>Preço hoje (R$)</span><span style="text-align:right">Variação</span><span></span></div>
+    <div id="lista"></div>
+    <button class="add-btn" onclick="addLinha()">+ Adicionar item</button>
+  </div>
+
+  <div class="box">
+    <div class="box-title">Resultado</div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-lbl">Sua inflação</div><div class="metric-val" id="rPessoal">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Soma dos preços antes</div><div class="metric-val" id="rAntes">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Soma dos preços hoje</div><div class="metric-val" id="rHoje">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Diferença para o IPCA</div><div class="metric-val" id="rDif">—</div></div>
+    </div>
+    <div class="field" style="max-width:260px;margin-bottom:12px">
+      <label>IPCA do período (%) — opcional</label>
+      <input id="ipca" type="text" inputmode="decimal" placeholder="Ex: 4,5" oninput="calc()">
+    </div>
+    <div id="rBarras"></div>
+  </div>
+</div>
+
+<!-- HISTÓRICO -->
+<div id="tab-historico" class="tab-content">
+  <div class="box">
+    <div class="drop" onclick="document.getElementById('fHist').click()">Escolher arquivos exportados
+      <input type="file" id="fHist" multiple accept=".json" style="display:none" onchange="importarHistorico(event)">
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <span id="contMeses" style="font-weight:600;font-size:12px">Arquivos: 0</span>
+      <button class="btn btn-danger" onclick="limparHist()">Limpar</button>
+    </div>
+    <div class="metrics">
+      <div class="metric-card"><div class="metric-lbl">Período</div><div class="metric-val" id="hPeriodo" style="font-size:14px">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Inflação acumulada</div><div class="metric-val" id="hAcum">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Equivalente em 12 meses</div><div class="metric-val" id="hAnual">—</div></div>
+      <div class="metric-card"><div class="metric-lbl">Diferença para o IPCA</div><div class="metric-val" id="hDif">—</div></div>
+    </div>
+    <div class="field" style="max-width:260px;margin-bottom:12px">
+      <label>IPCA acumulado (%) — opcional</label>
+      <input id="hIpca" type="text" inputmode="decimal" placeholder="Ex: 9,8" oninput="renderHist()">
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Mês</th><th>Soma dos preços</th><th>Variação no mês</th><th>Acumulado</th></tr></thead>
+        <tbody id="hBody"><tr><td colspan="4" style="text-align:center;color:var(--text-muted)">Nenhum arquivo.</td></tr></tbody>
+      </table>
+    </div>
+    <p id="hAviso" class="hint" style="margin-top:8px"></p>
+  </div>
+</div>
+
+<div class="metodo"><strong>Como é calculado:</strong> somamos os preços de antes e os preços de hoje dos itens preenchidos e comparamos: inflação = (soma de hoje ÷ soma de antes) − 1. Só entram itens com os dois preços informados. No Histórico, a variação de cada mês é calculada com os itens em comum com o mês anterior, e o acumulado é o encadeamento dessas variações. <strong>Ferramenta educacional:</strong> não substitui o IPCA oficial nem orientação profissional.</div>
+<p class="foot">Nada é guardado neste navegador.</p>
+</div>
+</main>
+
+  <footer class="rl-footer">
+    <div class="rl-footer-inner">
+
+      <nav class="rl-footer-nav" aria-label="Rodapé">
+        <a href="index.html">Início</a>
+        <a href="para-voce.html">Para Você</a>
+        <a href="para-empresas.html">Para Empresas</a>
+        <a href="agendamento.html">Agendamento</a>
+      </nav>
+
+      <div class="rl-footer-bottom">
+        <span>© 2026 Rafael Linhares · CORECON/SP 38615</span>
+        <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+<script>
+const padrao=['Arroz (1 kg)','Leite (1 litro)','Botijão de gás (13 kg)','Passagem de ônibus (1 viagem)'];
+let linhas=padrao.map(n=>({nome:n,antes:'',hoje:''}));
+let mesPassado='';
+let historico=[];
+
+const $=id=>document.getElementById(id);
+function num(v){if(typeof v==='number')return isNaN(v)?0:v;if(!v)return 0;const p=parseFloat(String(v).replace(/\s/g,'').replace(/R\$/gi,'').replace(/\./g,'').replace(',','.'));return isNaN(p)?0:p}
+function din(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function fnum(v){return v.toLocaleString('pt-BR',{maximumFractionDigits:2})}
+function pc(v){return v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%'}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function chave(s){return String(s||'').trim().toLowerCase()}
+function mesLabel(m){if(!/^\d{4}-\d{2}$/.test(m||''))return m||'—';const[a,b]=m.split('-');return ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][+b-1]+'/'+a}
+function mesesEntre(a,b){const[a1,a2]=a.split('-').map(Number),[b1,b2]=b.split('-').map(Number);return (b1-a1)*12+(b2-a2)}
+function validoMes(m){return /^\d{4}-(0[1-9]|1[0-2])$/.test(m||'')}
+function sinal(v,s){return (v>0?'+':'')+v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+s}
+function badgeDif(d){return `<span class="badge ${d>0.05?'b-red':d<-0.05?'b-green':'b-gray'}">${sinal(d,' p.p.')}</span>`}
+
+function aba(e,id){
+  document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+  $(id).classList.add('active');e.currentTarget.classList.add('active');
+}
+
+/* ---------- COMPARAR ---------- */
+function render(){
+  $('lista').innerHTML=linhas.map((l,i)=>`<div class="row">
+    <input type="text" value="${esc(l.nome)}" aria-label="Item" oninput="linhas[${i}].nome=this.value;calc()">
+    <input type="text" inputmode="decimal" value="${esc(l.antes)}" placeholder="0,00" aria-label="Preço antes" oninput="linhas[${i}].antes=this.value;calc()">
+    <input type="text" inputmode="decimal" value="${esc(l.hoje)}" placeholder="0,00" aria-label="Preço hoje" oninput="linhas[${i}].hoje=this.value;calc()">
+    <span class="dif" id="dif${i}">—</span>
+    <button class="remove-btn" aria-label="Remover item" onclick="linhas.splice(${i},1);render();calc()">×</button></div>`).join('');
+}
+function addLinha(){linhas.push({nome:'',antes:'',hoje:''});render();calc();const ins=$('lista').querySelectorAll('.row');const u=ins[ins.length-1];if(u)u.querySelector('input').focus()}
+
+function calc(){
+  let ca=0,ch=0;const itens=[];
+  linhas.forEach((l,i)=>{
+    const a=num(l.antes),h=num(l.hoje),d=$('dif'+i);
+    if(a>0&&h>0){
+      ca+=a;ch+=h;itens.push({nome:l.nome||'Sem nome',extra:h-a});
+      const v=(h/a-1)*100;d.textContent=sinal(v,'%');d.style.color=v>0?'#991b1b':v<0?'#166534':'';
+    }else{d.textContent='—';d.style.color=''}
+  });
+  const temIpca=$('ipca').value.trim()!=='';
+  if(!itens.length){
+    ['rPessoal','rAntes','rHoje','rDif'].forEach(id=>$(id).textContent='—');
+    $('rBarras').innerHTML='';return;
+  }
+  const p=(ch/ca-1)*100;
+  $('rPessoal').textContent=pc(p);
+  $('rAntes').textContent=din(ca);
+  $('rHoje').textContent=din(ch);
+  $('rDif').innerHTML=temIpca?badgeDif(p-num($('ipca').value)):'—';
+  const ord=itens.filter(i=>Math.abs(i.extra)>0.005).sort((a,b)=>b.extra-a.extra);
+  const max=Math.max(...ord.map(i=>Math.abs(i.extra)),1);
+  $('rBarras').innerHTML=ord.map(i=>`<div class="bar-line"><span>${esc(i.nome)}</span><div class="bar-track"><div class="bar-fill" style="width:${(Math.abs(i.extra)/max*100).toFixed(0)}%;${i.extra<0?'background:#10b981':''}"></div></div><span style="text-align:right">${i.extra>0?'+':'−'}${din(Math.abs(i.extra))}</span></div>`).join('');
+}
+
+function mesRefMudou(){
+  if($('mesRef').value){$('mesRef').classList.remove('erro');$('nudge').classList.remove('show')}
+}
+
+function exportar(){
+  const m=$('mesRef').value;
+  if(!validoMes(m)){
+    $('mesRef').classList.add('erro');$('mesRef').focus();
+    $('nudge').classList.remove('show');void $('nudge').offsetWidth;$('nudge').classList.add('show');return;
+  }
+  const itens=linhas.filter(l=>l.nome.trim()&&num(l.hoje)>0).map(l=>({nome:l.nome.trim(),preco:num(l.hoje)}));
+  if(!itens.length){alert('Preencha ao menos um item com o preço de hoje.');return}
+  const a=document.createElement('a');
+  a.href='data:text/json;charset=utf-8,'+encodeURIComponent(JSON.stringify({versao:'4.0',tipo:'inflacao_pessoal',mesReferencia:m,itens},null,2));
+  a.download='inflacao_pessoal_'+m+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+}
+
+function lerArquivo(texto){
+  const d=JSON.parse(texto);
+  if(!validoMes(d.mesReferencia)||!Array.isArray(d.itens))throw new Error('arquivo não reconhecido.');
+  return{mes:d.mesReferencia,itens:d.itens.map(i=>({nome:String(i.nome||''),preco:num(i.preco)})).filter(i=>i.nome&&i.preco>0)};
+}
+
+function importarPassado(){
+  const i=document.createElement('input');i.type='file';i.accept='.json';
+  i.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+    r.onload=ev=>{try{
+      const d=lerArquivo(ev.target.result);
+      const mapa=new Map(d.itens.map(x=>[chave(x.nome),x]));
+      linhas.forEach(l=>{const x=mapa.get(chave(l.nome));
+        if(x){l.antes=fnum(x.preco);mapa.delete(chave(l.nome))}else l.antes=''});
+      mapa.forEach(x=>linhas.push({nome:x.nome,antes:fnum(x.preco),hoje:''}));
+      linhas=linhas.filter(l=>l.nome.trim()||num(l.antes)||num(l.hoje));
+      mesPassado=d.mes;
+      $('hAntes').textContent='Preço '+mesLabel(d.mes)+' (R$)';
+      $('infoPassado').textContent='Mês anterior: '+mesLabel(d.mes);
+      render();calc();
+    }catch(err){alert('Não foi possível importar: '+err.message)}};
+    r.readAsText(f)};
+  i.click();
+}
+
+/* ---------- HISTÓRICO ---------- */
+function importarHistorico(e){
+  const files=[...e.target.files];if(!files.length)return;
+  let feitos=0,erros=0;
+  files.forEach(f=>{const r=new FileReader();
+    r.onload=ev=>{try{const d=lerArquivo(ev.target.result);
+        historico=historico.filter(h=>h.mes!==d.mes);historico.push(d)}catch(err){erros++}
+      if(++feitos===files.length){
+        historico.sort((a,b)=>a.mes.localeCompare(b.mes));renderHist();
+        if(erros)alert(erros+' arquivo(s) ignorado(s): não reconhecidos.')}};
+    r.readAsText(f)});
+  e.target.value='';
+}
+function limparHist(){if(!historico.length)return;if(confirm('Limpar os arquivos importados?')){historico=[];renderHist()}}
+
+function renderHist(){
+  $('contMeses').textContent='Arquivos: '+historico.length;
+  ['hPeriodo','hAcum','hAnual','hDif'].forEach(id=>$(id).textContent='—');
+  $('hAviso').textContent='';
+  if(!historico.length){$('hBody').innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--text-muted)">Nenhum arquivo.</td></tr>';return}
+  let acum=1,rows='',semComum=false;
+  historico.forEach((h,i)=>{
+    const custo=h.itens.reduce((s,x)=>s+x.preco,0);
+    let v='—',ac='—';
+    if(i>0){
+      const prev=historico[i-1],atual=new Map(h.itens.map(x=>[chave(x.nome),x.preco]));
+      let a=0,b=0;
+      prev.itens.forEach(x=>{const p=atual.get(chave(x.nome));if(p>0){a+=x.preco;b+=p}});
+      if(a>0){const f=b/a;acum*=f;v=sinal((f-1)*100,'%');ac=sinal((acum-1)*100,'%')}
+      else{v='sem itens em comum';semComum=true}
+    }
+    rows+=`<tr><td><strong>${mesLabel(h.mes)}</strong></td><td>${din(custo)}</td><td>${v}</td><td>${ac}</td></tr>`;
+  });
+  $('hBody').innerHTML=rows;
+  if(historico.length<2){$('hAviso').textContent='Importe ao menos 2 arquivos.';return}
+  if(semComum)$('hAviso').textContent='Use os mesmos nomes de item em todos os meses.';
+  const ini=historico[0].mes,fim=historico[historico.length-1].mes,span=mesesEntre(ini,fim),ac=(acum-1)*100;
+  $('hPeriodo').textContent=mesLabel(ini)+' → '+mesLabel(fim);
+  $('hAcum').textContent=pc(ac);
+  if(span>0)$('hAnual').textContent=pc((Math.pow(acum,12/span)-1)*100);
+  if($('hIpca').value.trim()!=='')$('hDif').innerHTML=badgeDif(ac-num($('hIpca').value));
+}
+
+render();calc();renderHist();
+</script>
+</body>
+</html>
