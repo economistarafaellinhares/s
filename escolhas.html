@@ -223,6 +223,34 @@
     text-indent: 0;
   }
 
+  /* REFERÊNCIAS */
+  .ref-grupo {
+    margin: 40px 0 16px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cover-bg);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .ref-grupo:first-of-type {
+    margin-top: 8px;
+  }
+  .refs {
+    list-style: none;
+  }
+  .refs li {
+    margin-bottom: 14px;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: left;
+    color: var(--ink-muted);
+  }
+
   /* =====================================================
      CONTRACAPA (NOTA AO LEITOR & FICHA TÉCNICA)
   ===================================================== */
@@ -300,6 +328,7 @@
     .sumario-box { padding: 24px; }
     .book-backcover { padding: 48px 24px; }
     .backcover-bottom { flex-direction: column; align-items: flex-start; }
+    .refs li { font-size: 15px; }
   }
 </style>
 </head>
@@ -339,6 +368,7 @@
           <li><a href="#cap-5">Limitações</a></li>
           <li><a href="#cap-6">Inevitabilidade</a></li>
           <li><a href="#cap-7">Escolhendo Futuros Diferentes</a></li>
+          <li><a href="#referencias">Referências</a></li>
         </ol>
       </nav>
 
@@ -434,6 +464,48 @@
         <p>Você seria capaz de assumir a responsabilidade por suas escolhas em um mundo que te oferece desculpas probabilísticas para cada falha?</p>
         <p>Em síntese, tudo o que discutimos sobre as escolhas feitas por variação, ‘o quanto de água, o quanto de trabalho, o quanto de patrimônio’, pressupõe que somos capazes de analisar as situações em termos de custos e benefícios, e que de forma estritamente matemática e racional, escolhemos aquilo que for melhor para o nosso bem-estar. Esta não parece uma simplificação irreal? Será que somos tão bons de cálculo assim? Será que temos interesses tão consistentes? Será que temos o julgamento perfeito em nossas decisões? Parece-me abstrato demais, devemos confiar tanto assim na nossa razão?</p>
         <p>Spoiler, não devemos confiar. Sim, eu te apresentei uma lógica notadamente insuficiente, mas espero que tenha cumprido o objetivo inicial em expandir pelo menos um pouquinho sua visão!</p>
+      </section>
+
+      <!-- REFERÊNCIAS -->
+      <section id="referencias" class="capitulo">
+        <h2>Referências</h2>
+
+        <h3 class="ref-grupo">Critérios em decisões</h3>
+        <ul class="refs">
+          <li>JEVONS, William Stanley. The Theory of Political Economy. 5. ed. London: Macmillan and Co., 1911. (1. ed. 1871).</li>
+          <li>MENGER, Carl. Principles of Economics. Auburn: Ludwig von Mises Institute, 2007. (Tradução de Grundsätze der Volkswirtschaftslehre, 1871).</li>
+          <li>WALRAS, Léon. Elements of Pure Economics: Or, The Theory of Social Wealth. London: Routledge, 2014. (Tradução de Éléments d'économie politique pure, 1874–1877).</li>
+        </ul>
+
+        <h3 class="ref-grupo">Incerteza e comportamento</h3>
+        <ul class="refs">
+          <li>KAHNEMAN, Daniel. Thinking, Fast and Slow. New York: Farrar, Straus and Giroux, 2011.</li>
+          <li>TVERSKY, Amos; KAHNEMAN, Daniel. Judgment under Uncertainty: Heuristics and Biases. Science, v. 185, n. 4157, p. 1124–1131, 1974.</li>
+          <li>SIMON, Herbert A. Models of Bounded Rationality. Cambridge, MA: MIT Press, 1982.</li>
+        </ul>
+
+        <h3 class="ref-grupo">Estruturação de escolhas</h3>
+        <ul class="refs">
+          <li>THALER, Richard H.; SUNSTEIN, Cass R. Nudge: Improving Decisions About Health, Wealth, and Happiness. Revised and Expanded Edition. New York: Penguin Books, 2021. (1. ed. 2008).</li>
+          <li>THALER, Richard H. Misbehaving: The Making of Behavioral Economics. New York: W. W. Norton &amp; Company, 2015.</li>
+          <li>SUNSTEIN, Cass R. Sludge: What Stops Us from Getting Things Done and What to Do about It. Cambridge, MA: MIT Press, 2021.</li>
+        </ul>
+
+        <h3 class="ref-grupo">Perspectivas éticas em decisões</h3>
+        <ul class="refs">
+          <li>ARISTÓTELES. Ética a Nicômaco. Tradução de Antônio de Castro Caeiro. São Paulo: Atlas, 2009.</li>
+          <li>MARCO AURÉLIO. Meditações. Tradução de Mário da Gama Kury. Brasília: Editora Universidade de Brasília, 1985.</li>
+          <li>NIETZSCHE, Friedrich. Assim Falou Zaratustra. São Paulo: Companhia das Letras, 2011.</li>
+          <li>MILL, John Stuart. Utilitarianism. London: Parker, Son, and Bourn, 1863.</li>
+          <li>RAWLS, John. A Theory of Justice. Revised Edition. Cambridge, MA: Harvard University Press, 1999.</li>
+        </ul>
+
+        <h3 class="ref-grupo">Pensamento estatístico e melhoria contínua</h3>
+        <ul class="refs">
+          <li>DEMING, W. Edwards. Out of the Crisis. Cambridge, MA: MIT Press, 1986.</li>
+          <li>ISHIKAWA, Kaoru. What Is Total Quality Control? The Japanese Way. Englewood Cliffs: Prentice-Hall, 1985.</li>
+          <li>JURAN, Joseph M.; GODFREY, A. Blanton. Juran’s Quality Handbook. 5. ed. New York: McGraw-Hill, 1999.</li>
+        </ul>
       </section>
 
     </div>
