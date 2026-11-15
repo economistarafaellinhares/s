@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta
+    name="description"
+    content="Rafael Linhares — Economista. Acompanhamento individual, finanças pessoais e conteúdo sobre economia, comportamento, ética e escolhas."
+  >
+
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Rafael Linhares — Economista</title>
+
+  <style>
+
+    /* =====================================================
+        VARIÁVEIS
+    ===================================================== */
+
+    :root {
+      --navy-1: #091B2B;
+      --navy-2: #10283E;
+      --navy-3: #17344D;
+      --green: #19C995;
+      --green-text: #0E9E74;
+      --green-soft: #E6F8F2;
+      --text-light: #D4DEE8;
+      --text-muted: #94A7B8;
+      --text-soft: #526779;
+      --line: rgba(23, 52, 77, .16);
+      --gutter: 64px;
+    }
+
+
+    /* =====================================================
+        RESET E BASE
+    ===================================================== */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: #ffffff;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--navy-1);
+      font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 3px;
+    }
+
+
+    /* =====================================================
+        CONTEÚDO PRINCIPAL
+    ===================================================== */
+
+    .rl-content {
+      width: 100%;
+      max-width: 888px;
+      margin: 0 auto;
+      padding: 72px var(--gutter) 0;
+    }
+
+    .rl-content-section {
+      margin-top: 56px;
+      padding-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+
+
+    /* =====================================================
+        INTRODUÇÃO
+    ===================================================== */
+
+    .rl-nome {
+      font-size: 44px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      color: var(--navy-1);
+    }
+
+    .rl-nome span {
+      display: block;
+      margin-top: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0;
+      color: var(--green-text);
+    }
+
+    .rl-intro-text {
+      max-width: 720px;
+      margin-top: 28px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .rl-intro-text strong {
+      font-weight: 700;
+      color: var(--navy-1);
+    }
+
+
+    /* =====================================================
+        ACESSOS PRINCIPAIS
+    ===================================================== */
+
+    .rl-cta-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .rl-btn {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      min-height: 176px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%);
+      color: #ffffff;
+      transition: transform .2s ease;
+    }
+
+    .rl-btn-number {
+      position: absolute;
+      top: -18px;
+      right: 18px;
+      font-size: 7rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.06em;
+      color: rgba(255, 255, 255, .06);
+      pointer-events: none;
+    }
+
+    .rl-btn-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 28px 72px 28px 28px;
+    }
+
+    .rl-btn-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--green);
+    }
+
+    .rl-btn-title {
+      display: block;
+      max-width: 330px;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .rl-btn-arrow {
+      position: absolute;
+      z-index: 3;
+      right: 24px;
+      bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 50%;
+      font-size: 1rem;
+      color: #ffffff;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .rl-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .rl-btn:hover .rl-btn-arrow {
+        transform: translate(2px, -2px);
+        background: var(--green);
+        border-color: var(--green);
+        color: var(--navy-1);
+      }
+    }
+
+
+    /* =====================================================
+        ECONOMISTA / FORMAÇÃO
+    ===================================================== */
+
+    .rl-economista {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .rl-economista-foto {
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: var(--green-soft);
+      border: 1px solid var(--line);
+    }
+
+    .rl-economista-foto img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .rl-formacao {
+      list-style: none;
+    }
+
+    .rl-formacao li {
+      position: relative;
+      padding: 5px 0 5px 20px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--navy-3);
+    }
+
+    .rl-formacao li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+
+    /* =====================================================
+        FRASE FINAL
+    ===================================================== */
+
+    .rl-aspas {
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+      font-size: 56px;
+      line-height: .8;
+      color: var(--green);
+    }
+
+    .rl-frase h2 {
+      margin-bottom: 20px;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--navy-1);
+    }
+
+    .rl-frase p {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+
+    /* =====================================================
+        RODAPÉ
+    ===================================================== */
+
+    .rl-final {
+      margin-top: 48px;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .rl-final-grid {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .rl-linkedin {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green-text);
+    }
+
+    .rl-linkedin:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+
+    /* =====================================================
+        MOBILE
+    ===================================================== */
+
+    @media (max-width: 640px) {
+
+      :root {
+        --gutter: 32px;
+      }
+
+      .rl-content {
+        padding-top: calc(52px + env(safe-area-inset-top));
+        padding-left: calc(var(--gutter) + env(safe-area-inset-left));
+        padding-right: calc(var(--gutter) + env(safe-area-inset-right));
+      }
+
+      .rl-content-section {
+        margin-top: 44px;
+        padding-top: 44px;
+      }
+
+      .rl-nome {
+        font-size: 30px;
+      }
+
+      .rl-intro-text {
+        margin-top: 24px;
+        font-size: 16px;
+      }
+
+      .rl-cta-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .rl-btn {
+        min-height: 150px;
+      }
+
+      .rl-btn-number {
+        top: -12px;
+        right: 12px;
+        font-size: 5.5rem;
+      }
+
+      .rl-btn-content {
+        padding: 24px 64px 24px 24px;
+      }
+
+      .rl-btn-title {
+        font-size: 22px;
+      }
+
+      .rl-btn-arrow {
+        right: 20px;
+        bottom: 20px;
+      }
+
+      .rl-economista {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .rl-formacao {
+        width: 100%;
+      }
+
+      .rl-formacao li {
+        font-size: 15px;
+      }
+
+      .rl-formacao li::before {
+        top: 14px;
+      }
+
+      .rl-aspas {
+        font-size: 48px;
+      }
+
+      .rl-frase h2 {
+        font-size: 26px;
+      }
+
+      .rl-frase p {
+        font-size: 16px;
+      }
+
+      .rl-final {
+        margin-top: 40px;
+      }
+
+      .rl-final-grid {
+        justify-content: center;
+      }
+    }
+
+
+    /* =====================================================
+        REDUÇÃO DE MOVIMENTO
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .rl-btn:hover,
+      .rl-btn:hover .rl-btn-arrow {
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="rl-content">
+
+
+    <!-- ===================================================
+         INTRO
+    =================================================== -->
+
+    <section class="rl-intro">
+
+      <h1 class="rl-nome">
+
+        RAFAEL LINHARES
+
+        <span>
+          Economista - CORECON/SP 38615
+        </span>
+
+      </h1>
+
+
+      <p class="rl-intro-text">
+
+        Vivemos em um mundo de recursos limitados,
+        informações incompletas e incertezas.
+        Ainda assim, todos os dias escolhemos como
+        utilizar nosso
+
+        <strong>
+          tempo, dinheiro, trabalho e atenção.
+        </strong>
+
+      </p>
+
+
+      <!-- ===============================================
+           ACESSOS
+      ================================================ -->
+
+      <div class="rl-cta-buttons">
+
+
+        <!-- PARA VOCÊ -->
+
+        <a
+          href="https://www.rafaellinhares.com.br/recursos"
+          class="rl-btn"
+          target="_top"
+          rel="noopener noreferrer"
+          aria-label="Acessar recursos para você"
+        >
+
+          <span
+            class="rl-btn-number"
+            aria-hidden="true"
+          >
+            01
+          </span>
+
+
+          <div class="rl-btn-content">
+
+            <span class="rl-btn-label">
+              Para você
+            </span>
+
+            <span class="rl-btn-title">
+              Recursos Gratuitos
+            </span>
+
+          </div>
+
+
+          <span
+            class="rl-btn-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
+
+        <!-- PARA EMPRESAS -->
+
+        <a
+          href="https://www.rafaellinhares.com.br/para-empresas"
+          class="rl-btn"
+          target="_top"
+          rel="noopener noreferrer"
+          aria-label="Acessar desenvolvimento para empresas"
+        >
+
+          <span
+            class="rl-btn-number"
+            aria-hidden="true"
+          >
+            02
+          </span>
+
+
+          <div class="rl-btn-content">
+
+            <span class="rl-btn-label">
+              Para empresas
+            </span>
+
+            <span class="rl-btn-title">
+         Ação Voluntária
+            </span>
+
+          </div>
+
+
+          <span
+            class="rl-btn-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ECONOMISTA / FORMAÇÃO
+    =================================================== -->
+
+    <section class="rl-content-section">
+
+      <div class="rl-economista">
+
+
+        <div class="rl-economista-foto">
+
+          <img
+            src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/44942c4f-471d-4033-9203-405e8b52fe22-3mnupJi8PmW6jzjQ.jpeg"
+            alt="Rafael Linhares de Souza"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="rl-economista-info">
+
+
+          <ul class="rl-formacao">
+
+            <li>
+              Bacharel em Ciências Econômicas – PUC Minas
+            </li>
+
+            <li>
+              Pós-Graduação em Gestão da Qualidade,
+              Controle e Auditoria – PUC Minas
+            </li>
+
+            <li>
+              Programa de Especialização em Economia
+              Gerencial e Análise de Negócios –
+              University of Illinois/Coursera
+            </li>
+
+            <li>
+              Certificação Lean Six Sigma Green Belt – FM2S
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FRASE FINAL
+    =================================================== -->
+
+    <section class="rl-frase rl-content-section">
+
+      <div
+        class="rl-aspas"
+        aria-hidden="true"
+      >
+        “
+      </div>
+
+
+      <h2>
+        Uma boa escolha
+      </h2>
+
+
+      <p>
+
+        pode produzir efeitos que ultrapassam
+        o próprio indivíduo, assim como as ondas
+        de uma pedra lançada na água se espalham
+        para além do ponto onde ela caiu.
+
+        <br><br>
+
+        Nunca saberemos até onde os efeitos de
+        uma escolha poderão reverberar, mas podemos
+        garantir que tenham um bom começo.
+
+      </p>
+
+    </section>
+
+
+    <!-- ===================================================
+         RODAPÉ
+    =================================================== -->
+
+    <footer class="rl-final">
+
+      <div class="rl-final-grid">
+
+        <a
+          href="https://linkedin.com/in/rafael-souza-econ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rl-linkedin"
+          aria-label="Visitar LinkedIn de Rafael Linhares"
+        >
+          LinkedIn ↗
+        </a>
+
+      </div>
+
+    </footer>
+
+
+  </main>
+
+</body>
+
+</html>
