@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Projeto Voluntário nas Empresas</title>
+<title>Ação Gratuita nas Empresas</title>
 <style>
   :root {
     --navy-1: #091B2B; --navy-2: #10283E; --navy-3: #17344D;
@@ -16,7 +16,7 @@
   html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
   .wrap { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 var(--gutter); }
 
-  /* CONVITE PARA A EMPRESA */
+  /* CONVITE PARA A EMPRESA (fora do card) */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 56px 0 40px; }
   .empresa-intro h1.page-title { font-size: 34px; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
   .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); margin-bottom: 32px; }
@@ -35,21 +35,13 @@
   .brand span { font-size: 14px; font-weight: 500; color: var(--text-muted); line-height: 1.35; text-align: right; }
 
   .card h1 { font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 24px; }
-  .verde { color: var(--green); }
   .card .intro { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--text-light); }
 
   .bloco { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--line); }
-  .bloco h2 { font-size: 26px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 8px; }
-  .bloco .meta { font-size: 15px; font-weight: 600; color: var(--green); margin-bottom: 14px; }
-  .bloco .lead { font-size: 16px; line-height: 1.5; color: var(--text-light); margin-bottom: 8px; }
   .checklist { list-style: none; }
   .checklist li { display: flex; align-items: flex-start; gap: 18px; padding: 20px 0; }
   .checklist li:first-child { padding-top: 0; }
   .checklist li:last-child { padding-bottom: 0; }
-  .modulos { list-style: none; margin-top: 6px; }
-  .modulos li { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; font-size: 16px; line-height: 1.5; color: var(--text-light); }
-  .modulos li::before { content: "+"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 20px; line-height: 1; }
-  .modulos strong { color: var(--white); font-weight: 800; }
   .checklist li::before {
     content: "✓"; flex-shrink: 0; width: 28px; height: 28px; margin-top: 1px;
     display: flex; align-items: center; justify-content: center;
@@ -62,15 +54,15 @@
   .box-meta-line .g { white-space: nowrap; }
 
   .como-participar-box { margin-top: 80px; padding: 40px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
-  .como-participar-box h2 { font-size: 26px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+  .como-participar-box h2 { font-size: 20px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
   .como-participar-box p { font-size: 16px; line-height: 1.65; color: var(--text-light); }
   .como-participar-box .box-sub { margin-bottom: 24px; font-size: 17px; line-height: 1.45; font-weight: 700; color: var(--green); }
   .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
   .como-participar-box .box-sessao li { padding: 0; }
   .como-participar-box .box-sessao .item-title { font-size: 18px; }
-  .como-participar-box .box-meta { margin-bottom: 10px; font-size: 15px; font-weight: 700; color: var(--green); }
   .como-participar-box .box-passo { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; color: var(--text-light); }
   .como-participar-box .box-passo strong { display: block; margin-bottom: 10px; color: var(--white); font-weight: 700; }
+  .como-participar-box .box-passo .destaque { display: inline; color: var(--green); font-weight: 700; margin: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
 
   .site { margin-top: 56px; font-size: 22px; font-weight: 800; color: var(--green); }
@@ -108,8 +100,7 @@
     .card h1 { font-size: 28px; margin-bottom: 20px; }
     .card .intro { font-size: 17px; }
     .bloco { margin-top: 36px; padding-top: 36px; }
-    .bloco h2 { font-size: 22px; }
-    .como-participar-box h2 { font-size: 24px; }
+    .como-participar-box h2 { font-size: 18px; }
     .box-meta-line .g { display: block; }
     .box-meta-line .sep { display: none; }
     .item-title { font-size: 18px; }
@@ -122,197 +113,64 @@
     .download-area { padding: 48px 0 60px; }
   }
 
-    /* =====================================================
-        CABEÇALHO E RODAPÉ (MINIMALISTAS)
-    ===================================================== */
-
-    .rl-header a,
-    .rl-footer a { text-decoration: none; }
-
-    .rl-header,
-    .rl-footer {
-      background: #000000;
-      color: #ffffff;
-      font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    }
-
-    .rl-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding-top: env(safe-area-inset-top);
-    }
-
-    .rl-header-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      max-width: 1280px;
-      height: 64px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    .rl-logo {
-      justify-self: start;
-      display: flex;
-      width: 36px;
-      height: 36px;
-    }
-
-    .rl-logo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .rl-social svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-
-    .rl-nav {
-      display: flex;
-      gap: 32px;
-    }
-
-    .rl-nav a,
-    .rl-footer-nav a {
-      padding: 4px 0;
-      font-size: 15px;
-      line-height: 1.4;
-      color: #ffffff;
-      border-bottom: 1px solid transparent;
-      transition: border-color .2s ease, opacity .2s ease;
-    }
-
-    .rl-nav a[aria-current="page"],
-    .rl-footer-nav a[aria-current="page"] {
-      border-bottom-color: #ffffff;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .rl-nav a:hover,
-      .rl-footer-nav a:hover {
-        border-bottom-color: #ffffff;
-      }
-    }
-
-    .rl-social {
-      display: flex;
-      width: 28px;
-      height: 28px;
-      color: #ffffff;
-    }
-
-    .rl-header .rl-social {
-      justify-self: end;
-    }
-
-    .rl-footer {
-      margin-top: 96px;
-      padding: 48px 32px calc(28px + env(safe-area-inset-bottom));
-    }
-
-    .rl-footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .rl-footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 32px;
-    }
-
-    .rl-footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, .16);
-      font-size: 13px;
-      color: rgba(255, 255, 255, .6);
-    }
-
-    .rl-footer .rl-social {
-      width: 22px;
-      height: 22px;
-    }
-
-    @media (max-width: 640px) {
-
-      .rl-header-inner {
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-          "logo social"
-          "nav  nav";
-        height: auto;
-        padding: 12px 20px 0;
-        row-gap: 4px;
-      }
-
-      .rl-logo { grid-area: logo; width: 30px; height: 30px; }
-      .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
-
-      .rl-nav {
-        grid-area: nav;
-        justify-content: space-between;
-        gap: 12px;
-        padding-bottom: 10px;
-      }
-
-      .rl-nav a { font-size: 13px; }
-
-      .rl-footer { margin-top: 64px; padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
-      .rl-footer-nav { gap: 10px 24px; }
-      .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
-    }
-
-
-    .rl-footer { margin-top: 0; }
-    .rl-header { box-shadow: 0 1px 0 rgba(255, 255, 255, .14); }
-    @media (max-width: 640px) { .rl-footer { margin-top: 0; } }
+  /* CABEÇALHO E RODAPÉ */
+  .rl-header a, .rl-footer a { text-decoration: none; }
+  .rl-header, .rl-footer { background: #000000; color: #ffffff; font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; }
+  .rl-header { position: sticky; top: 0; z-index: 50; padding-top: env(safe-area-inset-top); box-shadow: 0 1px 0 rgba(255, 255, 255, .14); }
+  .rl-header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 1280px; height: 64px; margin: 0 auto; padding: 0 32px; }
+  .rl-logo { justify-self: start; display: flex; width: 36px; height: 36px; }
+  .rl-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .rl-social svg { width: 100%; height: 100%; fill: currentColor; }
+  .rl-nav { display: flex; gap: 32px; }
+  .rl-nav a, .rl-footer-nav a { padding: 4px 0; font-size: 15px; line-height: 1.4; color: #ffffff; border-bottom: 1px solid transparent; transition: border-color .2s ease, opacity .2s ease; }
+  .rl-nav a[aria-current="page"], .rl-footer-nav a[aria-current="page"] { border-bottom-color: #ffffff; }
+  @media (hover: hover) and (pointer: fine) { .rl-nav a:hover, .rl-footer-nav a:hover { border-bottom-color: #ffffff; } }
+  .rl-social { display: flex; width: 28px; height: 28px; color: #ffffff; }
+  .rl-header .rl-social { justify-self: end; }
+  .rl-footer { margin-top: 0; padding: 48px 32px calc(28px + env(safe-area-inset-bottom)); }
+  .rl-footer-inner { max-width: 1280px; margin: 0 auto; }
+  .rl-footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; }
+  .rl-footer-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .16); font-size: 13px; color: rgba(255, 255, 255, .6); }
+  .rl-footer .rl-social { width: 22px; height: 22px; }
+  @media (max-width: 640px) {
+    .rl-header-inner { grid-template-columns: 1fr auto; grid-template-areas: "logo social" "nav nav"; height: auto; padding: 12px 20px 0; row-gap: 4px; }
+    .rl-logo { grid-area: logo; width: 30px; height: 30px; }
+    .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
+    .rl-nav { grid-area: nav; justify-content: space-between; gap: 12px; padding-bottom: 10px; }
+    .rl-nav a { font-size: 13px; }
+    .rl-footer { padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
+    .rl-footer-nav { gap: 10px 24px; }
+    .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
+  }
 </style>
 </head>
 <body>
 
   <header class="rl-header">
     <div class="rl-header-inner">
-
       <a href="index.html" class="rl-logo" aria-label="Rafael Linhares — Início">
         <img src="00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="Logo Rafael Linhares">
       </a>
-
       <nav class="rl-nav" aria-label="Principal">
         <a href="index.html">Início</a>
         <a href="para-empresas.html" aria-current="page">Para Empresas</a>
         <a href="para-voce.html">Para Você</a>
         <a href="agendamento.html">Agendamento</a>
       </nav>
-
       <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
       </a>
-
     </div>
   </header>
 
-
-<!-- APRESENTAÇÃO E COMO PARTICIPAR (PARA A EMPRESA) -->
+<!-- CONVITE À EMPRESA (fora do card) -->
 <section class="empresa-intro">
   <div class="wrap">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
-    <p class="convite">Participe do <strong>Mês do Bem-Estar Financeiro</strong>!</p>
+    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro.</p>
     <nav class="passos-empresa">
       <ul>
-        <li>No <a href="https://www.linkedin.com/in/rafael-souza-econ" target="_blank" rel="noopener">LinkedIn</a>, solicite a participação e indique o mês escolhido</li>
-        <li>Baixe o card de divulgação sugerido abaixo e compartilhe com a equipe</li>
-        <li>Os colaboradores interessados podem agendar livremente no mês indicado</li>
+        <li>Para participar, basta baixar o card abaixo e compartilhar com a equipe.</li>
       </ul>
     </nav>
   </div>
@@ -320,7 +178,7 @@
 
 <div class="card-label">Card de Divulgação</div>
 
-<!-- CARD (Área exportável em JPEG) -->
+<!-- CARD (Área exportável em JPEG) — serve para empresa e para quem o recebe -->
 <main class="card" id="card">
 
   <div class="brand-bar">
@@ -333,7 +191,7 @@
   <div class="wrap">
 
     <section>
-      <h1>Portal com Recursos Gratuitos</h1>
+      <h1>Portal com recursos gratuitos</h1>
       <p class="intro">O economista Rafael Linhares disponibiliza:</p>
     </section>
 
@@ -361,21 +219,20 @@
     </section>
 
     <section class="como-participar-box">
-      <h2>Mês do Bem-estar Financeiro</h2>
-      <p class="box-sub">Neste mês, nossa equipe conta com um apoio extra.</p>
+      <h2>Para apoiar na utilização dos recursos disponibiliza adicionalmente:</h2>
       <ul class="checklist box-sessao">
         <li>
           <div>
-            <span class="item-title">1 sessão gratuita por colaborador</span>
+            <span class="item-title">1 sessão gratuita por pessoa</span>
             <span class="item-desc box-meta-line"><span class="meta-item g">50 min · Online</span><span class="meta-item sep"> · </span><span class="meta-item g">Individual · Confidencial</span></span>
           </div>
         </li>
       </ul>
-      <p>Utilize o encontro para aprender sobre os módulos financeiros, a metodologia de melhoria, decisões e estratégias de comportamento.</p>
-      <p class="box-passo"><strong>Como participar?</strong> Agende pelo site abaixo e informe o nome da nossa empresa no cadastro.</p>
+      <p>Aprenda a utilizar os módulos financeiros e a metodologia de melhoria, e converse sobre decisões e estratégias de comportamento.</p>
+      <p class="box-passo"><strong>Como participar?</strong> Encaminhe uma mensagem no LinkedIn no link abaixo, solicitando a participação e receba o acesso aos recursos e ao agendamento.</p>
     </section>
 
-    <p class="site">rafaellinhares.com.br</p>
+    <p class="site">linkedin.com/in/rafael-souza-econ</p>
     <p class="disclaimer">Atendimento de caráter educacional e consultivo.</p>
 
   </div>
@@ -389,31 +246,39 @@
       <div class="extra-content">
         <details class="faq-item">
           <summary class="faq-question">Quem pode participar?</summary>
-          <div class="faq-answer">Todos os colaboradores das empresas participantes do Mês do Bem-Estar Financeiro.</div>
+          <div class="faq-answer">Qualquer pessoa que receba o card de divulgação, em geral por meio da empresa onde trabalha.</div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Quantas sessões cada colaborador pode fazer?</summary>
-          <div class="faq-answer">1 atendimento individual gratuito durante o mês da iniciativa.</div>
+          <summary class="faq-question">O que é o portal com recursos gratuitos?</summary>
+          <div class="faq-answer">Um conjunto de materiais para uso livre: módulos de finanças pessoais, módulos de melhoria contínua e conteúdos complementares, como jogo interativo e livro sobre decisões.</div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Como são realizados os atendimentos?</summary>
-          <div class="faq-answer">Online, individualmente e com total sigilo e confidencialidade.</div>
+          <summary class="faq-question">Como participar?</summary>
+          <div class="faq-answer">Basta encaminhar uma mensagem no LinkedIn (linkedin.com/in/rafael-souza-econ) solicitando a participação. Em seguida, você recebe o acesso aos recursos e ao agendamento.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Quantas sessões cada pessoa pode fazer?</summary>
+          <div class="faq-answer">1 sessão gratuita por pessoa, com duração de 50 minutos.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Como são realizadas as sessões?</summary>
+          <div class="faq-answer">Online, de forma individual e com total sigilo e confidencialidade.</div>
         </details>
         <details class="faq-item">
           <summary class="faq-question">O que pode ser tratado nas sessões?</summary>
-          <div class="faq-answer">Organização financeira, planejamento pessoal, comportamento de consumo e apoio no processo de tomada de decisões financeiras.</div>
+          <div class="faq-answer">Aprender a utilizar os módulos financeiros e a metodologia de melhoria, e conversar sobre decisões e estratégias de comportamento.</div>
         </details>
         <details class="faq-item">
           <summary class="faq-question">A empresa tem acesso ao conteúdo das conversas?</summary>
-          <div class="faq-answer">Não. O atendimento é estritamente confidencial entre o colaborador e o economista.</div>
+          <div class="faq-answer">Não. O atendimento é estritamente confidencial entre a pessoa e o economista.</div>
         </details>
         <details class="faq-item">
-          <summary class="faq-question">Existe algum custo para a empresa ou para o colaborador?</summary>
-          <div class="faq-answer">Não. Trata-se de uma iniciativa 100% gratuita, sem taxa de contratação, mensalidade ou qualquer vínculo financeiro.</div>
+          <summary class="faq-question">Existe algum custo?</summary>
+          <div class="faq-answer">Não. Os recursos e a sessão são gratuitos, sem taxa de contratação, mensalidade ou qualquer vínculo financeiro, tanto para a pessoa quanto para a empresa.</div>
         </details>
         <details class="faq-item">
           <summary class="faq-question">O serviço inclui recomendação de investimentos?</summary>
-          <div class="faq-answer">Não. O atendimento possui caráter exclusivamente educacional e orientativo, não constituindo recomendação de investimentos ou análise de carteiras.</div>
+          <div class="faq-answer">Não. O atendimento tem caráter educacional e consultivo, e não constitui recomendação de investimentos ou análise de carteiras.</div>
         </details>
       </div>
     </details>
@@ -468,21 +333,18 @@
 
   <footer class="rl-footer">
     <div class="rl-footer-inner">
-
       <nav class="rl-footer-nav" aria-label="Rodapé">
         <a href="index.html">Início</a>
         <a href="para-voce.html">Para Você</a>
         <a href="para-empresas.html" aria-current="page">Para Empresas</a>
         <a href="agendamento.html">Agendamento</a>
       </nav>
-
       <div class="rl-footer-bottom">
         <span>© 2026 Rafael Linhares · CORECON/SP 38615</span>
         <a href="https://linkedin.com/in/rafael-souza-econ" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
         </a>
       </div>
-
     </div>
   </footer>
 
