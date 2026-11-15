@@ -6,50 +6,54 @@
 <title>Título da página — Rafael Linhares</title>
 
 <style>
-  /* ===== BASE ===== */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ===== VARIÁVEIS E BASE ===== */
+  :root {
+    --navy-1: #091B2B;
+    --navy-2: #10283E;
+    --navy-3: #17344D;
+    --green: #19C995;
+    --green-text: #0E9E74;
+    --green-soft: #E6F8F2;
+    --text-light: #D4DEE8;
+    --text-muted: #94A7B8;
+    --text-soft: #526779;
+    --line: rgba(23, 52, 77, .16);
+    --gutter: 64px;
+  }
 
-  html { background: #ffffff; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #ffffff; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
   body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: #ffffff;
-    color: #091B2B;
+    color: var(--navy-1);
     font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
   }
 
   a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
 
-  main { flex: 1; }
-
-  .rl-footer { margin-top: 48px; }
-
-  /* ===== ÁREA DO CONTEÚDO (apague este bloco quando colar o seu código) ===== */
-  .rl-colar {
+  /* ===== CONTAINER PRINCIPAL DA PÁGINA ===== */
+  .rl-content {
+    flex: 1;
+    width: 100%;
     max-width: 888px;
-    margin: 72px auto 0;
-    padding: 72px 32px;
-    border: 2px dashed rgba(23, 52, 77, .3);
-    border-radius: 16px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: .04em;
-    color: #526779;
+    margin: 0 auto;
+    padding: 72px var(--gutter) 0;
   }
 
-  /* ===== COLE AQUI O CSS DA SUA PÁGINA (se tiver) ===== */
+  /* ===== CSS ESPECÍFICO DESTA PÁGINA ===== */
+
+
 
 
   /* ===== CABEÇALHO E RODAPÉ ===== */
-  /* =====================================================
-      CABEÇALHO E RODAPÉ (MINIMALISTAS)
-  ===================================================== */
-
   .rl-header,
   .rl-footer {
     background: #000000;
@@ -166,6 +170,13 @@
   }
 
   @media (max-width: 640px) {
+    :root { --gutter: 32px; }
+
+    .rl-content {
+      padding-top: calc(52px + env(safe-area-inset-top));
+      padding-left: calc(var(--gutter) + env(safe-area-inset-left));
+      padding-right: calc(var(--gutter) + env(safe-area-inset-right));
+    }
 
     .rl-header-inner {
       grid-template-columns: 1fr auto;
@@ -200,7 +211,6 @@
 
 <body>
 
-  <!-- ===================== CABEÇALHO ===================== -->
   <header class="rl-header">
     <div class="rl-header-inner">
 
@@ -223,21 +233,2508 @@
   </header>
 
 
-  <!-- ===================== CONTEÚDO ===================== -->
-  <main>
+  <main class="rl-content">
 
-    <!-- ↓↓↓ COLAR O CÓDIGO AQUI ↓↓↓ -->
 
-    <section class="rl-colar">
-      COLAR O CÓDIGO AQUI
+     </section>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: transparent;
+  font-size: 115%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #111111;
+}
+
+
+/* =========================================================
+   PALETA
+========================================================= */
+
+:root {
+  --preto: #0b0b0b;
+  --preto-suave: #25282a;
+
+  --cinza: #c8d2d8;
+  --cinza-claro: #e8edf1;
+  --cinza-fundo: #f4f6f7;
+
+  --azul-metal: #2f5d7c;
+  --azul-escuro: #17324d;
+  --azul-claro: #4b7591;
+
+  --texto: #353637;
+  --texto-suave: #626d72;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.rl-guide {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px 40px;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.rl-guide-header {
+  margin-bottom: 28px;
+}
+
+.rl-guide-label {
+  margin-bottom: 9px;
+
+  color: var(--azul-metal);
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.rl-guide-header h2 {
+  position: relative;
+
+  margin: 0;
+  padding-bottom: 17px;
+
+  color: var(--preto);
+
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  line-height: 1.03;
+  font-weight: 700;
+
+  letter-spacing: -.045em;
+}
+
+.rl-guide-header h2::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 48px;
+  height: 2px;
+
+  background: var(--azul-metal);
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   BLOCOS EXPANSÍVEIS (DISCRETOS E MENORES)
+========================================================= */
+
+.rl-detail {
+  border-top: 1px solid var(--cinza);
+  margin-bottom: 0;
+}
+
+.rl-detail:last-of-type {
+  border-bottom: 1px solid var(--cinza);
+}
+
+.rl-detail summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px; /* Mais compacto */
+  padding: 10px 32px 10px 0;
+  color: var(--texto-suave); /* Mais discreto */
+  font-size: 0.8rem; /* Menor */
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.rl-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.rl-detail summary::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-right: 1.2px solid #88959c;
+  border-bottom: 1.2px solid #88959c;
+  transform: translateY(-65%) rotate(45deg);
+  transition: .2s ease;
+}
+
+.rl-detail[open] summary {
+  color: var(--azul-metal);
+}
+
+.rl-detail[open] summary::after {
+  transform: translateY(-20%) rotate(225deg);
+}
+
+.rl-detail-content {
+  padding: 0 35px 16px 0;
+}
+
+.rl-detail-content p {
+  max-width: 900px;
+  margin: 0 0 10px;
+  color: var(--texto-suave);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.rl-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+.rl-detail-content strong {
+  color: var(--preto);
+}
+
+/* Estilo para caixas internas de destaque unificadas */
+.rl-privacy,
+.rl-json {
+  margin: 0 0 12px;
+  padding: 16px 18px;
+  background: var(--cinza-fundo);
+  border-left: 2px solid var(--azul-metal);
+}
+
+.rl-privacy:last-child,
+.rl-json:last-child {
+  margin-bottom: 0;
+}
+
+.rl-privacy p,
+.rl-json p {
+  color: var(--texto-suave);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.rl-privacy p:last-child,
+.rl-json p:last-child {
+  margin-bottom: 0;
+}
+
+.rl-privacy strong,
+.rl-json strong {
+  color: var(--preto);
+}
+
+/* =========================================================
+   VÍDEO EXPLICATIVO
+========================================================= */
+
+.rl-video-container {
+  margin-top: 8px;
+  padding: 16px 18px;
+  background: var(--cinza-fundo);
+  border-left: 2px solid var(--azul-metal);
+}
+
+.rl-video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .rl-guide {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  html,
+  body {
+    font-size: 110%;
+  }
+
+  .rl-guide {
+    padding: 0 17px 30px;
+  }
+
+  .rl-guide-header {
+    margin-bottom: 23px;
+  }
+
+  .rl-guide-label {
+    font-size: .62rem;
+  }
+
+  .rl-guide-header h2 {
+    padding-bottom: 13px;
+    font-size: 2.1rem;
+  }
+
+  .rl-detail summary {
+    min-height: 40px;
+    padding-right: 28px;
+    font-size: 0.75rem;
+  }
+
+  .rl-detail-content {
+    padding-right: 15px;
+    padding-bottom: 16px;
+  }
+
+  .rl-detail-content p {
+    font-size: 0.7rem;
+    line-height: 1.55;
+  }
+
+}
+
+
+@media (max-width: 380px) {
+
+  .rl-guide {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .rl-guide-header h2 {
+    font-size: 1.9rem;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="rl-guide">
+
+
+<!-- =====================================================
+     CABEÇALHO
+====================================================== -->
+
+<div class="rl-guide-header">
+
+  <h2>
+  Finanças Pessoais
+  </h2>
+
+</div>
+
+
+<!-- =====================================================
+     ORIENTAÇÕES INICIAIS E PRIVACIDADE (UNIFICADAS)
+====================================================== -->
+
+<details class="rl-detail">
+  <summary>Orientações Iniciais & Privacidade</summary>
+  <div class="rl-detail-content">
+    <p>
+      Antes de começar, tenha em mãos os extratos bancários
+      e as faturas dos cartões dos últimos três meses.
+      Eles serão sua principal fonte de informação para
+      preencher a ferramenta com precisão. A ideia não é
+      trabalhar com memória ou estimativas quando os dados
+      reais estiverem disponíveis. Quanto mais fiel for o
+      preenchimento, mais confiável será o diagnóstico financeiro.
+    </p>
+    
+    <div class="rl-privacy">
+      <p>
+        <strong>Seus dados não são armazenados automaticamente.</strong>
+      </p>
+      <p>
+        Para guardar seu planejamento, utilize a opção <strong>Salvar</strong>. Será gerado um arquivo <strong>JSON</strong> sob seu controle, que poderá ser importado posteriormente para recuperar suas informações. Se fechar ou atualizar a página sem salvar, os dados preenchidos serão perdidos.
+      </p>
+    </div>
+
+    <div class="rl-json">
+      <p>
+        <strong>Arquivo de Referência (JSON):</strong> Pense nele como uma fotografia da sua vida financeira. É recomendável manter versões periódicas para acompanhar sua evolução e preservar um histórico seguro dos dados previstos e realizados.
+      </p>
+    </div>
+
+  </div>
+</details>
+
+
+<!-- =====================================================
+     VÍDEO EXPLICATIVO (MINIMIZADO)
+====================================================== -->
+
+<details class="rl-detail">
+  <summary>Vídeo Explicativo: Como Usar a Ferramenta</summary>
+  <div class="rl-detail-content">
+    <div class="rl-video-container">
+      <iframe 
+        src="https://drive.google.com/file/d/1JHoErAxj8xbqnBLMKgoGkAvBo47B1ly7/preview" 
+        allow="autoplay" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</details>
+
+
+</div>
+
+</body>
+
+</html>
+
+    
+ </section>
+
+
+    
+    <section>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Financeiro V3.3</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+:root {
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --brand-blue: #2563eb;
+    --border-color: #e2e8f0;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+    --orange: #f97316;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background-color:var(--bg-main);color:var(--text-primary);padding:16px;font-size:13px;line-height:1.4;}
+.container{max-width:1200px;margin:auto;background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid var(--border-color);box-shadow:0 4px 12px rgba(0,0,0,0.03);}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;border-bottom:1px solid var(--border-color);padding-bottom:12px;}
+.title{font-size:20px;font-weight:700;color:var(--brand-blue);}
+.controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.btn{border:1px solid var(--border-color);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text-primary);transition:0.1s;}
+.btn:hover{background:#f1f5f9;}
+.btn-blue{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue);}
+.btn-blue:hover{background:#1d4ed8;}
+.btn-danger{background:#fef2f2;color:var(--danger);border-color:#fecaca;}
+.btn-danger:hover{background:#fee2e2;}
+
+#toastSalvo {
+    position: fixed; bottom: 20px; right: 20px; background: #10b981; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; opacity: 0; transition: opacity 0.3s ease; z-index: 1000; pointer-events: none;
+}
+#toastSalvo.show { opacity: 1; }
+
+.nudge-referencia{
+    display:none;
+    font-size:10px;
+    color:var(--danger);
+    font-weight:600;
+    margin-top:3px;
+    white-space:nowrap;
+}
+
+.nudge-referencia.show{
+    display:block;
+    animation:nudgeReferencia 0.35s ease;
+}
+
+#mesReferencia.nudge-input{
+    border-color:var(--danger)!important;
+    box-shadow:0 0 0 2px rgba(239,68,68,0.12);
+}
+
+@keyframes nudgeReferencia{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-3px);}
+    75%{transform:translateX(3px);}
+}
+
+.tabs{display:flex;gap:4px;margin-bottom:16px;overflow-x:auto;border-bottom:1px solid var(--border-color);padding-bottom:4px;}
+.tab-btn{padding:6px 12px;border-radius:6px 6px 0 0;border:1px solid transparent;background:transparent;font-weight:600;font-size:12px;cursor:pointer;color:var(--text-muted);white-space:nowrap;}
+.tab-btn.active{background:#fff;border-color:var(--border-color);border-bottom-color:#fff;color:var(--brand-blue);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+.mini-diag{display:none;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;padding:10px 14px;border-radius:8px;margin-bottom:16px;font-size:12px;font-weight:500;align-items:center;gap:8px;}
+.mini-diag.active{display:flex;}
+.mini-diag.warning{background:#fffbeb;border-color:#fde68a;color:#92400e;}
+.mini-diag.success{background:#f0fdf4;border-color:#bbf7d0;color:#166534;}
+.mini-diag.info{background:#eff6ff;border-color:#bfdbfe;color:#1e40af;}
+
+.grid-2{display:grid;grid-template-columns:1fr;gap:12px;}
+.grid-3{display:grid;grid-template-columns:1fr;gap:12px;}
+.grid-4{display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:768px){
+    .grid-2{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:repeat(3,1fr);}
+    .grid-4{grid-template-columns:repeat(4,1fr);}
+}
+.box{background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:14px;margin-bottom:12px;}
+.box-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;color:var(--text-primary);}
+.field{margin-bottom:10px;}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:3px;text-transform:uppercase;}
+.field input,.field select{width:100%;border:1px solid var(--border-color);border-radius:6px;padding:7px 10px;font-size:13px;outline:none;background:#fff;}
+.field input:focus,.field select:focus{border-color:var(--brand-blue);}
+
+.row-item{display:grid;grid-template-columns:2fr 1fr auto;gap:8px;align-items:center;margin-bottom:6px;background:#f8fafc;padding:8px;border-radius:6px;border:1px solid var(--border-color);}
+.row-item input,.row-item select{width:100%;padding:5px 8px;border:1px solid var(--border-color);border-radius:4px;font-size:12px;background:#fff;}
+.remove-btn{background:none;border:0;color:var(--text-muted);font-size:16px;cursor:pointer;padding:0 4px;}
+.remove-btn:hover{color:var(--danger);}
+.add-btn{width:100%;padding:8px;border-radius:6px;border:1px dashed var(--border-color);background:#fff;color:var(--brand-blue);font-weight:600;cursor:pointer;font-size:12px;margin-top:8px;}
+.add-btn:hover{background:#f8fafc;}
+
+.metrics-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
+@media(min-width:768px){.metrics-bar{grid-template-columns:repeat(5,1fr);}}
+.metric-card{background:#f8fafc;border:1px solid var(--border-color);border-radius:8px;padding:10px;text-align:center;}
+.metric-lbl{font-size:10px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+.metric-val{font-size:14px;font-weight:700;margin-top:4px;}
+
+.indicator-table,.exec-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px;}
+.indicator-table th,.indicator-table td,.exec-table th,.exec-table td{padding:8px 10px;border:1px solid var(--border-color);text-align:left;}
+.indicator-table th,.exec-table th{background:#f8fafc;font-weight:600;color:var(--text-muted);text-transform:uppercase;font-size:10px;}
+.status-badge{display:inline-flex;align-items:center;gap:4px;font-weight:600;padding:2px 8px;border-radius:12px;font-size:11px;}
+.status-green{background:#f0fdf4;color:#166534;}
+.status-yellow{background:#fffbeb;color:#92400e;}
+.status-red{background:#fef2f2;color:#991b1b;}
+.status-orange{background:#fff7ed;color:#c2410c;}
+.status-gray{background:#f1f5f9;color:#475569;}
+.status-blue{background:#eff6ff;color:#1e40af;}
+
+.input-green { background-color: #f0fdf4 !important; border-color: #10b981 !important; color: #166534 !important; }
+.input-yellow { background-color: #fffbeb !important; border-color: #f59e0b !important; color: #92400e !important; }
+.input-red { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+.meta-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.01); }
+.disclaimer-box { background: #f8fafc; border-left: 3px solid var(--brand-blue); padding: 10px; font-size: 11px; color: var(--text-muted); margin-top: 14px; border-radius: 0 6px 6px 0; }
+.suggestion-chip { display: inline-block; background: #f1f5f9; border: 1px solid var(--border-color); border-radius: 14px; padding: 4px 10px; font-size: 11px; font-weight: 500; cursor: pointer; margin-right: 4px; margin-bottom: 4px; transition: 0.1s; }
+.suggestion-chip:hover { background: #e2e8f0; color: var(--brand-blue); border-color: var(--brand-blue); }
+
+@media(max-width:600px) {
+    .row-item { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+<div id="toastSalvo">Ações processadas localmente</div>
+<div class="container" id="pdfContent">
+<div class="header">
+    <div class="title">Diagnóstico Financeiro <span style="font-size:12px;color:var(--text-muted);">V3.3</span></div>
+    <div class="controls">
+        <div class="field" style="margin-bottom:0; display:flex; align-items:center; gap:4px;">
+            <label style="margin-bottom:0; font-size:10px; white-space:nowrap;">Mês Ref:</label>
+            <input id="mesReferencia" type="month" style="padding:4px 6px; font-size:12px; width:auto;" onchange="estado.mesReferencia=this.value; persistirEstado()">
+
+<div id="nudgeReferencia" class="nudge-referencia">
+    Preencha o mês e ano de referência para salvar.
+</div>
+
+        </div>
+        <button class="btn" onclick="salvarJSON()">Salvar</button>
+        <button class="btn" onclick="importarJSON()">Importar</button>
+        <button class="btn btn-blue" onclick="exportarPDF()">PDF</button>
+    </div>
+</div>
+
+<!-- ABAS -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="trocarAba(event, 'tab-fluxo')">Fluxo</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-perfil')">Perfil</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-dividas')">Dívidas</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-patrimonio')">Ativos</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-metas')">Metas</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-diagnostico')">Score</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-projecao')">Gráficos</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-config')">Ajustes</button>
+    <button class="tab-btn" onclick="abrirHistoricoIntegrado(event)">Histórico</button>
+</div>
+
+<!-- ABA ADICIONADA: HISTÓRICO (APLICAÇÃO ORIGINAL INCORPORADA SEM ALTERAÇÕES) -->
+<script>
+function abrirHistoricoIntegrado(evt) {
+    trocarAba(evt, 'tab-historico-integrado');
+    const frame = document.getElementById('historicoIntegradoFrame');
+    if (frame && !frame.srcdoc) {
+        const template = document.getElementById('historicoIntegradoTemplate');
+        if (template) frame.srcdoc = template.innerHTML;
+    }
+}
+</script>
+
+<div id="tab-historico-integrado" class="tab-content" style="height:900px;max-height:900px;overflow:hidden;">
+    <template id="historicoIntegradoTemplate">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histórico e Diagnóstico Financeiro Avançado - V3.3</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --brand-blue: #2563eb;
+    --border-color: #e2e8f0;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+    --orange: #f97316;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background-color:var(--bg-main);color:var(--text-primary);padding:16px;font-size:13px;line-height:1.4;}
+.container{max-width:1200px;margin:auto;background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid var(--border-color);box-shadow:0 4px 12px rgba(0,0,0,0.03);}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;border-bottom:1px solid var(--border-color);padding-bottom:12px;}
+.title{font-size:20px;font-weight:700;color:var(--brand-blue);}
+.controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.btn{border:1px solid var(--border-color);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text-primary);transition:0.1s;}
+.btn:hover{background:#f1f5f9;}
+.btn-danger{background:#fef2f2;color:var(--danger);border-color:#fecaca;}
+.btn-danger:hover{background:#fee2e2;}
+.tabs{display:flex;gap:4px;margin-bottom:16px;overflow-x:auto;border-bottom:1px solid var(--border-color);padding-bottom:4px;}
+.tab-btn{padding:6px 12px;border-radius:6px 6px 0 0;border:1px solid transparent;background:transparent;font-weight:600;font-size:12px;cursor:pointer;color:var(--text-muted);white-space:nowrap;}
+.tab-btn.active{background:#fff;border-color:var(--border-color);border-bottom-color:#fff;color:var(--brand-blue);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.grid-2{display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr);}}
+.box{background:#fff;border:1px solid var(--border-color);border-radius:8px;padding:14px;margin-bottom:12px;}
+.box-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;color:var(--text-primary);}
+.metrics-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
+@media(min-width:768px){.metrics-bar{grid-template-columns:repeat(4,1fr);}}
+.metric-card{background:#f8fafc;border:1px solid var(--border-color);border-radius:8px;padding:10px;text-align:center;}
+.metric-lbl{font-size:10px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+.metric-val{font-size:14px;font-weight:700;margin-top:4px;}
+.indicator-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px;}
+.indicator-table th,.indicator-table td{padding:8px 10px;border:1px solid var(--border-color);text-align:left;}
+.indicator-table th{background:#f8fafc;font-weight:600;color:var(--text-muted);text-transform:uppercase;font-size:10px;}
+.status-badge{display:inline-flex;align-items:center;gap:4px;font-weight:600;padding:2px 8px;border-radius:12px;font-size:11px;}
+.status-green{background:#f0fdf4;color:#166534;}
+.status-yellow{background:#fffbeb;color:#92400e;}
+.status-red{background:#fef2f2;color:#991b1b;}
+.status-gray{background:#f1f5f9;color:#475569;}
+.upload-dropzone { border: 2px dashed var(--border-color); padding: 24px; text-align: center; border-radius: 8px; background: #f8fafc; cursor: pointer; margin-bottom: 14px; }
+.upload-dropzone:hover { border-color: var(--brand-blue); background: #eff6ff; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+    <div class="title">Análise Histórica <span style="font-size:12px;color:var(--text-muted);"></span></div>
+    <div class="controls"></div>
+</div>
+
+<!-- ABAS -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="trocarAba(event, 'tab-historico')">1. Importação</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-analises')">2. Análises Comportamentais</button>
+    <button class="tab-btn" onclick="trocarAba(event, 'tab-diagnostico')">3. Diagnóstico de Tendências</button>
+</div>
+
+<!-- ABA 1: IMPORTAÇÃO E HISTÓRICO -->
+<div id="tab-historico" class="tab-content active">
+    <div class="box">
+        <div class="box-title">Histórico Mensal</div>
+        <div class="upload-dropzone" onclick="document.getElementById('fileInput').click()">
+            <p style="font-weight:600;color:var(--brand-blue);margin-bottom:4px;">Clique aqui ou arraste múltiplos arquivos .json</p>
+            <p style="font-size:11px;color:var(--text-muted);">Os arquivos serão normalizados e ordenados cronologicamente pelo campo <code>mesReferencia</code>.</p>
+            <input type="file" id="fileInput" multiple accept=".json" style="display:none" onchange="importarArquivosJSON(event)">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="font-weight:600;font-size:12px;" id="contadorMeses">Meses importados: 0</span>
+            <div>
+                <button class="btn btn-danger" onclick="limparHistorico()">Limpar Tudo</button>
+            </div>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="indicator-table">
+                <thead>
+                    <tr>
+                        <th>Mês Referência</th>
+                        <th>Renda Total</th>
+                        <th>Despesas Totais</th>
+                        <th>Taxa Poupança</th>
+                        <th>Patrimônio Líquido</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaHistoricoBody">
+                    <tr><td colspan="6" style="text-align:center;color:var(--text-muted);">Nenhum histórico importado.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ABA 2: ANÁLISES COMPORTAMENTAIS (GRÁFICOS) -->
+<div id="tab-analises" class="tab-content">
+    <div class="metrics-bar">
+        <div class="metric-card"><div class="metric-lbl">Média Renda Mensal</div><div class="metric-val" id="StatMediaRenda">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Média Poupança</div><div class="metric-val" id="StatMediaPoupanca">0,0%</div></div>
+        <div class="metric-card"><div class="metric-lbl">Evolução Patrimonial</div><div class="metric-val" id="StatEvolucaoPatrimonio">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Comprometimento Médio</div><div class="metric-val" id="StatMediaCompromisso">0,0%</div></div>
+    </div>
+    <div class="grid-2">
+        <div class="box">
+            <div class="box-title">Evolução da Renda vs. Despesas Totais</div>
+            <div style="height:240px;position:relative;"><canvas id="chartRendaDespesas"></canvas></div>
+        </div>
+        <div class="box">
+            <div class="box-title">Taxa de Poupança Mensal (%)</div>
+            <div style="height:240px;position:relative;"><canvas id="chartTaxaPoupanca"></canvas></div>
+        </div>
+    </div>
+    <div class="grid-2">
+        <div class="box">
+            <div class="box-title">Evolução do Patrimônio Líquido</div>
+            <div style="height:240px;position:relative;"><canvas id="chartPatrimonioLiq"></canvas></div>
+        </div>
+        <div class="box">
+            <div class="box-title">Comprometimento de Dívidas e Fatura</div>
+            <div style="height:240px;position:relative;"><canvas id="chartComprometimento"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ABA 3: DIAGNÓSTICO AVANÇADO DE TENDÊNCIAS -->
+<div id="tab-diagnostico" class="tab-content">
+    <div class="box" style="text-align:center;padding:20px;">
+        <div class="box-title" style="justify-content:center;">Score Histórico Ponderado</div>
+        <div id="scoreHistoricoVal" style="font-size:36px;font-weight:700;color:var(--text-muted);">Não avaliado</div>
+        <div id="scoreHistoricoClass" style="margin-top:6px;"><span class="status-badge status-gray">Aguardando dados</span></div>
+        <div id="scoreHistoricoMeta" style="font-size:12px;color:var(--text-muted);margin-top:8px;">Meses analisados: 0</div>
+    </div>
+    <div class="box">
+        <div class="box-title">Diagnóstico Consolidado Dinâmico de Tendências</div>
+        <div id="diagnosticoTendenciasContent" style="font-size:12px;line-height:1.5;color:var(--text-primary);">
+            Importe pelo menos dois meses de histórico para habilitar a análise comportamental de tendências.
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-title">Recomendações Priorizadas por Impacto</div>
+        <div id="recomendacoesHistoricasContent" style="font-size:12px;line-height:1.5;color:var(--text-muted);">
+            Nenhuma recomendação gerada.
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+let historicoMeses = [];
+let chartRD = null, chartTP = null, chartPL = null, chartComp = null;
+
+function trocarAba(evt, id) {
+    document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    evt.currentTarget.classList.add('active');
+    if(id === 'tab-analises') atualizarGraficos();
+}
+
+function ordenarHistorico() {
+    historicoMeses.sort((a, b) => (a.mesReferencia || "").localeCompare(b.mesReferencia || ""));
+}
+
+function importarArquivosJSON(event) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    let processados = 0;
+    for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const dados = JSON.parse(e.target.result);
+                if (dados && dados.mesReferencia) {
+                    historicoMeses = historicoMeses.filter(m => m.mesReferencia !== dados.mesReferencia);
+                    historicoMeses.push(dados);
+                }
+            } catch(err) {
+                console.error("Erro ao ler arquivo:", err);
+            }
+            processados++;
+            if (processados === files.length) {
+                ordenarHistorico();
+                atualizarInterface();
+                alert("Importação concluída com sucesso!");
+            }
+        };
+        reader.readAsText(files[i]);
+    }
+}
+
+function limparHistorico() {
+    if (confirm("Tem certeza que deseja limpar o histórico importado?")) {
+        historicoMeses = [];
+        atualizarInterface();
+        alert("Histórico limpo.");
+    }
+}
+
+function excluirMes(mesRef) {
+    historicoMeses = historicoMeses.filter(m => m.mesReferencia !== mesRef);
+    atualizarInterface();
+}
+
+function num(v) {
+    if(typeof v === "number") return isNaN(v) ? 0 : v;
+    if(!v) return 0;
+    let t = String(v).trim().replace(/\s/g,"").replace(/R\$/gi,"").replace(/\./g,"").replace(",",".");
+    let parsed = parseFloat(t);
+    return isNaN(parsed) ? 0 : parsed;
+}
+
+function din(v) { return "R$ " + Number(v || 0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function processarDadosMes(m) {
+    let renda = num(m.rendas?.fixa) + (num(m.rendas?.variavel) * num(m.config?.pondVar || 0.7)) + num(m.rendas?.outras);
+    let totEss = 0;
+    if (Array.isArray(m.essenciais)) {
+        m.essenciais.forEach(e => { totEss += (num(e.realizado) > 0 ? num(e.realizado) : num(e.previsto)); });
+    }
+    let totLife = 0;
+    if (Array.isArray(m.lifestyle)) {
+        m.lifestyle.forEach(l => { totLife += (num(l.realizado) > 0 ? num(l.realizado) : num(l.previsto)); });
+    }
+    let totDiv = 0;
+    if (Array.isArray(m.dividas)) {
+        m.dividas.forEach(d => { 
+            totDiv += num(d.valor) || num(d.parcela) || num(d.prestacao); 
+        });
+    }
+    let fatura = num(m.faturaCartao) || num(m.fatura);
+    let despesasTotais = totEss + totLife + totDiv + fatura;
+    let sobra = renda - despesasTotais;
+    let taxaPoup = renda > 0 ? (sobra / renda) * 100 : 0;
+    let comprometimento = renda > 0 ? ((totDiv + fatura) / renda) * 100 : 0;
+    
+    let totAtivos = 0;
+    if (Array.isArray(m.ativos)) {
+        m.ativos.forEach(a => { totAtivos += num(a.valor); });
+    }
+    let totPassivos = 0;
+    if (Array.isArray(m.passivos)) {
+        m.passivos.forEach(p => { totPassivos += num(p.valor); });
+    }
+    if (Array.isArray(m.dividas)) {
+        m.dividas.forEach(d => { totPassivos += num(d.saldo) || num(d.valorTotal); });
+    }
+    let patrimonioLiq = totAtivos - totPassivos;
+
+    return { renda, despesasTotais, sobra, taxaPoup, comprometimento, patrimonioLiq };
+}
+
+function atualizarInterface() {
+    let tbody = document.getElementById("tabelaHistoricoBody");
+    tbody.innerHTML = "";
+    document.getElementById("contadorMeses").innerText = `Meses importados: ${historicoMeses.length}`;
+
+    if (historicoMeses.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);">Nenhum histórico importado.</td></tr>`;
+        limparMetricasEstatisticas();
+        limparDiagnostico();
+        return;
+    }
+
+    let somaRenda = 0, somaPoup = 0, somaComp = 0;
+    let ultimoPatrimonio = 0, primeiroPatrimonio = 0;
+
+    historicoMeses.forEach((m, idx) => {
+        let res = processarDadosMes(m);
+        somaRenda += res.renda;
+        somaPoup += res.taxaPoup;
+        somaComp += res.comprometimento;
+        if(idx === 0) primeiroPatrimonio = res.patrimonioLiq;
+        if(idx === historicoMeses.length - 1) ultimoPatrimonio = res.patrimonioLiq;
+
+        tbody.innerHTML += `<tr>
+            <td><strong>${m.mesReferencia || 'Indefinido'}</strong></td>
+            <td>${din(res.renda)}</td>
+            <td>${din(res.despesasTotais)}</td>
+            <td><span class="status-badge ${res.taxaPoup >= 15 ? 'status-green' : 'status-yellow'}">${res.taxaPoup.toFixed(1)}%</span></td>
+            <td>${din(res.patrimonioLiq)}</td>
+            <td><button class="btn btn-danger" style="padding:2px 6px;font-size:10px;" onclick="excluirMes('${m.mesReferencia}')">Excluir</button></td>
+        </tr>`;
+    });
+
+    let n = historicoMeses.length;
+    document.getElementById("StatMediaRenda").innerText = din(somaRenda / n);
+    document.getElementById("StatMediaPoupanca").innerText = (somaPoup / n).toFixed(1) + "%";
+    document.getElementById("StatEvolucaoPatrimonio").innerText = din(ultimoPatrimonio - primeiroPatrimonio);
+    document.getElementById("StatMediaCompromisso").innerText = (somaComp / n).toFixed(1) + "%";
+
+    gerarDiagnosticoTendencias();
+}
+
+function limparMetricasEstatisticas() {
+    document.getElementById("StatMediaRenda").innerText = "R$ 0,00";
+    document.getElementById("StatMediaPoupanca").innerText = "0,0%";
+    document.getElementById("StatEvolucaoPatrimonio").innerText = "R$ 0,00";
+    document.getElementById("StatMediaCompromisso").innerText = "0,0%";
+}
+
+function limparDiagnostico() {
+    document.getElementById("scoreHistoricoVal").innerText = "Não avaliado";
+    document.getElementById("scoreHistoricoClass").innerHTML = `<span class="status-badge status-gray">Aguardando dados</span>`;
+    document.getElementById("scoreHistoricoMeta").innerText = "Meses analisados: 0";
+    document.getElementById("diagnosticoTendenciasContent").innerText = "Importe pelo menos dois meses de histórico para habilitar a análise comportamental de tendências.";
+    document.getElementById("recomendacoesHistoricasContent").innerText = "Nenhuma recomendação gerada.";
+}
+
+function atualizarGraficos() {
+    if (historicoMeses.length === 0) return;
+
+    let labels = historicoMeses.map(m => m.mesReferencia || 'N/A');
+    let rendas = [];
+    let despesas = [];
+    let poupancas = [];
+    let patrimonios = [];
+    let comprometimentos = [];
+
+    historicoMeses.forEach(m => {
+        let r = processarDadosMes(m);
+        rendas.push(r.renda);
+        despesas.push(r.despesasTotais);
+        poupancas.push(r.taxaPoup);
+        patrimonios.push(r.patrimonioLiq);
+        comprometimentos.push(r.comprometimento);
+    });
+
+    if(chartRD) chartRD.destroy();
+    chartRD = new Chart(document.getElementById('chartRendaDespesas').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                { label: 'Renda', data: rendas, backgroundColor: '#2563eb' },
+                { label: 'Despesas Totais', data: despesas, backgroundColor: '#ef4444' }
+            ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    if(chartTP) chartTP.destroy();
+    chartTP = new Chart(document.getElementById('chartTaxaPoupanca').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{ label: 'Taxa de Poupança (%)', data: poupancas, borderColor: '#10b981', backgroundColor: '#f0fdf4', fill: true, tension: 0.2 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    if(chartPL) chartPL.destroy();
+    chartPL = new Chart(document.getElementById('chartPatrimonioLiq').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{ label: 'Patrimônio Líquido', data: patrimonios, borderColor: '#2563eb', backgroundColor: '#eff6ff', fill: true, tension: 0.2 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    if(chartComp) chartComp.destroy();
+    chartComp = new Chart(document.getElementById('chartComprometimento').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{ label: 'Comprometimento (%)', data: comprometimentos, borderColor: '#f59e0b', backgroundColor: '#fffbeb', fill: true, tension: 0.2 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+}
+
+function gerarDiagnosticoTendencias() {
+    if (historicoMeses.length < 2) {
+        document.getElementById("diagnosticoTendenciasContent").innerText = "É necessário importar ao menos 2 meses de histórico para detecção de tendências comportamentais.";
+        return;
+    }
+
+    let pRendas = [], pPoup = [], pPatrimonio = [], pComp = [];
+    historicoMeses.forEach(m => {
+        let res = processarDadosMes(m);
+        pRendas.push(res.renda);
+        pPoup.push(res.taxaPoup);
+        pPatrimonio.push(res.patrimonioLiq);
+        pComp.push(res.comprometimento);
+    });
+
+    let tendenciaRenda = pRendas[pRendas.length - 1] >= pRendas[0] ? "crescente" : "decrescente";
+    let tendenciaPoup = pPoup[pPoup.length - 1] >= pPoup[0] ? "em alta" : "em queda";
+    let tendenciaPatrimonio = pPatrimonio[pPatrimonio.length - 1] >= pPatrimonio[0] ? "estável/crescente" : "em desacumulação";
+
+    let textoDiag = `Com base na análise de ${historicoMeses.length} meses importados, identificamos as seguintes tendências comportamentais: `;
+    textoDiag += `• A renda apresentou comportamento ${tendenciaRenda} ao longo do período. `;
+    textoDiag += `• A taxa de poupança está ${tendenciaPoup}, refletindo o controle de gastos correntes. `;
+    textoDiag += `• O patrimônio líquido demonstra trajetória ${tendenciaPatrimonio}. `;
+
+    document.getElementById("diagnosticoTendenciasContent").innerText = textoDiag;
+
+    let mediaPoup = pPoup.reduce((a,b)=>a+b, 0) / pPoup.length;
+    let score = Math.min(100, Math.max(0, Math.round(mediaPoup * 3 + (tendenciaPatrimonio.includes("crescente") ? 30 : 10))));
+    
+    document.getElementById("scoreHistoricoVal").innerText = score + " / 100";
+    document.getElementById("scoreHistoricoClass").innerHTML = `<span class="status-badge ${score >= 70 ? 'status-green' : 'status-yellow'}">Score Histórico ${score >= 70 ? 'Saudável' : 'Requer Atenção'}</span>`;
+    document.getElementById("scoreHistoricoMeta").innerText = `Meses analisados: ${historicoMeses.length}`;
+
+    let recs = [];
+    if (mediaPoup < 15) {
+        recs.push("• <strong>Aumente a taxa de poupança:</strong> A média histórica está abaixo de 15%. Revise gastos de estilo de vida.");
+    }
+    if (tendenciaPatrimonio.includes("desacumulação")) {
+        recs.push("• <strong>Estanque a desacumulação patrimonial:</strong> Seus ativos líquidos ou patrimônio caíram no período. Verifique amortizações ou consumo excessivo.");
+    }
+    if (recs.length === 0) {
+        recs.push("• <strong>Manutenção exemplar:</strong> Seu histórico demonstra consistência e disciplina financeira. Continue aportando regularmente.");
+    }
+    document.getElementById("recomendacoesHistoricasContent").innerHTML = recs.join("<br>");
+}
+
+atualizarInterface();
+</script>
+</body>
+</html>
+
+</template>
+<iframe id="historicoIntegradoFrame" title="Histórico Financeiro" loading="lazy" style="display:block;width:100%;height:880px;min-height:880px;max-height:880px;border:0;border-radius:8px;background:#fff;overflow:hidden;"></iframe>
+</div>
+<!-- ABA 1: FLUXO & RENDA -->
+<div id="tab-fluxo" class="tab-content active">
+    <div id="diagFluxo" class="mini-diag info active">Estrutura inicial carregada. Informe seus dados para refinar a análise.</div>
+    
+    <div class="box">
+        <div class="box-title">Rendas</div>
+        <div class="grid-4">
+            <div class="field"><label>Fixa</label><input id="rendaFixa" type="text" min="0" placeholder="0,00" oninput="marcarInformado('rendaFixa'); calcular(); persistirEstado()" onblur="fmt(this)"></div>
+            <div class="field"><label>Variável</label><input id="rendaVariavel" type="text" min="0" placeholder="0,00" oninput="marcarInformado('rendaVariavel'); calcular(); persistirEstado()" onblur="fmt(this)"></div>
+            <div class="field"><label>Outras</label><input id="rendaOutras" type="text" min="0" placeholder="0,00" oninput="marcarInformado('rendaOutras'); calcular(); persistirEstado()" onblur="fmt(this)"></div>
+            <div class="field"><label>Referência</label><input id="rendaTotal" type="text" value="Não informado" readonly style="background:#f8fafc;font-weight:700;"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Essenciais</div>
+        <div id="listaEssencial"></div>
+        <button class="add-btn" onclick="addItem('essencial')">+ Adicionar</button>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Estilo de Vida</div>
+        <div id="listaLifestyle"></div>
+        <button class="add-btn" onclick="addItem('lifestyle')">+ Adicionar</button>
+    </div>
+
+    <div class="metrics-bar">
+        <div class="metric-card"><div class="metric-lbl">Essenciais</div><div class="metric-val" id="mEssencial">Não informado</div></div>
+        <div class="metric-card"><div class="metric-lbl">Estilo</div><div class="metric-val" id="mLifestyle">Não informado</div></div>
+        <div class="metric-card"><div class="metric-lbl">Sobra</div><div class="metric-val" id="mSobra">Não informado</div></div>
+        <div class="metric-card"><div class="metric-lbl">Poupança</div><div class="metric-val" id="mTaxaPoup">Não informado</div></div>
+        <div class="metric-card"><div class="metric-lbl">Comprometimento</div><div class="metric-val" id="mCompromisso">Não informado</div></div>
+    </div>
+</div>
+
+<!-- ABA 2: PERFIL & CICLO DE VIDA -->
+<div id="tab-perfil" class="tab-content">
+    <div id="diagPerfil" class="mini-diag info active">Preencha as características do seu perfil para calibrar a reserva e o risco.</div>
+    
+    <div class="box">
+        <div class="box-title">Perfil Pessoal e Profissional</div>
+        <div class="grid-3">
+            <div class="field"><label>Idade</label><input id="idade" type="number" min="0" max="120" placeholder="Ex: 35" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Fase de Vida</label><select id="faseVida" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="inicio">Início de carreira</option>
+                <option value="patrimonio">Formação de patrimônio</option>
+                <option value="consolidacao">Consolidação</option>
+                <option value="familia">Expansão familiar</option>
+                <option value="pre">Pré-aposentadoria</option>
+                <option value="aposentadoria">Aposentadoria</option>
+            </select></div>
+            <div class="field"><label>Custo da Cidade</label><select id="custoCidade" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="baixo">Baixo</option>
+                <option value="medio">Médio</option>
+                <option value="alto">Alto</option>
+                <option value="capital">Capital / Custo Alto</option>
+            </select></div>
+            <div class="field"><label>Estado Civil</label><select id="civil" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="solteiro">Solteiro(a)</option>
+                <option value="casado">Casado(a)</option>
+                <option value="uniao">União estável</option>
+                <option value="divorciado">Divorciado(a)</option>
+                <option value="viuvo">Viúvo(a)</option>
+            </select></div>
+            <div class="field"><label>Dependentes</label><input id="dependentes" type="number" min="0" value="0" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Filhos</label><input id="filhos" type="number" min="0" value="0" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Ocupação</label><select id="ocupacao" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="clt_estavel">CLT — Estável</option>
+                <option value="clt_instavel">CLT — Instável</option>
+                <option value="servidor">Servidor Público</option>
+                <option value="autonomo">Autônomo</option>
+                <option value="empresario">Empresário</option>
+                <option value="liberal">Profissional Liberal</option>
+                <option value="aposentado">Aposentado</option>
+            </select></div>
+            <div class="field"><label>Tempo no Emprego/Negócio</label><select id="tempoEmprego" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="menos6m">Menos de 6 meses</option>
+                <option value="6m1ano">6 meses a 1 ano</option>
+                <option value="1a3anos">1 a 3 anos</option>
+                <option value="3a5anos">3 a 5 anos</option>
+                <option value="mais5anos">Mais de 5 anos</option>
+            </select></div>
+            <div class="field"><label>Moradia</label><select id="moradia" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="quitada">Própria Quitada</option>
+                <option value="financiada">Própria Financiada</option>
+                <option value="alugada">Alugada</option>
+                <option value="familiar">Familiar</option>
+            </select></div>
+            <div class="field"><label>Veículo</label><select id="veiculo" onchange="calcular(); persistirEstado()">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="nao">Não possui</option>
+                <option value="quitado">Quitado</option>
+                <option value="financiado">Financiado</option>
+            </select></div>
+            <div class="field"><label>Plano de Saúde</label><select id="saude" onchange="calcular(); persistirEstado()"><option value="" selected disabled>Selecione...</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
+            <div class="field"><label>Seguro de Vida</label><select id="seguros" onchange="calcular(); persistirEstado()"><option value="" selected disabled>Selecione...</option><option value="sim">Sim</option><option value="nao">Não</option></select></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Reserva de Emergência Recomendada (Heurística)</div>
+        <p style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">
+            <em>A reserva recomendada é uma estimativa educacional baseada nas premissas configuradas. Os ajustes de meses são heurísticos e não substituem uma análise financeira individual.</em>
+        </p>
+        <div class="grid-3">
+            <div class="field"><label>Meses Recomendados</label><input id="reservaMesesRec" type="text" value="Não avaliado" readonly style="background:#f8fafc;font-weight:700;"></div>
+            <div class="field"><label>Valor Recomendado</label><input id="reservaValorRec" type="text" value="Não avaliado" readonly style="background:#f8fafc;font-weight:700;"></div>
+            <div class="field"><label>Cobertura Atual</label><input id="reservaCoberturaAtual" type="text" value="Não avaliado" readonly style="background:#f8fafc;font-weight:700;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ABA 3: DÍVIDAS & CARTÃO -->
+<div id="tab-dividas" class="tab-content">
+    <div id="diagDividas" class="mini-diag info active">Estrutura inicial de dívidas sugerida. Preencha apenas os valores efetivos.</div>
+    
+    <div class="box">
+        <div class="box-title">Empréstimos e Financiamentos (Com Saldo Devedor)</div>
+        <div id="listaDividas"></div>
+        <button class="add-btn" onclick="addDivida()">+ Adicionar Dívida</button>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Cartão de Crédito</div>
+        <div class="field" style="margin-bottom:12px;">
+            <label>Uso do Cartão</label><select id="tipoCartao" onchange="calcular(); persistirEstado()"><option value="integral" selected>Pago integralmente</option><option value="rotativo">Usa rotativo / Parcelado fatura</option></select>
+        </div>
+        <div style="font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;">Parcelamentos Futuros</div>
+        <div id="listaCartaoParcelas"></div>
+        <button class="add-btn" onclick="addCartaoParcela()">+ Adicionar Parcela Futura</button>
+    </div>
+</div>
+
+<!-- ABA 4: ATIVOS & LIQUIDEZ -->
+<div id="tab-patrimonio" class="tab-content">
+    <div id="diagPatrimonio" class="mini-diag info active">Categorias recomendadas de patrimônio e investimentos estruturadas.</div>
+    
+    <div class="grid-2">
+        <div class="box">
+            <div class="box-title">Ativos</div>
+            <div id="listaAtivos"></div>
+            <button class="add-btn" onclick="addAtivo()">+ Adicionar Ativo</button>
+        </div>
+        <div class="box">
+            <div class="box-title">Passivos (Importados da aba Dívidas)</div>
+            <div id="listaPassivos"></div>
+        </div>
+    </div>
+    
+    <div class="metrics-bar" style="margin-top:12px;">
+        <div class="metric-card"><div class="metric-lbl">Bruto</div><div class="metric-val" id="valPatrimonioBruto">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Passivos</div><div class="metric-val" id="valTotPassivos">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Líquido</div><div class="metric-val" id="valPatrimonioLiq" style="color:var(--brand-blue);">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Líquidos</div><div class="metric-val" id="valAtivosLiquidos">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Sustentados</div><div class="metric-val" id="valMesesLiquidos">Não avaliado</div></div>
+    </div>
+</div>
+
+<!-- ABA 5: METAS & APORTES (MINIMALISTA) -->
+<div id="tab-metas" class="tab-content">
+    <div style="margin-bottom: 12px;">
+        <h3 style="font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:2px;">Metas e Planejamento de Aportes</h3>
+    </div>
+
+    <div class="metrics-bar" style="margin-bottom: 12px;">
+        <div class="metric-card"><div class="metric-lbl">Acumulado</div><div class="metric-val" id="painelAcumuladoTotal">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Ativas</div><div class="metric-val" id="painelTotMetas">0</div></div>
+        <div class="metric-card"><div class="metric-lbl">Objetivo</div><div class="metric-val" id="painelProximoObj" style="font-size:12px; font-weight:600;">Nenhum</div></div>
+        <div class="metric-card"><div class="metric-lbl">Total</div><div class="metric-val" id="painelValorMetas">R$ 0,00</div></div>
+        <div class="metric-card"><div class="metric-lbl">Aporte Necessário</div><div class="metric-val" id="painelAporteNec">R$ 0,00/mês</div></div>
+    </div>
+
+    <div class="box">
+        <div class="box-title" style="justify-content: space-between;">
+            <span>Metas Cadastradas</span>
+            <span style="font-size:11px; font-weight:400; color:var(--text-muted);">Cálculo com taxa de retorno</span>
+        </div>
+        <div id="listaMetas"></div>
+        <button class="add-btn" onclick="addMetaCustom()">+ Adicionar Meta Personalizada</button>
+    </div>
+</div>
+
+<!-- ABA 6: DIAGNÓSTICO & SCORE -->
+<div id="tab-diagnostico" class="tab-content">
+    <div class="box" style="text-align:center;padding:20px;">
+        <div class="box-title" style="justify-content:center;">Score Geral de Diagnóstico</div>
+        <div id="scoreVal" style="font-size:36px;font-weight:700;color:var(--text-muted);">Não avaliado</div>
+        <div id="scoreClassificacao" style="font-size:14px;font-weight:600;margin-top:4px;"><span class="status-badge status-gray">Aguardando dados</span></div>
+        <div id="scoreMetadata" style="font-size:12px;color:var(--text-muted);margin-top:8px;">Indicadores: 0/10 | Cobertura: 0% | Confiança: Baixa</div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Resumo Executivo (Diagnóstico Narrativo)</div>
+        <div id="resumoExecutivoContent" style="font-size:12px;line-height:1.5;">A estrutura financeira está pronta para preenchimento.</div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Indicadores Analisados</div>
+        <table class="indicator-table">
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>Peso</th>
+                    <th>Status</th>
+                    <th>Avaliação</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaIndicadoresBody">
+                <tr><td colspan="4" style="text-align:center;color:var(--text-muted);">Nenhum indicador avaliado ainda.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Recomendações Priorizadas por Impacto</div>
+        <div id="diagnosticoTextual" style="font-size:12px;line-height:1.5;color:var(--text-muted);">Ainda não há dados suficientes para gerar recomendações dinâmicas.</div>
+    </div>
+</div>
+
+<!-- ABA 7: PROJEÇÃO & GRÁFICOS -->
+<div id="tab-projecao" class="tab-content">
+    <div id="diagGraficos" class="mini-diag info active">As representações gráficas serão exibidas assim que os dados forem informados.</div>
+    <div class="grid-2">
+        <div class="box"><div class="box-title">Orçamento (Fluxo)</div><div style="height:240px;position:relative;display:flex;align-items:center;justify-content:center;" id="wrapPie"><canvas id="chartPie"></canvas></div></div>
+        <div class="box"><div class="box-title">Composição do Patrimônio</div><div style="height:240px;position:relative;display:flex;align-items:center;justify-content:center;" id="wrapPatrimonio"><canvas id="chartPatrimonio"></canvas></div></div>
+    </div>
+    <div class="grid-2">
+        <div class="box"><div class="box-title">Projeção Patrimonial (Cenários)</div><div style="height:240px;position:relative;display:flex;align-items:center;justify-content:center;" id="wrapLine"><canvas id="chartLine"></canvas></div></div>
+        <div class="box"><div class="box-title">Comprometimento de Dívidas</div><div style="height:240px;position:relative;display:flex;align-items:center;justify-content:center;" id="wrapDividas"><canvas id="chartDividas"></canvas></div></div>
+    </div>
+</div>
+
+<!-- ABA 8: AJUSTES & METODOLOGIA -->
+<div id="tab-config" class="tab-content">
+    <div class="box">
+        <div class="box-title">Premissas de Cálculo</div>
+        <div class="grid-3">
+            <div class="field"><label>Meta Poupança (%)</label><input id="pMeta" type="number" min="0" max="100" step="1" value="20" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Taxa Retorno Anual (%)</label><input id="pTaxa" type="number" min="0" step="0.5" value="6" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Meses Reserva Base</label><input id="pReserva" type="number" min="1" value="6" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Ponderação Renda Variável (%)</label><input id="pPondVar" type="number" min="0" max="100" step="5" value="70" oninput="calcular(); persistirEstado()"></div>
+            <div class="field"><label>Limite Juros Dívida Cara (% a.m.)</label><input id="pLimiteJuros" type="number" min="0" step="0.1" value="1.5" oninput="calcular(); persistirEstado()"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Cenários de Projeção (Premissas)</div>
+        <div style="font-size:12px;line-height:1.5;color:var(--text-muted);">
+            <p style="margin-bottom:4px;">• <strong>Conservador:</strong> 70% da taxa de retorno configurada.</p>
+            <p style="margin-bottom:4px;">• <strong>Base:</strong> 100% da taxa de retorno configurada.</p>
+            <p style="margin-bottom:4px;">• <strong>Otimista:</strong> 130% da taxa de retorno configurada.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Metodologia</div>
+        <div style="font-size:12px;line-height:1.5;color:var(--text-muted);">
+            <p style="margin-bottom:6px;"><strong>1. Referência:</strong> Soma da renda fixa, outras, RV Consumida (100%) e RV Estrutural/Poupança ponderada.</p>
+            <p style="margin-bottom:6px;"><strong>2. Cobertura & Confiabilidade:</strong> O score e a classificação exigem preenchimento mínimo de indicadores para evitar falsos positivos.</p>
+            <p style="margin-bottom:6px;"><strong>3. Metas:</strong> Cálculo atuarial de valor futuro considerando taxa mensal composta.</p>
+            <p style="margin-bottom:6px;"><strong>4. Dívidas & Passivos:</strong> Separação estrita entre obrigações financeiras onerosas e passivos patrimoniais para evitar dupla contagem.</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">Privacidade e Dados</div>
+        <p style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">
+            Nenhum dado é armazenado no navegador. O armazenamento ocorre exclusivamente por meio de arquivos locais (JSON) salvos na sua máquina.
+        </p>
+        <button class="btn btn-danger" onclick="limparTodosDados()">Limpar Dados da Aplicação</button>
+    </div>
+
+    <div class="disclaimer-box">
+        <strong>Aviso:</strong> Ferramenta educacional e de diagnóstico financeiro pessoal.
+    </div>
+</div>
+
+</div>
+
+<!-- CONTAINER EXCLUSIVO PARA O RELATÓRIO EXECUTIVO EM PDF -->
+<div id="pdfRelatorioExecutivo" style="display:none; padding:20px; font-family:'Inter',sans-serif; color:#0f172a; background:#ffffff;">
+    <h2 style="color:#2563eb; margin-bottom:4px;">Relatório Executivo de Diagnóstico Financeiro</h2>
+    <p style="font-size:11px; color:#64748b; margin-bottom:16px;">Gerado em: <span id="pdfDataGeracao"></span> | Versão 3.3</p>
+    
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px; margin-bottom:12px; background:#f8fafc;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Score e Confiabilidade</h3>
+        <p id="pdfScoreText" style="font-size:18px; font-weight:700; color:#2563eb;">Não avaliado</p>
+        <p id="pdfScoreMeta" style="font-size:11px; color:#64748b; margin-top:4px;"></p>
+    </div>
+
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px; margin-bottom:12px;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Resumo Executivo</h3>
+        <div id="pdfResumoContent" style="font-size:11px; line-height:1.4;"></div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px; margin-bottom:12px;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Patrimônio e Liquidez</h3>
+        <div id="pdfPatrimonioContent" style="font-size:11px; line-height:1.4;"></div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px; margin-bottom:12px;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Metas e Aportes</h3>
+        <div id="pdfMetasContent" style="font-size:11px; line-height:1.4;"></div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px; margin-bottom:12px;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Recomendações Priorizadas</h3>
+        <div id="pdfRecomendacoesContent" style="font-size:11px; line-height:1.4;"></div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0; padding:12px; border-radius:8px;">
+        <h3 style="font-size:14px; margin-bottom:6px;">Indicadores</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:11px; margin-top:6px;">
+            <thead>
+                <tr style="background:#f8fafc;">
+                    <th style="border:1px solid #e2e8f0; padding:6px; text-align:left;">Indicador</th>
+                    <th style="border:1px solid #e2e8f0; padding:6px; text-align:left;">Peso</th>
+                    <th style="border:1px solid #e2e8f0; padding:6px; text-align:left;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="pdfTabelaIndicadoresBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+function ocultarNudgeReferencia() {
+    const input = document.getElementById("mesReferencia");
+    const nudge = document.getElementById("nudgeReferencia");
+
+    if(input && input.value) {
+        input.classList.remove("nudge-input");
+        if(nudge) nudge.classList.remove("show");
+    }
+}
+
+function criarEstadoInicial() {
+    return {
+        versao: "3.3",
+        mesReferencia: "",
+        rendas: { fixa: 0, variavel: 0, outras: 0, informado: false },
+        essenciais: [
+            { nome: 'Moradia', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Alimentação', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Água/luz/gás', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Internet/telefone', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Transporte', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Saúde', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Educação', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Seguros', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Impostos/taxas', previsto: 0, realizado: 0, informado: false }
+        ],
+        lifestyle: [
+            { nome: 'Lazer', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Restaurantes', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Assinaturas', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Viagens', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Compras pessoais', previsto: 0, realizado: 0, informado: false },
+            { nome: 'Outros', previsto: 0, realizado: 0, informado: false }
+        ],
+        perfil: { idade: "", faseVida: "", custoCidade: "", civil: "", dependentess: 0, dependentes: 0, filhos: 0, ocupacao: "", tempoEmprego: "", moradia: "", veiculo: "", saude: "", seguros: "" },
+        dividas: [
+            { nome: 'Empréstimo pessoal', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Crédito consignado', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Financiamento imobiliário', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Financiamento de veículo', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Parcelamentos', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Cheque especial', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Crédito rotativo', valor: 0, saldo: 0, taxa: 0, informado: false },
+            { nome: 'Outras dívidas', valor: 0, saldo: 0, taxa: 0, informado: false }
+        ],
+        faturaCartao: 0,
+        tipoCartao: "integral",
+        cartaoParcelas: [
+            { nome: 'Compra parcelada 1', valor: 0, parcelasRestantes: 0, informado: false }
+        ],
+        ativos: [
+            { nome: 'Reserva de emergência', valor: 0, categoria: 'Reserva', liquidez: 'Imediata', destinadoReserva: true, informado: false },
+            { nome: 'Tesouro Selic / títulos pós-fixados', valor: 0, categoria: 'Renda Fixa', liquidez: 'D+1', destinadoReserva: false, informado: false },
+            { nome: 'CDB', valor: 0, categoria: 'Renda Fixa', liquidez: 'Imediata', destinadoReserva: false, informado: false },
+            { nome: 'LCI/LCA', valor: 0, categoria: 'Renda Fixa', liquidez: 'Baixa/sem liquidez', destinadoReserva: false, informado: false },
+            { nome: 'Fundos', valor: 0, categoria: 'Fundos', liquidez: 'D+2/D+3', destinadoReserva: false, informado: false },
+            { nome: 'Ações / ETFs', valor: 0, categoria: 'Variável', liquidez: 'D+2/D+3', destinadoReserva: false, informado: false },
+            { nome: 'Imóveis', valor: 0, categoria: 'Imóveis', liquidez: 'Baixa/sem liquidez', destinadoReserva: false, informado: false },
+            { nome: 'Outros ativos', valor: 0, categoria: 'Outros', liquidez: 'Baixa/sem liquidez', destinadoReserva: false, informado: false }
+        ],
+        passivos: [],
+        metas: [
+            { nome: 'Reserva de emergência', desc: 'Segurança financeira para imprevistos.', meta: 15000, atual: 0, meses: 12 },
+            { nome: 'Viagem', desc: 'Descanso e lazer.', meta: 8000, atual: 0, meses: 8 }
+        ],
+        aporteMensal: 0,
+        config: { metaPoupanca: 0.20, taxaRetornoAnual: 0.06, mesesReserva: 6, pondVar: 0.70, limiteJurosDivida: 1.5 }
+    };
+}
+
+let estado = criarEstadoInicial();
+
+function normalizarEstado(dados) {
+    const inicial = criarEstadoInicial();
+    return {
+        ...inicial,
+        ...dados,
+        versao: "3.3",
+        mesReferencia: dados.mesReferencia || "",
+        rendas: {
+            ...inicial.rendas,
+            fixa: Math.max(0, num(dados.rendas?.fixa)),
+            variavel: Math.max(0, num(dados.rendas?.variavel)),
+            outras: Math.max(0, num(dados.rendas?.outras)),
+            informado: !!dados.rendas?.informado
+        },
+        perfil: {
+            ...inicial.perfil,
+            ...(dados.perfil || {}),
+            idade: dados.perfil?.idade !== "" && dados.perfil?.idade !== undefined ? Math.max(0, parseInt(dados.perfil.idade) || 0) : "",
+            dependentes: Math.max(0, parseInt(dados.perfil?.dependentes) || 0),
+            filhos: Math.max(0, parseInt(dados.perfil?.filhos) || 0)
+        },
+        config: {
+            ...inicial.config,
+            ...(dados.config || {}),
+            metaPoupanca: Math.max(0, parseFloat(dados.config?.metaPoupanca) || 0.20),
+            taxaRetornoAnual: Math.max(0, parseFloat(dados.config?.taxaRetornoAnual) || 0.06),
+            mesesReserva: Math.max(1, parseInt(dados.config?.mesesReserva) || 6),
+            pondVar: Math.max(0, Math.min(1, parseFloat(dados.config?.pondVar) || 0.70)),
+            limiteJurosDivida: Math.max(0, parseFloat(dados.config?.limiteJurosDivida) || 1.5)
+        },
+        essenciais: Array.isArray(dados.essenciais) && dados.essenciais.length > 0 ? dados.essenciais.map(e => ({
+            nome: e.nome || '',
+            previsto: Math.max(0, num(e.previsto)),
+            realizado: Math.max(0, num(e.realizado)),
+            informado: !!e.informado
+        })) : inicial.essenciais,
+        lifestyle: Array.isArray(dados.lifestyle) && dados.lifestyle.length > 0 ? dados.lifestyle.map(l => ({
+            nome: l.nome || '',
+            previsto: Math.max(0, num(l.previsto)),
+            realizado: Math.max(0, num(l.realizado)),
+            informado: !!l.informado
+        })) : inicial.lifestyle,
+        dividas: Array.isArray(dados.dividas) ? dados.dividas.map(d => ({
+            nome: d.nome || '',
+            valor: Math.max(0, num(d.valor)),
+            saldo: Math.max(0, num(d.saldo)),
+            taxa: Math.max(0, parseFloat(d.taxa) || 0),
+            informado: !!d.informado
+        })) : [],
+        cartaoParcelas: Array.isArray(dados.cartaoParcelas) ? dados.cartaoParcelas.map(cp => ({
+            nome: cp.nome || '',
+            valor: Math.max(0, num(cp.valor)),
+            parcelasRestantes: Math.max(0, parseInt(cp.parcelasRestantes) || 0),
+            informado: !!cp.informado
+        })) : inicial.cartaoParcelas,
+        ativos: Array.isArray(dados.ativos) && dados.ativos.length > 0 ? dados.ativos.map(a => ({
+            nome: a.nome || '',
+            valor: Math.max(0, num(a.valor)),
+            categoria: a.categoria || 'Outros',
+            liquidez: a.liquidez || 'Imediata',
+            destinadoReserva: !!a.destinadoReserva,
+            informado: !!a.informado
+        })) : inicial.ativos,
+        passivos: Array.isArray(dados.passivos) ? dados.passivos.map(p => ({
+            nome: p.nome || '',
+            valor: Math.max(0, num(p.valor))
+        })) : [],
+        metas: Array.isArray(dados.metas) && dados.metas.length > 0 ? dados.metas.map(m => ({
+            nome: m.nome || '',
+            desc: m.desc || '',
+            meta: Math.max(0, num(m.meta)),
+            atual: Math.max(0, num(m.atual)),
+            meses: Math.max(1, parseInt(m.meses) || 1)
+        })) : inicial.metas,
+        faturaCartao: 0,
+        tipoCartao: dados.tipoCartao || "integral",
+        aporteMensal: Math.max(0, num(dados.aporteMensal))
+    };
+}
+
+let saveTimer;
+function persistirEstado() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+        mostrarToastSalvo();
+    }, 300);
+}
+
+function mostrarToastSalvo() {
+    let t = document.getElementById("toastSalvo");
+    if(!t) return;
+    t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); }, 1500);
+}
+
+function limparTodosDados() {
+    if(confirm("Tem certeza que deseja resetar os dados atuais da aplicação?")) {
+        estado = criarEstadoInicial();
+        sincronizarEstadoParaUI();
+        calcular();
+        alert("Dados limpos com sucesso.");
+    }
+}
+
+function salvarJSON() {
+    syncInputsToState();
+
+    if(!estado.mesReferencia) {
+        const input = document.getElementById("mesReferencia");
+        const nudge = document.getElementById("nudgeReferencia");
+
+        if(input) {
+            input.classList.add("nudge-input");
+            input.focus();
+        }
+
+        if(nudge) {
+            nudge.classList.remove("show");
+            void nudge.offsetWidth;
+            nudge.classList.add("show");
+        }
+
+        return;
+    }
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(estado, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "diagnostico_financeiro_dados.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+}
+
+function importarJSON() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = e => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = event => {
+            try {
+                const dados = JSON.parse(event.target.result);
+                estado = normalizarEstado(dados);
+                sincronizarEstadoParaUI();
+                calcular();
+                alert("Dados importados com sucesso!");
+            } catch (err) {
+                alert("Erro ao ler o arquivo JSON: " + err.message);
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+const metasSugestoesPre = [
+    { nome: 'Reserva de emergência', desc: 'Segurança financeira para imprevistos.', meta: 15000, atual: 0, meses: 12 },
+    { nome: 'Educação', desc: 'Qualificação profissional.', meta: 5000, atual: 0, meses: 10 },
+    { nome: 'Viagem', desc: 'Descanso e lazer.', meta: 8000, atual: 0, meses: 8 },
+    { nome: 'Imóvel', desc: 'Entrada para moradia.', meta: 60000, atual: 0, meses: 36 },
+    { nome: 'Veículo', desc: 'Mobilidade.', meta: 40000, atual: 0, meses: 24 },
+    { nome: 'Independência financeira', desc: 'Geração de renda passiva.', meta: 500000, atual: 0, meses: 120 }
+];
+
+let chartPie = null, chartPatrimonio = null, chartLine = null, chartDividas = null;
+
+function inicializarGraficos() {
+    const ctxPie = document.getElementById('chartPie').getContext('2d');
+    chartPie = new Chart(ctxPie, {
+        type: 'doughnut',
+        data: {
+            labels: ['Essenciais', 'Estilo de Vida', 'Sobra / Aporte'],
+            datasets: [{
+                data: [0, 0, 0],
+                backgroundColor: ['#ef4444', '#f59e0b', '#10b981']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    const ctxPat = document.getElementById('chartPatrimonio').getContext('2d');
+    chartPatrimonio = new Chart(ctxPat, {
+        type: 'bar',
+        data: {
+            labels: ['Renda Fixa / Reserva', 'Variável / Fundos', 'Imóveis', 'Outros'],
+            datasets: [{
+                label: 'Valor (R$)',
+                data: [0, 0, 0, 0],
+                backgroundColor: '#2563eb'
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    const ctxLine = document.getElementById('chartLine').getContext('2d');
+    chartLine = new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: ['Mês 0', 'Mês 12', 'Mês 24', 'Mês 36', 'Mês 48', 'Mês 60'],
+            datasets: [
+                { label: 'Base', data: [0,0,0,0,0,0], borderColor: '#2563eb', fill: false },
+                { label: 'Conservador', data: [0,0,0,0,0,0], borderColor: '#64748b', fill: false },
+                { label: 'Otimista', data: [0,0,0,0,0,0], borderColor: '#10b981', fill: false }
+            ]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    const ctxDiv = document.getElementById('chartDividas').getContext('2d');
+    chartDividas = new Chart(ctxDiv, {
+        type: 'pie',
+        data: {
+            labels: ['Sem dívidas'],
+            datasets: [{
+                data: [1],
+                backgroundColor: ['#10b981']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+}
+
+function atualizarGraficos(res) {
+    if(!chartPie || !chartPatrimonio || !chartLine || !chartDividas) return;
+
+    chartPie.data.datasets[0].data = [res.totEss, res.totLife, Math.max(0, res.sobra)];
+    chartPie.update();
+
+    let catMap = { 'Reserva': 0, 'Renda Fixa': 0, 'Fundos': 0, 'Variável': 0, 'Imóveis': 0, 'Outros': 0 };
+    estado.ativos.forEach(a => {
+        if(catMap[a.categoria] !== undefined) catMap[a.categoria] += a.valor;
+        else catMap['Outros'] += a.valor;
+    });
+    chartPatrimonio.data.datasets[0].data = [
+        catMap['Reserva'] + catMap['Renda Fixa'],
+        catMap['Variável'] + catMap['Fundos'],
+        catMap['Imóveis'],
+        catMap['Outros']
+    ];
+    chartPatrimonio.update();
+
+    let pvInicial = res.patrimonioLiquido;
+    let aporte = res.aporteEfetivo;
+    let taxaAnual = estado.config.taxaRetornoAnual;
+    let taxaBase = taxaAnual / 12;
+    let taxaCons = (taxaAnual * 0.7) / 12;
+    let taxaOtim = (taxaAnual * 1.3) / 12;
+
+    let projBase = [pvInicial];
+    let projCons = [pvInicial];
+    let projOtim = [pvInicial];
+
+    let currB = pvInicial, currC = pvInicial, currO = pvInicial;
+    for(let m = 1; m <= 60; m++) {
+        currB = (currB + aporte) * (1 + taxaBase);
+        currC = (currC + aporte) * (1 + taxaCons);
+        currO = (currO + aporte) * (1 + taxaOtim);
+        if(m % 12 === 0) {
+            projBase.push(Math.round(currB));
+            projCons.push(Math.round(currC));
+            projOtim.push(Math.round(currO));
+        }
+    }
+    chartLine.data.datasets[0].data = projBase;
+    chartLine.data.datasets[1].data = projCons;
+    chartLine.data.datasets[2].data = projOtim;
+    chartLine.update();
+
+    let dividasValidas = estado.dividas.filter(d => (d.saldo || d.valor) > 0);
+    if(dividasValidas.length > 0) {
+        chartDividas.data.labels = dividasValidas.map(d => d.nome);
+        chartDividas.data.datasets[0].data = dividasValidas.map(d => d.saldo || d.valor);
+        chartDividas.data.datasets[0].backgroundColor = ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6', '#ec4899', '#64748b'];
+    } else {
+        chartDividas.data.labels = ['Sem dívidas'];
+        chartDividas.data.datasets[0].data = [1];
+        chartDividas.data.datasets[0].backgroundColor = ['#10b981'];
+    }
+    chartDividas.update();
+}
+
+function trocarAba(evt, id) {
+    document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    evt.currentTarget.classList.add('active');
+    if(id === 'tab-projecao') { 
+        if(chartPie) chartPie.update(); 
+        if(chartPatrimonio) chartPatrimonio.update(); 
+        if(chartLine) chartLine.update(); 
+        if(chartDividas) chartDividas.update(); 
+    }
+}
+
+function num(v) {
+    if(typeof v === "number") return isNaN(v) ? 0 : Math.max(0, v);
+    if(!v) return 0;
+    let t = String(v).trim().replace(/\s/g,"").replace(/R\$/gi,"").replace(/\./g,"").replace(",",".");
+    let parsed = parseFloat(t);
+    return isNaN(parsed) ? 0 : Math.max(0, parsed);
+}
+
+function din(v) { return "R$ " + Number(v || 0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function fmt(input) { 
+    let val = num(input.value);
+    input.value = val > 0 ? Number(val).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}) : ""; 
+    syncInputsToState(); 
+    calcular(); 
+    persistirEstado();
+}
+
+function marcarInformado(campoId) {
+    if(campoId === 'rendaFixa' || campoId === 'rendaVariavel' || campoId === 'rendaOutras') {
+        estado.rendas.informado = true;
+    }
+}
+
+function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function getEstouroClass(previsto, realizado) {
+    let p = num(previsto);
+    let r = num(realizado);
+    if (r <= 0) return '';
+    if (p <= 0) return 'input-yellow'; 
+    if (r <= p) return 'input-green'; 
+    let ratio = r / p;
+    if (ratio <= 1.2) return 'input-yellow'; 
+    return 'input-red'; 
+}
+
+function atualizarCorCampoRealizado(inputPrevisto, index, tipo) {
+    let row = inputPrevisto.closest('.row-item');
+    if (!row) return;
+    let inputRealizado = row.querySelector('input[placeholder="Realizado"]');
+    if (!inputRealizado) return;
+    let prevVal = num(inputPrevisto.value);
+    let realVal = tipo === 'essencial' ? num(estado.essenciais[index].realizado) : num(estado.lifestyle[index].realizado);
+    inputRealizado.className = getEstouroClass(prevVal, realVal);
+}
+
+function renderSugestoesMetas() {
+    let container = document.getElementById("containerSugestoes");
+    if (!container) return;
+    container.innerHTML = "";
+    metasSugestoesPre.forEach((s) => {
+        container.innerHTML += `<span class="suggestion-chip" onclick="adicionarMetaSugerida('${escapeHtml(s.nome)}', '${escapeHtml(s.desc)}', ${s.meta}, ${s.atual}, ${s.meses})">+ ${escapeHtml(s.nome)}</span>`;
+    });
+}
+
+function adicionarMetaSugerida(nome, desc, meta, atual, meses) {
+    estado.metas.push({ nome, desc, meta, atual, meses });
+    renderListas();
+    calcular();
+    persistirEstado();
+}
+
+function addMetaCustom() {
+    estado.metas.push({ nome: 'Nova Meta', desc: 'Objetivo pessoal', meta: 10000, atual: 0, meses: 12 });
+    renderListas();
+    calcular();
+    persistirEstado();
+}
+
+function renderDividas() {
+    let c3 = document.getElementById("listaDividas");
+    c3.innerHTML = estado.dividas.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhuma dívida cadastrada.</div>' : '';
+    estado.dividas.forEach((d, i) => {
+        let isParcelamentos = (d.nome === 'Parcelamentos');
+        c3.innerHTML += `<div class="row-item" style="grid-template-columns:1.5fr 1fr 1fr 1fr auto;">
+            <input type="text" value="${escapeHtml(d.nome)}" placeholder="Descrição" ${isParcelamentos ? 'readonly style="background:#f8fafc;"' : ''} oninput="estado.dividas[${i}].nome=this.value; persistirEstado()">
+            <input type="text" min="0" value="${d.valor ? fmtNum(d.valor) : ''}" placeholder="Parcela" ${isParcelamentos ? 'readonly style="background:#f8fafc;"' : ''} oninput="estado.dividas[${i}].valor=Math.max(0, num(this.value)); estado.dividas[${i}].informado=true; calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))">
+            <input type="text" min="0" value="${d.saldo ? fmtNum(d.saldo) : ''}" placeholder="Saldo Devedor" ${isParcelamentos ? 'readonly style="background:#f8fafc;"' : ''} oninput="estado.dividas[${i}].saldo=Math.max(0, num(this.value)); estado.dividas[${i}].informado=true; calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))">
+            <input type="number" min="0" step="0.1" value="${d.taxa || ''}" placeholder="Juros % a.m." oninput="estado.dividas[${i}].taxa=Math.max(0, parseFloat(this.value)||0); calcular(); persistirEstado()">
+            <button class="remove-btn" ${isParcelamentos ? 'style="visibility:hidden;"' : ''} onclick="estado.dividas.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+        </div>`;
+    });
+
+    renderPassivos();
+}
+
+function renderPassivos() {
+    let c5 = document.getElementById("listaPassivos");
+    if(!c5) return;
+    c5.innerHTML = estado.dividas.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhum passivo registrado na aba Dívidas.</div>' : '';
+    estado.dividas.forEach((d) => {
+        let saldoVal = d.saldo || 0;
+        c5.innerHTML += `<div class="row-item" style="grid-template-columns:2fr 1fr;">
+            <input type="text" value="${escapeHtml(d.nome || 'Dívida')}" readonly style="background:#f8fafc;">
+            <input type="text" value="${saldoVal ? fmtNum(saldoVal) : '0,00'}" readonly style="background:#f8fafc;">
+        </div>`;
+    });
+}
+
+function renderListas() {
+    let c1 = document.getElementById("listaEssencial");
+    c1.innerHTML = estado.essenciais.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhuma despesa essencial cadastrada.</div>' : '';
+    estado.essenciais.forEach((it, i) => {
+        let clsRealizado = getEstouroClass(it.previsto, it.realizado);
+
+        c1.innerHTML += `<div class="row-item" style="grid-template-columns:1.5fr 1fr 1fr auto;">
+            <input type="text" value="${escapeHtml(it.nome)}" oninput="estado.essenciais[${i}].nome=this.value; persistirEstado()">
+            <input type="text" min="0" value="${it.previsto ? fmtNum(it.previsto) : ''}" placeholder="Previsto" oninput="estado.essenciais[${i}].previsto=Math.max(0, num(this.value)); estado.essenciais[${i}].informado=true; atualizarCorCampoRealizado(this, ${i}, 'essencial'); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value)); renderListas();">
+            <input type="text" min="0" value="${it.realizado ? fmtNum(it.realizado) : ''}" placeholder="Realizado" class="${clsRealizado}" oninput="estado.essenciais[${i}].realizado=Math.max(0, num(this.value)); estado.essenciais[${i}].informado=true; this.className = getEstouroClass(estado.essenciais[${i}].previsto, this.value); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value)); renderListas();">
+            <button class="remove-btn" onclick="estado.essenciais.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+        </div>`;
+    });
+
+    let c2 = document.getElementById("listaLifestyle");
+    c2.innerHTML = estado.lifestyle.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhum gasto cadastrado.</div>' : '';
+    estado.lifestyle.forEach((it, i) => {
+        let clsRealizado = getEstouroClass(it.previsto, it.realizado);
+
+        c2.innerHTML += `<div class="row-item" style="grid-template-columns:1.5fr 1fr 1fr auto;">
+            <input type="text" value="${escapeHtml(it.nome)}" oninput="estado.lifestyle[${i}].nome=this.value; persistirEstado()">
+            <input type="text" min="0" value="${it.previsto ? fmtNum(it.previsto) : ''}" placeholder="Previsto" oninput="estado.lifestyle[${i}].previsto=Math.max(0, num(this.value)); estado.lifestyle[${i}].informado=true; atualizarCorCampoRealizado(this, ${i}, 'lifestyle'); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value)); renderListas();">
+            <input type="text" min="0" value="${it.realizado ? fmtNum(it.realizado) : ''}" placeholder="Realizado" class="${clsRealizado}" oninput="estado.lifestyle[${i}].realizado=Math.max(0, num(this.value)); estado.lifestyle[${i}].informado=true; this.className = getEstouroClass(estado.lifestyle[${i}].previsto, this.value); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value)); renderListas();">
+            <button class="remove-btn" onclick="estado.lifestyle.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+        </div>`;
+    });
+
+    renderDividas();
+
+    let cCartao = document.getElementById("listaCartaoParcelas");
+    cCartao.innerHTML = estado.cartaoParcelas.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhuma compra parcelada no cartão cadastrada.</div>' : '';
+    estado.cartaoParcelas.forEach((cp, i) => {
+        cCartao.innerHTML += `<div class="row-item" style="grid-template-columns:2fr 1fr 1fr auto;">
+            <input type="text" value="${escapeHtml(cp.nome)}" placeholder="Descrição" oninput="estado.cartaoParcelas[${i}].nome=this.value; persistirEstado()">
+            <input type="text" min="0" value="${cp.valor ? fmtNum(cp.valor) : ''}" placeholder="Valor da Parcela" oninput="estado.cartaoParcelas[${i}].valor=Math.max(0, num(this.value)); estado.cartaoParcelas[${i}].informado=true; calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))">
+            <input type="number" min="0" value="${cp.parcelasRestantes !== undefined && cp.parcelasRestantes !== 0 ? cp.parcelasRestantes : ''}" placeholder="Parcelas Restantes" oninput="estado.cartaoParcelas[${i}].parcelasRestantes=Math.max(0, parseInt(this.value)||0); calcular(); persistirEstado()">
+            <button class="remove-btn" onclick="estado.cartaoParcelas.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+        </div>`;
+    });
+
+    let c4 = document.getElementById("listaAtivos");
+    c4.innerHTML = estado.ativos.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhum ativo cadastrado.</div>' : '';
+    estado.ativos.forEach((a, i) => {
+        c4.innerHTML += `<div class="row-item" style="grid-template-columns:1.5fr 1fr 1.2fr 1fr auto;">
+            <input type="text" value="${escapeHtml(a.nome)}" placeholder="Nome" oninput="estado.ativos[${i}].nome=this.value; persistirEstado()">
+            <input type="text" min="0" value="${a.valor ? fmtNum(a.valor) : ''}" placeholder="Valor" oninput="estado.ativos[${i}].valor=Math.max(0, num(this.value)); estado.ativos[${i}].informado=true; calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))">
+            <select onchange="estado.ativos[${i}].liquidez=this.value; calcular(); persistirEstado()">
+                <option value="Imediata" ${a.liquidez==='Imediata'?'selected':''}>Imediata</option>
+                <option value="D+1" ${a.liquidez==='D+1'?'selected':''}>D+1</option>
+                <option value="D+2/D+3" ${a.liquidez==='D+2/D+3'?'selected':''}>D+2/D+3</option>
+                <option value="Baixa/sem liquidez" ${a.liquidez==='Baixa/sem liquidez'?'selected':''}>Baixa/Ilíquido</option>
+            </select>
+            <label style="font-size:10px;display:flex;align-items:center;gap:4px;"><input type="checkbox" ${a.destinadoReserva?'checked':''} onchange="estado.ativos[${i}].destinadoReserva=this.checked; calcular(); persistirEstado()"> Reserva</label>
+            <button class="remove-btn" onclick="estado.ativos.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+        </div>`;
+    });
+
+    let c6 = document.getElementById("listaMetas");
+    c6.innerHTML = estado.metas.length === 0 ? '<div style="font-size:11px;color:var(--text-muted)">Nenhuma meta cadastrada.</div>' : '';
+    
+    estado.metas.forEach((m, i) => {
+        let metaVal = m.meta || 0;
+        let atualVal = m.atual || 0;
+        let mesesVal = m.meses || 1;
+        let faltaVal = Math.max(0, metaVal - atualVal);
+        let perc = metaVal > 0 ? Math.min(100, (atualVal / metaVal) * 100) : 0;
+        
+        c6.innerHTML += `<div class="meta-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+                <div>
+                    <input type="text" value="${escapeHtml(m.nome)}" oninput="estado.metas[${i}].nome=this.value; persistirEstado()" style="font-size:13px;font-weight:700;border:none;border-bottom:1px solid var(--border-color);background:transparent;width:200px;outline:none;">
+                    <input type="text" value="${escapeHtml(m.desc || '')}" placeholder="Descrição..." oninput="estado.metas[${i}].desc=this.value; persistirEstado()" style="font-size:11px;color:var(--text-muted);border:none;background:transparent;width:100%;margin-top:2px;outline:none;">
+                </div>
+                <button class="remove-btn" onclick="estado.metas.splice(${i},1); renderListas(); calcular(); persistirEstado()">×</button>
+            </div>
+
+            <div class="grid-3" style="margin-bottom:6px;">
+                <div class="field"><label>Meta (R$)</label><input type="text" min="0" value="${metaVal ? fmtNum(metaVal) : ''}" oninput="estado.metas[${i}].meta=Math.max(0, num(this.value)); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))"></div>
+                <div class="field"><label>Atual (R$)</label><input type="text" min="0" value="${atualVal ? fmtNum(atualVal) : ''}" oninput="estado.metas[${i}].atual=Math.max(0, num(this.value)); calcular(); persistirEstado()" onblur="this.value=fmtNum(num(this.value))"></div>
+                <div class="field"><label>Meses</label><input type="number" min="1" value="${mesesVal}" oninput="estado.metas[${i}].meses=Math.max(1, parseInt(this.value)||1); calcular(); persistirEstado()"></div>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-primary);margin-bottom:4px;font-weight:600;">
+                <span>Progresso: ${perc.toFixed(0)}%</span>
+                <span style="color:var(--text-muted);">Falta: <strong>${din(faltaVal)}</strong></span>
+            </div>
+        </div>`;
+    });
+}
+
+function fmtNum(v) { return Number(v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function addItem(tipo) {
+    if(tipo==='essencial') estado.essenciais.push({nome:'Nova Despesa', previsto:0, realizado:0, informado:true});
+    else estado.lifestyle.push({nome:'Novo Gasto', previsto:0, realizado:0, informado:true});
+    renderListas(); calcular(); persistirEstado();
+}
+function addDivida() { estado.dividas.push({nome:'Empréstimo', valor:0, saldo:0, taxa:2, informado:true}); renderListas(); calcular(); persistirEstado(); }
+function addCartaoParcela() { estado.cartaoParcelas.push({nome:'Nova compra', valor:0, parcelasRestantes:0, informado:true}); renderListas(); calcular(); persistirEstado(); }
+function addAtivo() { estado.ativos.push({nome:'Novo Ativo', valor:0, categoria:'Renda Fixa', liquidez:'Imediata', destinadoReserva:false, informado:true}); renderListas(); calcular(); persistirEstado(); }
+
+function sincronizarEstadoParaUI() {
+    let mesRefEl = document.getElementById("mesReferencia");
+    if(mesRefEl) mesRefEl.value = estado.mesReferencia || "";
+
+    document.getElementById("rendaFixa").value = estado.rendas.fixa ? fmtNum(estado.rendas.fixa) : "";
+    document.getElementById("rendaVariavel").value = estado.rendas.variavel ? fmtNum(estado.rendas.variavel) : "";
+    document.getElementById("rendaOutras").value = estado.rendas.outras ? fmtNum(estado.rendas.outras) : "";
+    document.getElementById("tipoCartao").value = estado.tipoCartao || "integral";
+
+    document.getElementById("idade").value = estado.perfil.idade !== "" ? estado.perfil.idade : "";
+    document.getElementById("faseVida").value = estado.perfil.faseVida || "";
+    document.getElementById("custoCidade").value = estado.perfil.custoCidade || "";
+    document.getElementById("civil").value = estado.perfil.civil || "";
+    document.getElementById("dependentes").value = estado.perfil.dependentes || 0;
+    document.getElementById("filhos").value = estado.perfil.filhos || 0;
+    document.getElementById("ocupacao").value = estado.perfil.ocupacao || "";
+    document.getElementById("tempoEmprego").value = estado.perfil.tempoEmprego || "";
+    document.getElementById("moradia").value = estado.perfil.moradia || "";
+    document.getElementById("veiculo").value = estado.perfil.veiculo || "";
+    document.getElementById("saude").value = estado.perfil.saude || "";
+    document.getElementById("seguros").value = estado.perfil.seguros || "";
+
+    document.getElementById("pMeta").value = (estado.config.metaPoupanca * 100);
+    document.getElementById("pTaxa").value = (estado.config.taxaRetornoAnual * 100);
+    document.getElementById("pReserva").value = estado.config.mesesReserva;
+    document.getElementById("pPondVar").value = (estado.config.pondVar * 100);
+    document.getElementById("pLimiteJuros").value = estado.config.limiteJurosDivida || 1.5;
+
+    renderListas();
+    renderSugestoesMetas();
+}
+
+function syncInputsToState() {
+    let mesRefEl = document.getElementById("mesReferencia");
+    if(mesRefEl) estado.mesReferencia = mesRefEl.value;
+
+    estado.rendas.fixa = Math.max(0, num(document.getElementById("rendaFixa").value));
+    estado.rendas.variavel = Math.max(0, num(document.getElementById("rendaVariavel").value));
+    estado.rendas.outras = Math.max(0, num(document.getElementById("rendaOutras").value));
+    if(estado.rendas.fixa > 0 || estado.rendas.variavel > 0 || estado.rendas.outras > 0) {
+        estado.rendas.informado = true;
+    }
+    estado.tipoCartao = document.getElementById("tipoCartao").value;
+    
+    let idadeVal = document.getElementById("idade").value;
+    estado.perfil.idade = idadeVal !== "" ? Math.max(0, parseInt(idadeVal) || 0) : "";
+    estado.perfil.faseVida = document.getElementById("faseVida").value;
+    estado.perfil.custoCidade = document.getElementById("custoCidade").value;
+    estado.perfil.civil = document.getElementById("civil").value;
+    estado.perfil.dependentes = Math.max(0, parseInt(document.getElementById("dependentes").value) || 0);
+    estado.perfil.filhos = Math.max(0, parseInt(document.getElementById("filhos").value) || 0);
+    estado.perfil.ocupacao = document.getElementById("ocupacao").value;
+    estado.perfil.tempoEmprego = document.getElementById("tempoEmprego").value;
+    estado.perfil.moradia = document.getElementById("moradia").value;
+    estado.perfil.veiculo = document.getElementById("veiculo").value;
+    estado.perfil.saude = document.getElementById("saude").value;
+    estado.perfil.seguros = document.getElementById("seguros").value;
+
+    estado.config.metaPoupanca = Math.max(0, (parseFloat(document.getElementById("pMeta").value) || 20) / 100);
+    estado.config.taxaRetornoAnual = Math.max(0, (parseFloat(document.getElementById("pTaxa").value) || 6) / 100);
+    estado.config.mesesReserva = Math.max(1, parseInt(document.getElementById("pReserva").value) || 6);
+    estado.config.pondVar = Math.max(0, Math.min(1, (parseFloat(document.getElementById("pPondVar").value) || 70) / 100));
+    estado.config.limiteJurosDivida = Math.max(0, parseFloat(document.getElementById("pLimiteJuros").value) || 1.5);
+}
+
+function calcularDiagnostico(est) {
+    let temRendaInformada = est.rendas.informado || (est.rendas.fixa > 0 || est.rendas.variavel > 0 || est.rendas.outras > 0);
+
+    let totEss = 0; let essInformado = false;
+    est.essenciais.forEach(e => { 
+        let val = e.realizado > 0 ? e.realizado : e.previsto;
+        totEss += val; 
+        if(e.informado || e.previsto > 0 || e.realizado > 0) essInformado = true; 
+    });
+    
+    let totLife = 0; let lifeInformado = false;
+    est.lifestyle.forEach(l => { 
+        let val = l.realizado > 0 ? l.realizado : l.previsto;
+        totLife += val; 
+        if(l.informado || l.previsto > 0 || l.realizado > 0) lifeInformado = true; 
+    });
+    
+    let totDivParc = 0; let divInformado = false;
+    est.dividas.forEach(d => { totDivParc += d.valor; if(d.informado || d.valor > 0 || d.saldo > 0) divInformado = true; });
+    
+    let totCartaoParcelas = 0; let cartaoParcelasInformado = false;
+    est.cartaoParcelas.forEach(cp => { totCartaoParcelas += cp.valor; if(cp.informado || cp.valor > 0 || cp.parcelasRestantes > 0) cartaoParcelasInformado = true; });
+
+    let fatura = 0;
+    let totalDespesas = totEss + totLife + totDivParc + fatura;
+
+    let temDadosMinimos = temRendaInformada || essInformado || divInformado || cartaoParcelasInformado || est.ativos.some(a => a.valor > 0 || a.informado);
+
+    let rBase = est.rendas.fixa + est.rendas.outras;
+    let rvTotal = est.rendas.variavel;
+    let rvConsumida = Math.min(rvTotal, Math.max(0, totalDespesas - rBase));
+    let rvEstrutural = Math.max(0, rvTotal - rvConsumida);
+    let rendaRef = rBase + (rvConsumida * 1.0) + (rvEstrutural * est.config.pondVar);
+
+    let sobraCalculada = temRendaInformada ? (rendaRef - totalDespesas) : 0;
+    let taxaPoupCalculada = temRendaInformada && rendaRef > 0 ? (sobraCalculada / rendaRef) * 100 : 0;
+    
+    let totalCompromissosFinanceiros = totDivParc + fatura + totCartaoParcelas;
+    let compromisso = temRendaInformada && rendaRef > 0 ? (totalCompromissosFinanceiros / rendaRef) * 100 : 0;
+
+    let aporteEfetivo = est.aporteMensal > 0 ? est.aporteMensal : Math.max(0, sobraCalculada);
+
+    let mesesRec = est.config.mesesReserva;
+    if(est.perfil.ocupacao === 'autonomo' || est.perfil.ocupacao === 'empresario' || est.perfil.ocupacao === 'liberal') mesesRec += 3;
+    else if(est.perfil.ocupacao === 'clt_instavel') mesesRec += 2;
+    if(est.perfil.tempoEmprego === 'menos6m' || est.perfil.tempoEmprego === '6m1ano') mesesRec += 1;
+    if(est.perfil.custoCidade === 'alto' || est.perfil.custoCidade === 'capital') mesesRec += 1;
+    mesesRec += (est.perfil.dependentes * 0.5) + (est.perfil.filhos * 0.5);
+    if(est.perfil.moradia === 'alugada') mesesRec += 1;
+    if(est.perfil.veiculo === 'financiado') mesesRec += 0.5;
+    if(est.perfil.saude === 'nao') mesesRec += 1;
+    if(est.perfil.seguros === 'nao') mesesRec += 0.5;
+
+    let reservaRecomendadaVal = totEss > 0 ? (totEss * mesesRec) : 0;
+    
+    let reservaAtualVal = 0;
+    let ativosLiquidosVal = 0;
+    let totAtivos = 0;
+    let ativoInformado = false;
+    est.ativos.forEach(a => {
+        totAtivos += a.valor;
+        if(a.valor > 0 || a.informado) ativoInformado = true;
+        if(a.liquidez === 'Imediata' || a.liquidez === 'D+1') ativosLiquidosVal += a.valor;
+        if(a.destinadoReserva && (a.liquidez === 'Imediata' || a.liquidez === 'D+1' || a.liquidez === 'D+2/D+3')) {
+            reservaAtualVal += a.valor;
+        }
+    });
+
+    let coberturaMesesReserva = totEss > 0 ? (reservaAtualVal / totEss) : 0;
+    let mesesSustentadosLiquidos = totEss > 0 ? (ativosLiquidosVal / totEss) : 0;
+
+    let totPassivosAdicionais = 0; est.passivos.forEach(p => totPassivosAdicionais += p.valor);
+    let totSaldosDividas = 0; est.dividas.forEach(d => totSaldosDividas += (d.saldo || 0));
+    let totPassivosGerais = totPassivosAdicionais + totSaldosDividas;
+    let patrimonioLiquido = totAtivos - totPassivosGerais;
+    let temPatrimonioCadastrado = ativoInformado || (totAtivos > 0 || totPassivosGerais > 0);
+
+    let limiteJuros = est.config.limiteJurosDivida || 1.5;
+    let dividasCaras = est.dividas.filter(d => (d.taxa > limiteJuros || d.saldo > 0) && d.taxa > 0);
+    let temDividasCaras = dividasCaras.length > 0 || est.tipoCartao === 'rotativo';
+
+    let valorTotalMetas = 0;
+    let acumuladoTotalMetas = 0;
+    let aporteNecTotal = 0;
+    let taxaMensal = est.config.taxaRetornoAnual / 12;
+
+    est.metas.forEach(m => {
+        let mVal = m.meta || 0;
+        let aVal = m.atual || 0;
+        let pMeses = m.meses || 1;
+        let falta = Math.max(0, mVal - aVal);
+        valorTotalMetas += mVal;
+        acumuladoTotalMetas += aVal;
+
+        let aporteNecMeta = 0;
+        if (pMeses <= 0) {
+            aporteNecMeta = falta;
+        } else if (taxaMensal === 0) {
+            aporteNecMeta = falta / pMeses;
+        } else {
+            aporteNecMeta = (falta * taxaMensal) / (Math.pow(1 + taxaMensal, pMeses) - 1);
+        }
+        aporteNecTotal += aporteNecMeta;
+    });
+
+    let indicadores = [];
+    let avaliadosCount = 0;
+    let pontosObtidos = 0;
+    let maxPontosPossiveis = 0;
+
+    if(temRendaInformada && essInformado) {
+        let pts = sobraCalculada >= 0 ? (taxaPoupCalculada >= 15 ? 15 : 10) : 0;
+        indicadores.push({nome: "Fluxo", peso: "15 pts", pts: pts, max: 15, status: sobraCalculada >= 0 ? 'Saudável' : 'Crítico', desc: sobraCalculada >= 0 ? "Balanço positivo." : "Déficit mensal."});
+        pontosObtidos += pts; maxPontosPossiveis += 15; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Fluxo", peso: "15 pts", pts: null, max: 15, status: 'Não avaliado', desc: "Requer renda e despesas."});
+    }
+
+    if(temRendaInformada && (essInformado || lifeInformado)) {
+        let pts = taxaPoupCalculada >= (est.config.metaPoupanca*100) ? 10 : (taxaPoupCalculada > 0 ? 5 : 0);
+        indicadores.push({nome: "Poupança", peso: "10 pts", pts: pts, max: 10, status: taxaPoupCalculada >= (est.config.metaPoupanca*100) ? 'Saudável' : 'Atenção', desc: `Poupança de ${taxaPoupCalculada.toFixed(1)}%.`});
+        pontosObtidos += pts; maxPontosPossiveis += 10; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Poupança", peso: "10 pts", pts: null, max: 10, status: 'Não avaliado', desc: "Requer dados de fluxo."});
+    }
+
+    if(temRendaInformada) {
+        let pts = compromisso <= 15 ? 15 : (compromisso <= 30 ? 8 : 0);
+        indicadores.push({nome: "Comprometimento", peso: "15 pts", pts: pts, max: 15, status: compromisso <= 30 ? 'Saudável' : 'Crítico', desc: `Comprometimento de ${compromisso.toFixed(1)}%.`});
+        pontosObtidos += pts; maxPontosPossiveis += 15; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Comprometimento", peso: "15 pts", pts: null, max: 15, status: 'Não avaliado', desc: "Requer renda."});
+    }
+
+    if(essInformado && totEss > 0 && ativoInformado) {
+        let pts = coberturaMesesReserva >= mesesRec ? 15 : (coberturaMesesReserva >= (mesesRec/2) ? 8 : 0);
+        indicadores.push({nome: "Reserva", peso: "15 pts", pts: pts, max: 15, status: coberturaMesesReserva >= mesesRec ? 'Saudável' : 'Atenção', desc: `Cobertura de ${coberturaMesesReserva.toFixed(1)} meses.`});
+        pontosObtidos += pts; maxPontosPossiveis += 15; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Reserva", peso: "15 pts", pts: null, max: 15, status: 'Não avaliado', desc: "Requer despesas e ativos."});
+    }
+
+    if(divInformado || cartaoParcelasInformado || est.dividas.length > 0) {
+        let pts = !temDividasCaras ? 10 : 0;
+        indicadores.push({nome: "Dívidas", peso: "10 pts", pts: pts, max: 10, status: !temDividasCaras ? 'Saudável' : 'Atenção', desc: temDividasCaras ? "Dívidas onerosas identificadas." : "Sem dívidas caras."});
+        pontosObtidos += pts; maxPontosPossiveis += 10; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Dívidas", peso: "10 pts", pts: null, max: 10, status: 'Não avaliado', desc: "Sem detalhes de dívidas."});
+    }
+
+    if(temPatrimonioCadastrado) {
+        let pts = patrimonioLiquido > 0 ? 10 : 0;
+        indicadores.push({nome: "Patrimônio", peso: "10 pts", pts: pts, max: 10, status: patrimonioLiquido > 0 ? 'Saudável' : 'Atenção', desc: `Líquido de ${din(patrimonioLiquido)}.`});
+        pontosObtidos += pts; maxPontosPossiveis += 10; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Patrimônio", peso: "10 pts", pts: null, max: 10, status: 'Não avaliado', desc: "Sem dados patrimoniais."});
+    }
+
+    if(temPatrimonioCadastrado && totEss > 0) {
+        let pts = mesesSustentadosLiquidos >= 3 ? 10 : (mesesSustentadosLiquidos >= 1 ? 5 : 0);
+        indicadores.push({nome: "Liquidez", peso: "10 pts", pts: pts, max: 10, status: mesesSustentadosLiquidos >= 3 ? 'Saudável' : 'Atenção', desc: `Sustenta ${mesesSustentadosLiquidos.toFixed(1)} meses.`});
+        pontosObtidos += pts; maxPontosPossiveis += 10; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Liquidez", peso: "10 pts", pts: null, max: 10, status: 'Não avaliado', desc: "Sem dados de liquidez."});
+    }
+
+    if(est.metas.some(m => m.meta > 0)) {
+        let pts = (sobraCalculada > 0) ? 5 : 2;
+        indicadores.push({nome: "Metas", peso: "5 pts", pts: pts, max: 5, status: 'Saudável', desc: "Objetivos cadastrados."});
+        pontosObtidos += pts; maxPontosPossiveis += 5; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Metas", peso: "5 pts", pts: null, max: 5, status: 'Não avaliado', desc: "Sem metas cadastradas."});
+    }
+
+    if(est.perfil.saude && est.perfil.seguros) {
+        let pts = (est.perfil.saude === 'sim' && est.perfil.seguros === 'sim') ? 5 : 2;
+        indicadores.push({nome: "Proteção", peso: "5 pts", pts: pts, max: 5, status: pts >= 5 ? 'Saudável' : 'Atenção', desc: "Saúde e seguros."});
+        pontosObtidos += pts; maxPontosPossiveis += 5; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Proteção", peso: "5 pts", pts: null, max: 5, status: 'Não avaliado', desc: "Perfil incompleto."});
+    }
+
+    if(est.perfil.ocupacao) {
+        let estProf = (est.perfil.ocupacao === 'clt_estavel' || est.perfil.ocupacao === 'servidor' || est.perfil.ocupacao === 'aposentado');
+        let pts = estProf ? 5 : 2;
+        indicadores.push({nome: "Estabilidade", peso: "5 pts", pts: pts, max: 5, status: estProf ? 'Saudável' : 'Atenção', desc: "Ocupação profissional."});
+        pontosObtidos += pts; maxPontosPossiveis += 5; avaliadosCount++;
+    } else {
+        indicadores.push({nome: "Estabilidade", peso: "5 pts", pts: null, max: 5, status: 'Não avaliado', desc: "Ocupação não informada."});
+    }
+
+    let coberturaDados = (avaliadosCount / 10) * 100;
+    let scoreFinal = maxPontosPossiveis > 0 ? Math.round((pontosObtidos / maxPontosPossiveis) * 100) : 0;
+    
+    let nivelConfianca = "Baixa";
+    if(coberturaDados >= 80) nivelConfianca = "Alta";
+    else if(coberturaDados >= 50) nivelConfianca = "Média";
+
+    let classificacao = "Inconclusivo";
+    let badgeClass = "status-gray";
+    if (coberturaDados < 50 || !temDadosMinimos) {
+        classificacao = "Inconclusivo";
+        badgeClass = "status-gray";
+    } else if (scoreFinal >= 85) {
+        classificacao = "Excelente";
+        badgeClass = "status-green";
+    } else if (scoreFinal >= 70) {
+        classificacao = "Saudável";
+        badgeClass = "status-green";
+    } else if (scoreFinal >= 50) {
+        classificacao = "Vulnerável";
+        badgeClass = "status-orange";
+    } else {
+        classificacao = "Crítico";
+        badgeClass = "status-red";
+    }
+
+    let recomendacoes = [];
+    if (sobraCalculada < 0) {
+        recomendacoes.push({ prioridade: 1, nivel: "Muito alta", texto: "Fluxo mensal negativo: reduza despesas de estilo de vida imediatamente para estancar o déficit." });
+    }
+    if (temDividasCaras) {
+        recomendacoes.push({ prioridade: 2, nivel: "Muito alta", texto: "Identificadas dívidas de alto custo ou rotativo de cartão: priorize a amortização ou renegociação destas obrigações." });
+    }
+    if (essInformado && coberturaMesesReserva < mesesRec) {
+        recomendacoes.push({ prioridade: 3, nivel: "Alta", texto: `Reserva de emergência abaixo da recomendação (${coberturaMesesReserva.toFixed(1)} / ${mesesRec.toFixed(1)} meses). Direcione aportes para blindar imprevistos.` });
+    }
+    if (coberturaDados < 70) {
+        recomendacoes.push({ prioridade: 4, nivel: "Média", texto: "Cobertura de dados baixa: preencha as informações faltantes para elevar a confiabilidade do diagnóstico." });
+    }
+    if (est.metas.length === 0 || est.metas.every(m => m.meta === 0)) {
+        recomendacoes.push({ prioridade: 5, nivel: "Média", texto: "Cadastre metas financeiras de médio e longo prazo para direcionar seus aportes com clareza." });
+    }
+    if (est.perfil.seguros === 'nao' || est.perfil.saude === 'nao') {
+        recomendacoes.push({ prioridade: 6, nivel: "Baixa", texto: "Avalie a contratação de proteção (saúde e seguros) para mitigar riscos de eventos imprevistos." });
+    }
+
+    return {
+        temDadosMinimos,
+        rendaRef,
+        totEss,
+        totLife,
+        sobra: sobraCalculada,
+        taxaPoup: taxaPoupCalculada,
+        compromisso,
+        totAtivos,
+        totPassivos: totPassivosGerais,
+        patrimonioLiquido,
+        ativosLiquidos: ativosLiquidosVal,
+        mesesSustentados: mesesSustentadosLiquidos,
+        reservaAtual: reservaAtualVal,
+        reservaRecomendada: reservaRecomendadaVal,
+        mesesReservaRec: mesesRec,
+        coberturaReserva: coberturaMesesReserva,
+        aporteEfetivo,
+        valorTotalMetas,
+        acumuladoTotalMetas,
+        aporteNecTotal,
+        avaliadosCount,
+        coberturaDados,
+        scoreFinal,
+        nivelConfianca,
+        classificacao,
+        badgeClass,
+        indicadores,
+        recomendacoes
+    };
+}
+
+function calcular() {
+    syncInputsToState();
+
+    let parcDivida = estado.dividas.find(d => d.nome === 'Parcelamentos');
+    if (parcDivida) {
+        let totParcela = 0;
+        let totSaldo = 0;
+        estado.cartaoParcelas.forEach(cp => {
+            let val = cp.valor || 0;
+            let rest = cp.parcelasRestantes || 0;
+            totParcela += val;
+            totSaldo += (val * rest);
+        });
+        if (parcDivida.valor !== totParcela || parcDivida.saldo !== totSaldo) {
+            parcDivida.valor = totParcela;
+            parcDivida.saldo = totSaldo;
+            parcDivida.informado = (totParcela > 0 || totSaldo > 0);
+            renderDividas();
+        }
+    }
+
+    renderPassivos();
+
+    const res = calcularDiagnostico(estado);
+
+    document.getElementById("rendaTotal").value = res.temDadosMinimos ? din(res.rendaRef) : "Não informado";
+
+    document.getElementById("mEssencial").innerText = res.totEss > 0 ? din(res.totEss) : "Não informado";
+    document.getElementById("mLifestyle").innerText = res.totLife > 0 ? din(res.totLife) : "Não informado";
+    document.getElementById("mSobra").innerText = res.temDadosMinimos ? din(res.sobra) : "Não informado";
+    document.getElementById("mSobra").style.color = res.sobra < 0 ? "var(--danger)" : "var(--text-primary)";
+    document.getElementById("mTaxaPoup").innerText = res.temDadosMinimos ? res.taxaPoup.toFixed(1) + "%" : "Não informado";
+    document.getElementById("mCompromisso").innerText = res.temDadosMinimos ? res.compromisso.toFixed(1) + "%" : "Não informado";
+
+    document.getElementById("reservaMesesRec").value = res.totEss > 0 ? res.mesesReservaRec.toFixed(1) + " meses" : "Aguardando";
+    document.getElementById("reservaValorRec").value = res.totEss > 0 ? din(res.reservaRecomendada) : "Aguardando";
+    document.getElementById("reservaCoberturaAtual").value = res.totEss > 0 ? res.coberturaReserva.toFixed(1) + " meses" : "Aguardando";
+
+    document.getElementById("valPatrimonioBruto").innerText = din(res.totAtivos);
+    document.getElementById("valTotPassivos").innerText = din(res.totPassivos);
+    document.getElementById("valPatrimonioLiq").innerText = din(res.patrimonioLiquido);
+    document.getElementById("valAtivosLiquidos").innerText = din(res.ativosLiquidos);
+    document.getElementById("valMesesLiquidos").innerText = res.totEss > 0 ? res.mesesSustentados.toFixed(1) + " meses" : "Não avaliado";
+
+    document.getElementById("painelTotMetas").innerText = estado.metas.length;
+    document.getElementById("painelValorMetas").innerText = din(res.valorTotalMetas);
+    document.getElementById("painelAcumuladoTotal").innerText = din(res.acumuladoTotalMetas);
+    document.getElementById("painelAporteNec").innerText = din(res.aporteNecTotal) + "/mês";
+    let proxObj = estado.metas.find(m => (m.meta - m.atual) > 0);
+    document.getElementById("painelProximoObj").innerText = proxObj ? proxObj.nome : "Nenhum";
+
+    document.getElementById("diagFluxo").className = res.temDadosMinimos ? (res.sobra >= 0 ? "mini-diag success active" : "mini-diag active") : "mini-diag info active";
+    document.getElementById("diagFluxo").innerHTML = res.sobra >= 0 ? "Fluxo operacional positivo." : "Atenção: Fluxo em déficit mensal.";
+
+    let perfilPreenchido = estado.perfil.faseVida && estado.perfil.ocupacao;
+    document.getElementById("diagPerfil").className = perfilPreenchido ? "mini-diag success active" : "mini-diag info active";
+    document.getElementById("diagPerfil").innerHTML = perfilPreenchido ? "Perfil configurado com sucesso." : "Preencha as informações do perfil para calibrar a reserva.";
+
+    let temDiv = estado.dividas.length > 0;
+    document.getElementById("diagDividas").className = temDiv ? "mini-diag warning active" : "mini-diag success active";
+    document.getElementById("diagDividas").innerHTML = temDiv ? "Dívidas e obrigações mapeadas." : "Nenhuma dívida onerosa informada.";
+
+    document.getElementById("diagPatrimonio").className = "mini-diag info active";
+    document.getElementById("diagPatrimonio").innerHTML = "Patrimônio e liquidez estruturados.";
+
+    document.getElementById("scoreVal").innerText = res.temDadosMinimos ? res.scoreFinal + " / 100" : "Não avaliado";
+    document.getElementById("scoreVal").style.color = res.temDadosMinimos ? "var(--brand-blue)" : "var(--text-muted)";
+    document.getElementById("scoreClassificacao").innerHTML = `<span class="status-badge ${res.badgeClass}">Score ${res.scoreFinal} (${res.classificacao})</span>`;
+    document.getElementById("scoreMetadata").innerText = `Indicadores: ${res.avaliadosCount}/10 | Cobertura: ${res.coberturaDados.toFixed(0)}% | Confiança: ${res.nivelConfianca}`;
+
+    let tbody = document.getElementById("tabelaIndicadoresBody");
+    tbody.innerHTML = "";
+    res.indicadores.forEach(ind => {
+        let badgeHtml = '<span class="status-badge status-gray">Não avaliado</span>';
+        if(ind.status === 'Saudável') badgeHtml = '<span class="status-badge status-green">Saudável</span>';
+        else if(ind.status === 'Atenção') badgeHtml = '<span class="status-badge status-orange">Atenção</span>';
+        else if(ind.status === 'Crítico') badgeHtml = '<span class="status-badge status-red">Crítico</span>';
+
+        tbody.innerHTML += `<tr>
+            <td><strong>${escapeHtml(ind.nome)}</strong><br><span style="font-size:10px;color:var(--text-muted);">${escapeHtml(ind.desc)}</span></td>
+            <td>${escapeHtml(ind.peso)}</td>
+            <td>${badgeHtml}</td>
+            <td>${ind.pts !== null ? ind.pts + ' pts' : '—'}</td>
+        </tr>`;
+    });
+
+    let pontosFortes = res.indicadores.filter(ind => ind.status === 'Saudável');
+    let pontosFracos = res.indicadores.filter(ind => ind.status === 'Atenção' || ind.status === 'Crítico');
+
+    let visaoGeralTexto = "";
+    if (!res.temDadosMinimos) {
+        visaoGeralTexto = "Ainda não há dados suficientes para uma conclusão consolidada. Preencha as informações de renda, despesas e patrimônio para gerar a leitura interpretativa do cenário financeiro.";
+    } else {
+        let partes = [];
+        if (res.sobra >= 0) {
+            partes.push(`O cenário atual demonstra estabilidade e equilíbrio entre renda e despesas, gerando uma capacidade de poupança de ${res.taxaPoup.toFixed(1)}% ao mês.`);
+        } else {
+            partes.push(`A situação financeira exige atenção devido a um fluxo desequilibrado, com despesas superiores à renda e presença de déficit mensal.`);
+        }
+
+        if (res.totEss > 0) {
+            if (res.coberturaReserva >= res.mesesReservaRec) {
+                partes.push(`A reserva financeira encontra-se em patamar adequado, cobrindo ${res.coberturaReserva.toFixed(1)} meses de despesas essenciais.`);
+            } else {
+                partes.push(`A reserva financeira necessita de ajustes, apresentando cobertura atual de ${res.coberturaReserva.toFixed(1)} meses frente à recomendação de ${res.mesesReservaRec.toFixed(1)} meses.`);
+            }
+        }
+
+        let temDiv = estado.dividas.length > 0;
+        if (temDiv) {
+            let temDivergenciaOuCara = estado.dividas.some(d => d.taxa > (estado.config.limiteJurosDivida || 1.5)) || estado.tipoCartao === 'rotativo';
+            if (temDivergenciaOuCara) {
+                partes.push(`O nível de endividamento requer atenção especial, com a presença de obrigações onerosas que exercem pressão sobre o orçamento.`);
+            } else {
+                partes.push(`As obrigações financeiras encontram-se sob controle, sem o peso de dívidas de alto custo.`);
+            }
+        } else {
+            partes.push(`Não há registro de dívidas onerosas, o que favorece a flexibilidade do orçamento.`);
+        }
+
+        if (res.patrimonioLiquido !== 0 || res.totAtivos > 0) {
+            let statusPat = res.patrimonioLiquido >= 0 ? "evolução positiva do patrimônio líquido" : "patrimônio líquido negativo";
+            partes.push(`O panorama é complementado por uma ${statusPat} de ${din(res.patrimonioLiquido)}, indicando a trajetória de consolidação de ativos.`);
+        }
+
+        let leituraGeral = "";
+        if (res.classificacao === "Excelente" || res.classificacao === "Saudável") {
+            leituraGeral = "No geral, a situação demonstra consistência e boa saúde financeira, permitindo seguir com o planejamento de metas e investimentos.";
+        } else if (res.classificacao === "Vulnerável") {
+            leituraGeral = "O cenário aponta para vulnerabilidade, sendo recomendada a adoção de ajustes preventivos para blindar o orçamento contra imprevistos.";
+        } else {
+            leituraGeral = "O momento exige prioridade absoluta na correção de desequilíbrios para evitar o agravamento da situação financeira.";
+        }
+
+        visaoGeralTexto = partes.join(" ") + " " + leituraGeral;
+    }
+
+    let resumoHtml = `<strong>Visão Geral:</strong> ${visaoGeralTexto}`;
+    
+    resumoHtml += `<br><br><strong>Pontos Fortes:</strong>`;
+    if(pontosFortes.length > 0) {
+        resumoHtml += `<ul style="margin-left:16px; margin-top:4px;">` + pontosFortes.map(p => `<li><strong>${escapeHtml(p.nome)}:</strong> ${escapeHtml(p.desc)}</li>`).join('') + `</ul>`;
+    } else {
+        resumoHtml += ` Nenhuma área avaliada como saudável até o momento.`;
+    }
+
+    resumoHtml += `<br><strong>Pontos Fracos / Pontos de Atenção:</strong>`;
+    if(pontosFracos.length > 0) {
+        resumoHtml += `<ul style="margin-left:16px; margin-top:4px;">` + pontosFracos.map(p => `<li><strong>${escapeHtml(p.nome)}:</strong> ${escapeHtml(p.desc)}</li>`).join('') + `</ul>`;
+    } else {
+        resumoHtml += ` Nenhum ponto crítico identificado até o momento.`;
+    }
+
+    document.getElementById("resumoExecutivoContent").innerHTML = resumoHtml;
+
+    let recHtml = "";
+    if (res.recomendacoes.length === 0) {
+        recHtml = "Nenhuma recomendação prioritária no momento. O cenário está estruturado.";
+    } else {
+        res.recomendacoes.sort((a,b) => a.prioridade - b.prioridade);
+        recHtml = `<ol style="margin-left:16px; line-height:1.5;">` + res.recomendacoes.map(r => `<li style="margin-bottom:6px;"><strong>[Prioridade ${escapeHtml(r.nivel)}]</strong> ${escapeHtml(r.texto)}</li>`).join('') + `</ol>`;
+    }
+    document.getElementById("diagnosticoTextual").innerHTML = recHtml;
+
+    // Atualiza dinamicamente as instâncias do Chart.js com os valores calculados
+    atualizarGraficos(res);
+}
+
+function exportarPDF() {
+    calcular();
+    document.getElementById("pdfDataGeracao").innerText = new Date().toLocaleDateString("pt-BR");
+    
+    const res = calcularDiagnostico(estado);
+    document.getElementById("pdfScoreText").innerText = res.temDadosMinimos ? `Score: ${res.scoreFinal} / 100 (${res.classificacao})` : "Não avaliado";
+    document.getElementById("pdfScoreMeta").innerText = `Indicadores avaliados: ${res.avaliadosCount}/10 | Cobertura: ${res.coberturaDados.toFixed(0)}% | Confiança: ${res.nivelConfianca}`;
+    
+    document.getElementById("pdfResumoContent").innerHTML = document.getElementById("resumoExecutivoContent").innerHTML;
+    
+    let patHtml = `<strong>Patrimônio Bruto:</strong> ${din(res.totAtivos)}<br>`;
+    patHtml += `<strong>Passivos Totais:</strong> ${din(res.totPassivos)}<br>`;
+    patHtml += `<strong>Patrimônio Líquido:</strong> ${din(res.patrimonioLiquido)}<br>`;
+    patHtml += `<strong>Ativos Líquidos:</strong> ${din(res.ativosLiquidos)} (${res.mesesSustentados.toFixed(1)} meses sustentados)`;
+    document.getElementById("pdfPatrimonioContent").innerHTML = patHtml;
+
+    let metasHtml = `<strong>Total de Metas:</strong> ${estado.metas.length}<br>`;
+    metasHtml += `<strong>Valor Objetivo Total:</strong> ${din(res.valorTotalMetas)}<br>`;
+    metasHtml += `<strong>Acumulado Atual:</strong> ${din(res.acumuladoTotalMetas)}<br>`;
+    metasHtml += `<strong>Aporte Mensal Necessário:</strong> ${din(res.aporteNecTotal)}/mês`;
+    document.getElementById("pdfMetasContent").innerHTML = metasHtml;
+
+    document.getElementById("pdfRecomendacoesContent").innerHTML = document.getElementById("diagnosticoTextual").innerHTML;
+
+    let pdfTbody = document.getElementById("pdfTabelaIndicadoresBody");
+    pdfTbody.innerHTML = "";
+    res.indicadores.forEach(ind => {
+        pdfTbody.innerHTML += `<tr>
+            <td style="border:1px solid #e2e8f0; padding:6px;">${escapeHtml(ind.nome)}</td>
+            <td style="border:1px solid #e2e8f0; padding:6px;">${escapeHtml(ind.peso)}</td>
+            <td style="border:1px solid #e2e8f0; padding:6px;">${escapeHtml(ind.status)} (${ind.pts !== null ? ind.pts + ' pts' : '—'})</td>
+        </tr>`;
+    });
+
+    const elementoPDF = document.getElementById("pdfRelatorioExecutivo");
+    elementoPDF.style.display = "block";
+
+    const opt = {
+        margin:       10,
+        filename:     'relatorio_diagnostico_financeiro.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(elementoPDF).set(opt).save().then(() => {
+        elementoPDF.style.display = "none";
+    }).catch(err => {
+        console.error(err);
+        elementoPDF.style.display = "none";
+        alert("Erro ao gerar o PDF.");
+    });
+}
+
+window.onload = function() {
+    sincronizarEstadoParaUI();
+    inicializarGraficos();
+    calcular();
+};
+</script>
+</body>
+</html>
+
+
     </section>
 
-    <!-- ↑↑↑ COLAR O CÓDIGO AQUI ↑↑↑ -->
+
 
   </main>
 
 
-  <!-- ===================== RODAPÉ ===================== -->
+
+
   <footer class="rl-footer">
     <div class="rl-footer-inner">
 
