@@ -40,7 +40,10 @@ body {
     padding: 72px var(--gutter) 0;
 }
 
-:empty:not(svg):not(span):not(a):not(img) { display: none; }
+/* Esconde só os textos vazios (corrigido: não afeta mais os SVGs) */
+.label:empty,
+.sub-head:empty,
+.signature:empty { display: none; }
 
 .label {
     display: block;
