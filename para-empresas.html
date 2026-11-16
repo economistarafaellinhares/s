@@ -65,6 +65,14 @@
   .como-participar-box .box-passo .destaque { display: inline; color: var(--green); font-weight: 700; margin: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
 
+  /* CONDUZIDO POR (formação) */
+  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .como-participar-box .box-conduz .conduz-label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 600; color: var(--green); }
+  .como-participar-box .box-conduz .conduz-nome { display: block; margin-bottom: 14px; font-size: 18px; font-weight: 800; color: var(--white); }
+  .conduz-lista { list-style: none; }
+  .conduz-lista li { position: relative; padding: 4px 0 4px 18px; font-size: 15px; line-height: 1.5; color: var(--text-light); }
+  .conduz-lista li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
   .site { margin-top: 56px; font-size: 22px; font-weight: 800; color: var(--green); }
   .disclaimer { margin-top: 20px; font-size: 14px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
 
@@ -106,6 +114,7 @@
     .item-title { font-size: 18px; }
     .item-desc { font-size: 15px; }
     .como-participar-box { margin-top: 56px; padding: 28px 22px; }
+    .conduz-lista li { font-size: 14px; }
     .site { margin-top: 44px; }
     .empresa-intro { padding: 52px 0 40px; }
     .empresa-intro h1.page-title { font-size: 28px; }
@@ -185,7 +194,6 @@
   <div class="brand-bar">
     <div class="wrap brand">
       <img src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/1756917922612-uvo8MUehuEk0x0lw.jpg" alt="Logo Rafael Linhares" crossorigin="anonymous">
-      <span>CORECON/SP 38.615</span>
     </div>
   </div>
 
@@ -193,7 +201,6 @@
 
     <section>
       <h1>Portal com recursos gratuitos</h1>
-      <p class="intro">O economista Rafael Linhares disponibiliza:</p>
     </section>
 
     <section class="bloco">
@@ -201,7 +208,7 @@
         <li>
           <div>
             <span class="item-title">Finanças pessoais</span>
-            <span class="item-desc">Módulos para planejamento e diagnóstico financeiro, definição do custo de vida e perfil pessoal.</span>
+            <span class="item-desc">Módulos para planejamento financeiro, definição do custo de vida e perfil pessoal.</span>
           </div>
         </li>
         <li>
@@ -220,7 +227,7 @@
     </section>
 
     <section class="como-participar-box">
-      <h2>Disponibiliza adicionalmente:</h2>
+      <h2>Disponibilizado adicionalmente:</h2>
       <ul class="checklist box-sessao">
         <li>
           <div>
@@ -230,11 +237,23 @@
         </li>
       </ul>
       <p>No encontro, aprenda a utilizar os módulos financeiros, conheça a metodologia de melhoria e converse sobre decisões e comportamento.</p>
-      <p class="box-passo"><strong>Como participar?</strong> Acesse o perfil do economista no LinkedIn e confira na seção "Em destaque" o portal com todos os recursos e agendamento.</p>
+
+      <div class="box-conduz">
+        <span class="conduz-label">Conduzido por</span>
+        <span class="conduz-nome">Rafael Linhares</span>
+        <ul class="conduz-lista">
+          <li>Bacharel em Ciências Econômicas – PUC Minas</li>
+          <li>Pós-Graduação em Gestão da Qualidade, Controle e Auditoria – PUC Minas</li>
+          <li>Programa de Especialização em Economia Gerencial e Análise de Negócios – University of Illinois/Coursera</li>
+          <li>Certificação Lean Six Sigma Green Belt – FM2S</li>
+        </ul>
+      </div>
+
+      <p class="box-passo"><strong>Como participar?</strong> Acesse o perfil de Rafael Linhares no LinkedIn e confira na seção "Em destaque" o portal com todos os recursos e agendamento.</p>
     </section>
 
     <p class="site">www.linkedin.com/in/rafael-linhares-s</p>
-    <p class="disclaimer">Atendimento de caráter educacional e consultivo.</p>
+    <p class="disclaimer">Sessão de caráter educacional.</p>
 
   </div>
 </main>
@@ -271,7 +290,7 @@
         </details>
         <details class="faq-item">
           <summary class="faq-question">A empresa tem acesso ao conteúdo das conversas?</summary>
-          <div class="faq-answer">Não. O atendimento é estritamente confidencial entre a pessoa e o economista.</div>
+          <div class="faq-answer">Não. A sessão é estritamente confidencial entre a pessoa e Rafael.</div>
         </details>
         <details class="faq-item">
           <summary class="faq-question">Existe algum custo?</summary>
@@ -279,7 +298,7 @@
         </details>
         <details class="faq-item">
           <summary class="faq-question">O serviço inclui recomendação de investimentos?</summary>
-          <div class="faq-answer">Não. O atendimento tem caráter educacional e consultivo, e não constitui recomendação de investimentos ou análise de carteiras.</div>
+          <div class="faq-answer">Não. A sessão tem caráter educacional e não constitui recomendação de investimentos ou análise de carteiras.</div>
         </details>
       </div>
     </details>
@@ -341,7 +360,7 @@
         <a href="agendamento.html">Agendamento</a>
       </nav>
       <div class="rl-footer-bottom">
-        <span>© 2026 Rafael Linhares · CORECON/SP 38615</span>
+        <span>© 2026 Rafael Linhares</span>
         <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
         </a>
