@@ -1,626 +1,331 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Recursos Gratuitos</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/jpeg" href="/00136c20-a269-4d25-839d-06056173b7cd.jpeg">
-<link rel="apple-touch-icon" href="/00136c20-a269-4d25-839d-06056173b7cd.jpeg">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giovanna Mayara de Oliveira | Psicóloga clínica – CRP 08/42913</title>
+<meta name="description" content="Psicoterapia on-line para adolescentes e adultos em todo o Brasil. Atendimento ético, baseado na análise do comportamento. Giovanna Mayara de Oliveira, psicóloga clínica CRP 08/42913.">
+<meta property="og:title" content="Giovanna Mayara de Oliveira | Psicóloga clínica">
+<meta property="og:description" content="Psicoterapia on-line para todo o Brasil.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#091B2B">
 <style>
-:root {
-    --navy-1: #091B2B;
-    --navy-2: #10283E;
-    --navy-3: #17344D;
-    --green: #19C995;
-    --green-light: #72E2BD;
-    --green-text: #0E9E74;
-    --green-soft: #E6F8F2;
-    --text-light: #D4DEE8;
-    --text-soft: #526779;
-    --line: rgba(23, 52, 77, .16);
-    --gutter: 64px;
+:root{
+  --navy:#091B2B; --navy2:#10283E; --navy3:#17344D;
+  --green:#19C995; --mint:#E6F8F2; --white:#FFFFFF;
+  --text:#091B2B; --muted:#52667A; --line:#DCE5EC;
+  --r:16px; --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--white);line-height:1.65;font-size:1rem;-webkit-text-size-adjust:100%;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;font-weight:600}
+h2{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:1rem}
+h3{font-size:1.1rem;letter-spacing:-.01em}
+section{padding:4.5rem 0}
+.lead{color:var(--muted);max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.85rem 1.8rem;border-radius:999px;background:var(--green);color:var(--navy);font-weight:600;text-decoration:none;font-size:1rem;border:0;cursor:pointer;transition:background .25s,transform .25s}
+.btn:hover{background:#14b383;transform:translateY(-1px)}
+.btn.full{width:100%}
+
+/* Header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--navy);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:600;text-decoration:none;font-size:.95rem;letter-spacing:.01em}
+nav ul{list-style:none;display:none;gap:1.75rem}
+nav a{text-decoration:none;font-size:.92rem;color:#C9D6E2;position:relative;padding:.3rem 0;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
+nav a:hover{color:#fff}nav a:hover::after{width:100%}
+.burger{width:48px;height:48px;background:none;border:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin-right:-10px}
+.burger span{width:24px;height:2px;background:#fff;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu{position:fixed;top:64px;left:0;right:0;background:var(--navy);padding:.5rem 1.25rem 1.5rem;border-top:1px solid var(--navy3);transform:translateY(-120%);visibility:hidden;transition:transform .3s,visibility .3s}
+.menu.open{transform:none;visibility:visible}
+.menu a{display:block;padding:1rem 0;color:#fff;text-decoration:none;border-bottom:1px solid var(--navy3);font-size:1.05rem}
+.menu .btn{margin-top:1.25rem;border:0}
+
+/* Marca GM */
+.logo{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff}
+.gm{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:1.05rem;letter-spacing:.02em;flex:none}
+.gm.lg{width:72px;height:72px;border-radius:20px;font-size:1.9rem;border-width:2px;margin-bottom:1.5rem}
+.logo small{display:none;font-size:.82rem;color:#C9D6E2;font-weight:400;line-height:1.25}
+.logo b{display:block;color:#fff;font-weight:600;font-size:.92rem}
+/* WhatsApp flutuante */
+.wpp{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:var(--green);color:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(9,27,43,.28);transition:transform .25s,background .25s}
+.wpp:hover{transform:scale(1.07);background:#14b383}
+.wpp svg{width:30px;height:30px}
+/* Agendamento */
+.sched .lead{margin-bottom:1.75rem}
+.cal{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-height:200px;background:var(--white)}
+.cal iframe{display:block;width:100%;height:700px;border:0}
+.cal-empty{padding:2.5rem 1.5rem;text-align:center;color:var(--muted)}
+.cal-empty .btn{margin-top:1.25rem}
+
+/* Hero */
+.hero{padding:calc(64px + 2.5rem) 0 3.5rem}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.1rem,8vw,3.5rem);margin-bottom:1rem}
+.hero p.lead{font-size:1.1rem;margin-bottom:1.75rem}
+.crp{margin-top:1.25rem;font-size:.9rem;color:var(--muted)}
+.photo{background:var(--mint);border-radius:var(--r);display:flex;align-items:center;justify-content:center;min-height:300px;overflow:hidden}
+.photo img{width:100%;height:auto;max-height:620px;object-fit:contain}
+.mono{display:none;width:140px;height:140px;border-radius:32px;background:var(--navy);color:var(--green);align-items:center;justify-content:center;font-size:3.4rem;font-weight:700;letter-spacing:.02em}
+.photo.nophoto img{display:none}.photo.nophoto .mono{display:flex}
+
+/* Sobre */
+.about{background:var(--mint)}
+.about-grid{display:grid;gap:1.25rem}
+.about p{margin-bottom:1rem}
+.facts{display:grid;gap:.9rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem}
+.card p{color:var(--muted);font-size:.97rem;margin:.4rem 0 0}
+
+/* Atuação */
+.cards{display:grid;gap:1rem;margin-top:2rem}
+.card .btn{margin-top:1.25rem}
+.tag{display:inline-block;font-size:.85rem;color:var(--navy);background:var(--mint);padding:.25rem .8rem;border-radius:999px;margin-bottom:.8rem}
+
+/* Abordagem */
+.approach{background:var(--navy);color:#fff}
+.approach .lead{color:#B8C7D6}
+.approach h2{color:#fff}
+.pillars{display:grid;gap:1rem;margin-top:2rem}
+.pillar{background:var(--navy2);border:1px solid var(--navy3);border-radius:var(--r);padding:1.5rem}
+.pillar p{color:#B8C7D6;font-size:.97rem;margin-top:.4rem}
+.pillar h3{color:var(--green)}
+
+/* FAQ */
+.faq{margin-top:2rem;display:grid;gap:.75rem}
+details{border:1px solid var(--line);border-radius:var(--r);padding:0 1.25rem;transition:border-color .2s}
+details[open]{border-color:var(--green)}
+summary{cursor:pointer;list-style:none;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;color:var(--green);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 1.25rem;color:var(--muted)}
+
+/* Contato */
+.contact{background:var(--mint);text-align:center}
+.contact .lead{margin:0 auto 1.75rem}
+.contact .btn{width:100%;max-width:360px}
+
+/* Footer */
+footer{background:var(--navy);color:#C9D6E2;padding:3rem 0 2rem;font-size:.92rem}
+.foot{display:grid;gap:1.75rem}
+footer strong{color:#fff;font-weight:600;font-size:1rem}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem}
+footer a{text-decoration:none}footer a:hover{color:var(--green)}
+.copy{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--navy3);font-size:.85rem;color:#8FA3B7}
+
+/* Ajustes v3: credibilidade + mobile */
+section{padding:3.25rem 0}
+.narrow{max-width:760px}
+.alt{background:var(--mint)}
+.hero{padding:calc(64px + 2rem) 0 2.5rem}
+.hero h1{font-size:clamp(1.9rem,8.5vw,3.2rem);margin-bottom:.6rem}
+.insc{font-size:1.02rem;font-weight:600;color:var(--navy);line-height:1.5;padding-left:.9rem;border-left:3px solid var(--green);margin-bottom:1.5rem}
+.hero h2.sub{font-size:clamp(1.15rem,4.6vw,1.5rem);font-weight:400;color:var(--muted);letter-spacing:-.01em;margin:0 0 1.75rem;max-width:30ch}
+.hero .btn.full{width:100%}
+.lead{font-size:1.08rem;line-height:1.75;color:var(--navy3)}
+.tap{display:flex;align-items:center;justify-content:space-between;min-height:76px;text-decoration:none;transition:border-color .2s,transform .2s}
+.tap:hover{border-color:var(--green);transform:translateY(-1px)}
+.go{font-size:1.8rem;color:var(--green);line-height:1}
+summary{padding:.6rem 0;font-size:1.02rem;min-height:60px}
+details p+p{margin-top:-.5rem}
+.faqbtn{margin-top:1.75rem}
+.logo small{display:none}
+.contact{padding-bottom:4.5rem}
+footer{padding-bottom:5.5rem}
+.cal iframe{height:640px}
+@media (min-width:760px){
+  section{padding:6rem 0}
+  .hero{padding-top:calc(64px + 4rem)}
+  .hero .btn.full{width:auto}
+  .logo small{display:block}
+  .cal iframe{height:700px}
+  .faqbtn{width:auto}
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body { background: #FFFFFF; min-height: 100%; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-
-body {
-    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    color: var(--navy-1);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    overflow-wrap: break-word;
+/* Ajustes v4: foto à direita + destaque do H2 */
+.hero-grid{grid-template-columns:1.15fr .85fr;gap:1.25rem;align-items:center}
+.hero h1{font-size:clamp(1.45rem,6.2vw,3rem)}
+.hero .gm.lg{width:56px;height:56px;font-size:1.45rem;border-radius:16px;margin-bottom:1.1rem}
+.hero .btn.full{width:100%;padding:.8rem 1rem}
+.photo{min-height:0;align-self:center}
+.photo img{max-height:560px}
+.mono{width:90px;height:90px;font-size:2.2rem;border-radius:24px;margin:2rem 0}
+.destaque h2{font-size:clamp(2rem,8vw,3.6rem);line-height:1.1;max-width:18ch;margin-bottom:2.25rem}
+.destaque h3{font-size:1.15rem;margin-bottom:.75rem;padding-left:.9rem;border-left:3px solid var(--green)}
+@media (min-width:760px){
+  .hero-grid{grid-template-columns:1.2fr .8fr;gap:4rem}
+  .hero .gm.lg{width:72px;height:72px;font-size:1.9rem;border-radius:20px}
+  .hero .btn.full{width:auto;padding:.85rem 1.8rem}
+  .photo img{max-height:620px}
 }
 
-.page {
-    width: 100%;
-    max-width: 888px;
-    margin: 0 auto;
-    padding: 72px var(--gutter) 0;
+/* Entrada única do topo */
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-grid>*{animation:in .8s ease both}.hero-grid>*:nth-child(2){animation-delay:.15s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+@media (min-width:760px){
+  section{padding:6rem 0}
+  nav ul{display:flex}.burger,.menu{display:none}
+  .hero{padding-top:calc(64px + 4rem)}
+  .logo small{display:block}
+  .hero-grid{grid-template-columns:1.1fr .9fr;gap:4rem}
+  .about-grid{grid-template-columns:1.2fr 1fr;gap:3.5rem}
+  .cards{grid-template-columns:1fr 1fr}
+  .pillars{grid-template-columns:repeat(3,1fr)}
+  .foot{grid-template-columns:1.2fr 1fr;align-items:start}
+  .btn.full{width:auto}
 }
-
-/* Esconde só os textos vazios (corrigido: não afeta mais os SVGs) */
-.label:empty,
-.sub-head:empty,
-.signature:empty { display: none; }
-
-.label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--green-text);
-}
-
-.page h1 {
-    margin-bottom: 16px;
-    font-size: 40px;
-    line-height: 1.15;
-    font-weight: 800;
-    color: var(--navy-1);
-}
-
-.sub-head {
-    margin-bottom: 40px;
-    font-size: 18px;
-    line-height: 1.4;
-    font-weight: 600;
-    color: var(--text-soft);
-}
-
-.section-title {
-    margin: 56px 0 20px 0;
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--green-text);
-    letter-spacing: -0.01em;
-}
-
-a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
-
-.action {
-    flex-shrink: 0;
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--green-text);
-    white-space: nowrap;
-}
-.action::after { content: " ↗"; }
-
-/* DESTAQUE */
-.highlight {
-    display: block;
-    margin: 32px 0;
-    padding: 40px;
-    border-radius: 16px;
-    background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%);
-    color: var(--text-light);
-    transition: transform .2s ease;
-}
-.highlight-title {
-    margin-bottom: 14px;
-    font-size: 30px;
-    line-height: 1.2;
-    font-weight: 800;
-    color: #FFFFFF;
-}
-.highlight-desc {
-    margin-bottom: 28px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text-light);
-}
-.highlight .action { color: var(--green); }
-
-/* DEMAIS RECURSOS */
-.features { padding-bottom: 0; }
-
-.feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 28px 0;
-    border-top: 1px solid var(--line);
-}
-
-.feature-check {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-    background: var(--green-soft);
-    color: var(--green-text);
-}
-.feature-check svg { width: 55%; height: 55%; }
-
-.feature-body { flex: 1; min-width: 0; }
-.feature-title {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 20px;
-    line-height: 1.3;
-    font-weight: 800;
-    color: var(--navy-1);
-    transition: color .2s ease;
-}
-.feature-desc {
-    display: block;
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--text-soft);
-}
-.feature:last-child { padding-bottom: 0; }
-.feature .action { margin-top: 3px; }
-
-/* SEÇÃO DE LINKS ÚTEIS */
-.useful-section {
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-}
-.useful-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-.useful-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.useful-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 18px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    transition: background .2s ease, border-color .2s ease;
-}
-.useful-item:hover {
-    background: var(--green-soft);
-    border-color: var(--green-light);
-}
-.useful-item:hover .useful-item-title {
-    color: var(--green-text);
-}
-.useful-item-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--navy-1);
-    transition: color .2s ease;
-}
-
-.signature {
-    margin-top: 56px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--text-soft);
-    font-style: italic;
-}
-
-@media (hover: hover) {
-    .highlight:hover { transform: translateY(-2px); }
-    .feature:hover .feature-title { color: var(--green-text); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .highlight, .feature-title { transition: none; }
-    .highlight:hover { transform: none; }
-}
-
-@media (max-width: 640px) {
-    :root { --gutter: 32px; }
-
-    .page {
-        padding-top: calc(52px + env(safe-area-inset-top));
-        padding-bottom: env(safe-area-inset-bottom);
-        padding-left: calc(var(--gutter) + env(safe-area-inset-left));
-        padding-right: calc(var(--gutter) + env(safe-area-inset-right));
-    }
-
-    .page h1 { font-size: 28px; }
-    .sub-head { font-size: 16px; margin-bottom: 32px; }
-    .section-title { font-size: 22px; margin-top: 44px; }
-
-    .highlight { margin: 28px 0; padding: 28px 24px; }
-    .highlight-title { font-size: 24px; }
-    .highlight-desc { font-size: 16px; margin-bottom: 22px; }
-
-    .feature { flex-wrap: wrap; gap: 14px; padding: 24px 0; }
-    .feature-body { flex: 1 1 calc(100% - 38px); }
-    .feature-title { font-size: 18px; }
-    .feature .action { margin-left: 38px; margin-top: 0; }
-
-    .useful-section { margin-top: 24px; padding-top: 20px; }
-
-    .signature { margin-top: 44px; }
-}
-
-    /* =====================================================
-        CABEÇALHO E RODAPÉ (MINIMALISTAS)
-    ===================================================== */
-
-    .rl-header,
-    .rl-footer {
-      background: #000000;
-      color: #ffffff;
-      font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    }
-
-    .rl-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding-top: env(safe-area-inset-top);
-    }
-
-    .rl-header-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      max-width: 1280px;
-      height: 64px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    .rl-logo {
-      justify-self: start;
-      display: flex;
-      width: 36px;
-      height: 36px;
-    }
-
-    .rl-logo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .rl-social svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-
-    .rl-nav {
-      display: flex;
-      gap: 32px;
-    }
-
-    .rl-nav a,
-    .rl-footer-nav a {
-      padding: 4px 0;
-      font-size: 15px;
-      line-height: 1.4;
-      color: #ffffff;
-      border-bottom: 1px solid transparent;
-      transition: border-color .2s ease, opacity .2s ease;
-    }
-
-    .rl-nav a[aria-current="page"],
-    .rl-footer-nav a[aria-current="page"] {
-      border-bottom-color: #ffffff;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .rl-nav a:hover,
-      .rl-footer-nav a:hover {
-        border-bottom-color: #ffffff;
-      }
-    }
-
-    .rl-social {
-      display: flex;
-      width: 28px;
-      height: 28px;
-      color: #ffffff;
-    }
-
-    .rl-header .rl-social {
-      justify-self: end;
-    }
-
-    /* MENU MOBILE (3 RISCOS) */
-
-    .rl-menu-toggle {
-      display: none;
-      position: relative;
-      width: 28px;
-      height: 28px;
-      padding: 0;
-      border: 0;
-      background: none;
-      color: #ffffff;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .rl-menu-toggle:focus-visible {
-      outline: 2px solid var(--green);
-      outline-offset: 3px;
-    }
-
-    .rl-menu-toggle span {
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      height: 2px;
-      border-radius: 2px;
-      background: currentColor;
-      transition: transform .2s ease, opacity .2s ease, top .2s ease;
-    }
-
-    .rl-menu-toggle span:nth-child(1) { top: 8px; }
-    .rl-menu-toggle span:nth-child(2) { top: 13px; }
-    .rl-menu-toggle span:nth-child(3) { top: 18px; }
-
-    .rl-menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 13px; transform: rotate(45deg); }
-    .rl-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .rl-menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
-
-    .rl-footer {
-      margin-top: 96px;
-      padding: 48px 32px calc(28px + env(safe-area-inset-bottom));
-    }
-
-    .rl-footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .rl-footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 32px;
-    }
-
-    .rl-footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, .16);
-      font-size: 13px;
-      color: rgba(255, 255, 255, .6);
-    }
-
-    .rl-footer .rl-social {
-      width: 22px;
-      height: 22px;
-    }
-
-    @media (max-width: 640px) {
-
-      .rl-header-inner {
-        grid-template-columns: 1fr auto auto;
-        grid-template-areas:
-          "logo social toggle"
-          "nav  nav    nav";
-        align-items: center;
-        height: auto;
-        padding: 12px 20px;
-        column-gap: 18px;
-        row-gap: 0;
-      }
-
-      .rl-logo { grid-area: logo; width: 30px; height: 30px; }
-      .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
-
-      .rl-menu-toggle { display: block; grid-area: toggle; }
-
-      .rl-nav {
-        grid-area: nav;
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        padding-top: 8px;
-      }
-
-      .rl-header.is-open .rl-nav { display: flex; }
-
-      .rl-nav a,
-      .rl-nav a[aria-current="page"] {
-        padding: 14px 0;
-        font-size: 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, .12);
-      }
-
-      .rl-nav a:last-child { border-bottom: 0; }
-
-      .rl-nav a[aria-current="page"] { font-weight: 700; }
-
-      .rl-footer { margin-top: 64px; padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
-      .rl-footer-nav { gap: 10px 24px; }
-      .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
-    }
-
 </style>
 </head>
-
 <body>
 
-  <header class="rl-header">
-    <div class="rl-header-inner">
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#inicio" aria-label="GM – Giovanna Mayara de Oliveira, página inicial"><span class="gm" aria-hidden="true">GM</span><small><b>Giovanna Mayara de Oliveira</b>Psicóloga clínica · CRP 08/42913</small></a>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#abordagem">Abordagem</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="#agendar">Agendar</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#sobre">Sobre mim</a>
+    <a href="#abordagem">Abordagem</a>
+    <a href="#duvidas">Dúvidas frequentes</a>
+    <a href="#contato">Contato</a>
+    <a class="btn" href="#agendar">Agendar</a>
+  </div>
+</header>
 
-      <a href="index.html" class="rl-logo" aria-label="Rafael Linhares — Início">
-        <img src="00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="Logo Rafael Linhares">
-      </a>
-
-      <nav class="rl-nav" id="rl-nav-principal" aria-label="Principal">
-        <a href="index.html">Início</a>
-        <a href="para-empresas.html">Para Empresas</a>
-        <a href="para-voce.html" aria-current="page">Para Você</a>
-        <a href="agendamento.html">Agendamento</a>
-      </nav>
-
-      <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
-      </a>
-
-      <button type="button" class="rl-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="rl-nav-principal">
-        <span></span><span></span><span></span>
-      </button>
-
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="gm lg" aria-hidden="true">GM</div>
+      <h1>Giovanna Mayara de Oliveira</h1>
+      <p class="insc">Psicóloga clínica<br>CRP 08/42913</p>
+      <a class="btn full" href="#agendar">Agendar</a>
     </div>
-  </header>
+    <!-- Para usar sua foto: salve o arquivo como "foto-giovanna.jpg" na mesma pasta do index.html.
+         A imagem é exibida inteira, sem cortes (object-fit: contain). -->
+    <div class="photo" id="photo">
+      <img src="foto-giovanna.jpg" alt="Giovanna Mayara de Oliveira, psicóloga clínica" width="800" height="1000" fetchpriority="high">
+      <div class="mono" aria-hidden="true">GM</div>
+    </div>
+  </div>
+</section>
 
-<main class="page">
+<section class="about alt destaque" id="sobre">
+  <div class="wrap">
+    <h2>Serviço de psicoterapia on-line para todo o Brasil</h2>
+    <div class="narrow">
+      <h3>Sobre mim e meu trabalho</h3>
+      <p class="lead">Formada em psicologia pela PUCPR. Atuo dedicada em ofertar um espaço de acolhimento, e promover saúde mental e qualidade de vida a todos os nossos clientes.</p>
+    </div>
+  </div>
+</section>
 
-    <section>
-        <p class="label"></p>
-        <h1>Recursos Gratuitos</h1>
+<section id="abordagem">
+  <div class="wrap narrow">
+    <h2>Abordagem terapêutica</h2>
+    <p class="lead">Respaldada pela análise do comportamento, proporciono um atendimento ético, com foco no seu crescimento pessoal/profissional e na sua qualidade de vida.</p>
+  </div>
+</section>
 
-        <h2 class="sub-head"></h2>
+<section class="alt" id="duvidas">
+  <div class="wrap narrow">
+    <h2>Dúvidas frequentes</h2>
+    <div class="faq">
+      <details><summary>O atendimento online é seguro?</summary><p>As sessões ocorrem por plataformas de vídeo que garantem total sigilo atendendo as regulamentações apresentadas pelo Conselho Federal de Psicologia.</p></details>
+      <details><summary>Como devo me preparar para o atendimento online?</summary><p>Certificar-se de estar em um local apropriado, tranquilo, sigiloso e sem interrupções. Recomenda-se uso de fones de ouvido.</p></details>
+      <details><summary>Informações gerais</summary><p>Na primeira sessão, vamos conversar para compreender os motivos que te levaram para a terapia, irei explicar como posso ajudá-lo, e como irá funcionar o processo.</p><p>As sessões ocorrem uma vez na semana ou a cada 15 dias conforme avaliação da psicóloga e tem duração de aproximadamente 50 minutos.</p></details>
+    </div>
+    <a class="btn full faqbtn" href="#agendar">Agendar</a>
+  </div>
+</section>
 
-        <!-- SEÇÃO: FINANÇAS PESSOAIS -->
-        <h2 class="section-title">Finanças Pessoais</h2>
+<section class="sched" id="agendar">
+  <div class="wrap">
+    <h2>Agendar</h2>
+    <!-- CALENDLY: cole o link do seu calendário na constante CALENDLY_URL, no final deste arquivo.
+         Exemplo: https://calendly.com/seu-usuario/sessao -->
+    <div class="cal" id="calendly"></div>
+  </div>
+</section>
 
-        <a class="highlight" href="planejamento.html" rel="noopener noreferrer">
-            <h3 class="highlight-title">Módulo de Planejamento Financeiro</h3>
-            <p class="highlight-desc">Organize, planeje e acompanhe a evolução financeira mensal.</p>
-            <span class="action">Acessar</span>
-        </a>
-
-        <div class="features">
-            <a class="feature" href="inflacao-pessoal.html" target="_top" rel="noopener noreferrer">
-                <span class="feature-check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                <span class="feature-body"><span class="feature-title">Inflação Pessoal</span><span class="feature-desc">Calcule e acompanhe a variação real do custo de vida de acordo com seus hábitos de consumo.</span></span>
-                <span class="action">Calcular</span>
-            </a>
-            <a class="feature" href="perfil-de-investidor.html" target="_top" rel="noopener noreferrer">
-                <span class="feature-check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                <span class="feature-body"><span class="feature-title">Perfil de Investidor</span><span class="feature-desc">Descubra sua tolerância ao risco e reflita sobre seus objetivos.</span></span>
-                <span class="action">Descobrir</span>
-            </a>
-        </div>
-
-        <!-- SEÇÃO: MELHORIA CONTÍNUA -->
-        <h2 class="section-title">Melhoria Contínua</h2>
-
-        <a class="highlight" href="https://economistarafaellinhares.github.io/stat/index.html" target="_blank" rel="noopener noreferrer">
-            <h3 class="highlight-title">Módulo Estatístico</h3>
-            <p class="highlight-desc">Avalie dados, realize análises e valide melhorias com rigor estatístico.</p>
-            <span class="action">Explorar</span>
-        </a>
-
-        <div class="features">
-            <a class="feature" href="dmaic.html" target="_top" rel="noopener noreferrer">
-                <span class="feature-check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                <span class="feature-body"><span class="feature-title">Projeto de Melhoria</span><span class="feature-desc">Guia para projetos de melhoria nas empresas, baseado no ciclo DMAIC.</span></span>
-                <span class="action">Explorar</span>
-            </a>
-        </div>
-
-        <!-- SEÇÃO: CONTEÚDOS COMPLEMENTARES -->
-        <h2 class="section-title">Conteúdos Complementares</h2>
-
-        <a class="highlight" href="https://statuesque-naiad-394560.netlify.app" target="_blank" rel="noopener noreferrer">
-            <h3 class="highlight-title">Jogo Interativo</h3>
-            <p class="highlight-desc">Teste e aprimore suas habilidades de sobrevivência financeira em um ambiente dinâmico e desafiador.</p>
-            <span class="action">Jogar</span>
-        </a>
-
-        <div class="features">
-            <a class="feature" href="escolhas.html" target="_top" rel="noopener noreferrer">
-                <span class="feature-check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                <span class="feature-body"><span class="feature-title">Livro Complementar</span><span class="feature-desc">Ensaio sobre decisões em um mundo de incertezas.</span></span>
-                <span class="action">Ler</span>
-            </a>
-
-            <!-- TÓPICO LINKS ÚTEIS -->
-            <div class="useful-section">
-                <div class="useful-header">
-                    <span class="feature-check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                    <span class="feature-title">Links Úteis</span>
-                </div>
-                <div class="useful-list">
-                    <a class="useful-item" href="https://www.bcb.gov.br/content/cidadaniafinanceira/documentos_cidadania/Cuidando_do_seu_dinheiro_Gestao_de_Financas_Pessoais/caderno_cidadania_financeira.pdf" target="_blank" rel="noopener noreferrer">
-                        <span class="useful-item-title">Caderno de Cidadania Financeira (Banco Central)</span>
-                        <span class="action">Ler</span>
-                    </a>
-                    <a class="useful-item" href="https://www.ibge.gov.br/indicadores.html" target="_blank" rel="noopener noreferrer">
-                        <span class="useful-item-title">Painel de Indicadores do IBGE</span>
-                        <span class="action">Acessar</span>
-                    </a>
-                    <a class="useful-item" href="https://12axes.vercel.app/br" target="_blank" rel="noopener noreferrer">
-                        <span class="useful-item-title">Você sabe mesmo qual é a sua ideologia política?</span>
-                        <span class="action">Acessar</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <p class="signature"></p>
-    </section>
-
+<section class="contact" id="contato">
+  <div class="wrap">
+    <h2>Contato</h2>
+    <a class="btn" href="https://wa.me/qr/HJ52LVUAXB6EF1" target="_blank" rel="noopener">Entrar em contato</a>
+  </div>
+</section>
 </main>
 
-  <footer class="rl-footer">
-    <div class="rl-footer-inner">
-
-      <nav class="rl-footer-nav" aria-label="Rodapé">
-        <a href="index.html">Início</a>
-        <a href="para-voce.html" aria-current="page">Para Você</a>
-        <a href="para-empresas.html">Para Empresas</a>
-        <a href="agendamento.html">Agendamento</a>
-      </nav>
-
-      <div class="rl-footer-bottom">
-        <span>© 2026 Rafael Linhares</span>
-        <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
-        </a>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="gm" aria-hidden="true" style="margin-bottom:1rem">GM</span><br><strong>Giovanna Mayara de Oliveira</strong>
+        <p>Psicóloga clínica · CRP 08/42913<br>Serviço de psicoterapia on-line para todo o Brasil</p>
+        <!-- Redes sociais: adicione aqui os links, se desejar. -->
       </div>
-
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#abordagem">Abordagem</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="#agendar">Agendar</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
     </div>
-  </footer>
+    <p class="copy">© <span id="ano">2026</span> Giovanna Mayara de Oliveira. Todos os direitos reservados.</p>
+  </div>
+</footer>
 
-  <script>
-    (function () {
-      var header = document.querySelector('.rl-header');
-      var toggle = document.querySelector('.rl-menu-toggle');
-      if (!header || !toggle) return;
+<a class="wpp" href="https://wa.me/qr/HJ52LVUAXB6EF1" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
 
-      function setMenu(open) {
-        header.classList.toggle('is-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-      }
-
-      toggle.addEventListener('click', function () {
-        setMenu(!header.classList.contains('is-open'));
-      });
-
-      header.querySelectorAll('.rl-nav a').forEach(function (link) {
-        link.addEventListener('click', function () { setMenu(false); });
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setMenu(false);
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 640) setMenu(false);
-      });
-    })();
-  </script>
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Psychologist","name":"Giovanna Mayara de Oliveira","description":"Psicóloga clínica, CRP 08/42913. Psicoterapia on-line para adolescentes e adultos em todo o Brasil.","areaServed":"BR","url":"https://wa.me/qr/HJ52LVUAXB6EF1"}
+</script>
+<script>
+(function(){
+  var b=document.querySelector('.burger'),m=document.getElementById('menu');
+  function set(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')}
+  b.addEventListener('click',function(){set(!m.classList.contains('open'))});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  var img=document.querySelector('#photo img'),box=document.getElementById('photo');
+  function miss(){box.classList.add('nophoto')}
+  img.addEventListener('error',miss);
+  if(img.complete&&img.naturalWidth===0)miss();
+  var CALENDLY_URL=""; // ← cole aqui o link do Calendly, ex.: "https://calendly.com/seu-usuario/sessao"
+  var cal=document.getElementById('calendly');
+  if(CALENDLY_URL){
+    var f=document.createElement('iframe');
+    f.src=CALENDLY_URL+(CALENDLY_URL.indexOf('?')>-1?'&':'?')+'hide_gdpr_banner=1&primary_color=19c995&text_color=091b2b';
+    f.title='Agendamento de sessão';f.loading='lazy';cal.appendChild(f);
+  }else{
+    cal.innerHTML='<div class="cal-empty"><p>O calendário de agendamento será exibido aqui.<br>Enquanto isso, agende pelo WhatsApp.</p><a class="btn" href="https://wa.me/qr/HJ52LVUAXB6EF1" target="_blank" rel="noopener">Agendar pelo WhatsApp</a></div>';
+  }
+  document.getElementById('ano').textContent=new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
