@@ -62,17 +62,18 @@
   .como-participar-box .box-sessao li { padding: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
 
-  /* CONDUZIDO POR (formação em sequência contínua sem quebras de linha) */
+  /* CONDUZIDO POR (formação em lista sequencial, um embaixo do outro) */
   .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.65; color: var(--text-light); }
-  .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; }
+  .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 8px; }
+  .conduz-lista { list-style: none; padding-left: 0; }
+  .conduz-lista li { position: relative; padding: 4px 0 4px 18px; font-size: 15px; line-height: 1.5; color: var(--text-light); }
+  .conduz-lista li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
   /* COMO PARTICIPAR E SITE DENTRO DO CARD */
   .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
   .card-participar p { font-size: 16px; line-height: 1.65; color: var(--text-light); margin-bottom: 16px; }
   .card-participar p strong { color: var(--white); font-weight: 700; }
   .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
-
-  .disclaimer { margin-top: 20px; font-size: 14px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
 
   /* FAQ */
   .extra-sections { background: #FFFFFF; color: var(--navy-1); padding: 24px 0 0; }
@@ -241,20 +242,25 @@
         <li>
           <div>
             <span class="item-desc"><strong>1 sessão gratuita por pessoa</strong> para aprender a utilizar os módulos financeiros de forma autônoma</span>
-            <span class="item-desc box-meta-line"><span class="meta-item g">50 min · Online</span><span class="meta-item sep"> · </span><span class="meta-item g">Individual · Confidencial</span></span>
+            <span class="item-desc box-meta-line"><span class="meta-item g">50 min · Online</span><span class="meta-item sep"> · </span><span class="meta-item g">Individual · Confidencial · Educacional</span></span>
           </div>
         </li>
       </ul>
 
-      <p class="box-conduz"><strong>Conduzido por Rafael Linhares</strong>, bacharel em Ciências Econômicas (PUC Minas), com especialização em Gestão da Qualidade, Controle e Auditoria e certificação Lean Six Sigma Green Belt.</p>
+      <div class="box-conduz">
+        <strong>Conduzido por Rafael Linhares:</strong>
+        <ul class="conduz-lista">
+          <li>Bacharel em Ciências Econômicas (PUC Minas)</li>
+          <li>Especialização em Gestão da Qualidade, Controle e Auditoria</li>
+          <li>Certificação Lean Six Sigma Green Belt</li>
+        </ul>
+      </div>
     </section>
 
     <div class="card-participar">
-      <p><strong>Como participar?</strong> Acesse o site, confira os recursos e realize seu agendamento.</p>
+      <p>Acesse o site, confira os recursos e realize seu agendamento.</p>
       <a href="https://rafaellinhares.com.br" class="card-site" target="_blank" rel="noopener noreferrer">rafaellinhares.com.br</a>
     </div>
-
-    <p class="disclaimer">Sessão de caráter educacional.</p>
 
   </div>
 </main>
