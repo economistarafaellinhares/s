@@ -20,7 +20,7 @@
   html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
   .wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
 
-  /* CONVITE PARA A EMPRESA (largura ajustada para fechar exatamente em 2 linhas sem <br>) */
+  /* CONVITE PARA A EMPRESA */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
   .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
   .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); max-width: 540px; }
@@ -60,16 +60,16 @@
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
   .como-participar-box .box-sessao .sessao-titulo { display: block; font-weight: 800; color: var(--white); margin-bottom: 4px; }
 
-  /* CONDUZIDO POR (mesmo espaçamento e alinhamento visual do parágrafo anterior) */
-  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
+  /* CONDUZIDO POR (deslocado seguindo o alinhamento do parágrafo acima) */
+  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; padding-left: 46px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 6px; }
   .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
   .conduz-lista div { font-size: 16px; line-height: 1.6; color: var(--text-light); }
 
-  /* COMO PARTICIPAR E SITE DENTRO DO CARD */
+  /* COMO PARTICIPAR E SITE DENTRO DO CARD (mantendo fonte e destaque anteriores) */
   .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
-  .card-participar p { font-size: 16px; line-height: 1.65; color: var(--text-light); margin-bottom: 16px; }
   .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
+  .card-site .acesse-label { color: var(--white); font-weight: 700; }
 
   /* FAQ */
   .extra-sections { background: #FFFFFF; color: var(--navy-1); padding: 24px 0 0; }
@@ -102,6 +102,7 @@
     .card h1 { font-size: 28px; margin-bottom: 20px; }
     .bloco { margin-top: 36px; padding-top: 36px; }
     .como-participar-box { margin-top: 56px; padding: 28px 22px; }
+    .como-participar-box .box-conduz { padding-left: 0; }
     .empresa-intro { padding: 52px 0 40px; }
     .empresa-intro h1.page-title { font-size: 28px; }
     .empresa-intro p.convite { font-size: 17px; max-width: 100%; }
@@ -252,7 +253,7 @@
     </section>
 
     <div class="card-participar">
-      <p>Acesse: rafaellinhares.com.br</p>
+      <a href="https://rafaellinhares.com.br" class="card-site" target="_blank" rel="noopener noreferrer"><span class="acesse-label">Acesse:</span> rafaellinhares.com.br</a>
     </div>
 
   </div>
