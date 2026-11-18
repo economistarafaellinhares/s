@@ -23,11 +23,7 @@
   /* CONVITE PARA A EMPRESA (fora do card) */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
   .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
-  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); margin-bottom: 32px; }
-  .passos-empresa ul { list-style: none; }
-  .passos-empresa li { font-size: 17px; line-height: 1.5; color: var(--navy-3); padding: 8px 0; display: flex; align-items: baseline; gap: 12px; }
-  .passos-empresa li a { color: var(--green); text-decoration: underline; font-weight: 700; }
-  .passos-empresa li::before { content: "→"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 20px; line-height: 1; }
+  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); }
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
@@ -65,8 +61,8 @@
   /* CONDUZIDO POR (formação em sequência sem bolinhas e com espaçamento) */
   .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.65; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 8px; }
-  .conduz-lista { list-style: none; padding-left: 0; }
-  .conduz-lista li { font-size: 15px; line-height: 1.6; color: var(--text-light); padding: 2px 0; }
+  .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
+  .conduz-lista div { font-size: 15px; line-height: 1.5; color: var(--text-light); }
 
   /* COMO PARTICIPAR E SITE DENTRO DO CARD */
   .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
@@ -181,16 +177,11 @@
     </div>
   </header>
 
-<!-- CONVITE À EMPRESA (fora do card) -->
+<!-- CONVITE À EMPRESA (com o como participar integrado no parágrafo) -->
 <section class="empresa-intro">
   <div class="wrap">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
-    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro.</p>
-    <nav class="passos-empresa">
-      <ul>
-        <li>Para participar, basta baixar o card abaixo e compartilhar com a equipe.</li>
-      </ul>
-    </nav>
+    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: basta baixar o card abaixo e compartilhar com a equipe.</p>
   </div>
 </section>
 
@@ -248,11 +239,11 @@
 
       <div class="box-conduz">
         <strong>Conduzido por Rafael Linhares:</strong>
-        <ul class="conduz-lista">
-          <li>Bacharel em Ciências Econômicas (PUC Minas)</li>
-          <li>Especialização em Gestão da Qualidade, Controle e Auditoria</li>
-          <li>Certificação Lean Six Sigma Green Belt</li>
-        </ul>
+        <div class="conduz-lista">
+          <div>Formação em Ciências Econômicas (PUC Minas)</div>
+          <div>Especialização em Gestão da Qualidade, Controle e Auditoria (PUC Minas)</div>
+          <div>Certificação Lean Six Sigma Green Belt</div>
+        </div>
       </div>
     </section>
 
