@@ -22,57 +22,57 @@
 
   /* CONVITE PARA A EMPRESA (fora do card) */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
-  .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 36px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
-  .empresa-intro p.convite { font-size: 18px; line-height: 1.5; font-weight: 600; color: var(--navy-2); margin-bottom: 32px; }
+  .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
+  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); margin-bottom: 32px; }
   .passos-empresa ul { list-style: none; }
-  .passos-empresa li { font-size: 16px; line-height: 1.5; color: var(--navy-3); padding: 8px 0; display: flex; align-items: baseline; gap: 12px; }
+  .passos-empresa li { font-size: 17px; line-height: 1.5; color: var(--navy-3); padding: 8px 0; display: flex; align-items: baseline; gap: 12px; }
   .passos-empresa li a { color: var(--green); text-decoration: underline; font-weight: 700; }
-  .passos-empresa li::before { content: "→"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 18px; line-height: 1; }
+  .passos-empresa li::before { content: "→"; flex-shrink: 0; width: 20px; text-align: center; color: var(--green); font-weight: 900; font-size: 20px; line-height: 1; }
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
-  /* CARD (EXPORTADO EM JPEG) — mais estreito (max-width: 680px) */
-  .card { width: 100%; max-width: 680px; margin: 0 auto; padding-bottom: 60px; color: var(--text-light); background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%); -webkit-print-color-adjust: exact; print-color-adjust: exact; border-radius: 16px; overflow: hidden; }
-  .brand-bar { background: #000; border-bottom: 2px solid var(--green); padding: 16px 0; margin-bottom: 48px; }
+  /* CARD (EXPORTADO EM JPEG) — mais estreito, mantendo tamanhos originais */
+  .card { width: 100%; max-width: 680px; margin: 0 auto; padding-bottom: 72px; color: var(--text-light); background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%); -webkit-print-color-adjust: exact; print-color-adjust: exact; border-radius: 16px; overflow: hidden; }
+  .brand-bar { background: #000; border-bottom: 2px solid var(--green); padding: 16px 0; margin-bottom: 64px; }
   .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .brand img { height: 50px; width: auto; max-width: 160px; object-fit: contain; border-radius: 8px; }
+  .brand img { height: 60px; width: auto; max-width: 180px; object-fit: contain; border-radius: 8px; }
 
-  .card h1 { font-size: 34px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 20px; }
-  .card .card-eyebrow { display: block; margin-bottom: 8px; font-size: 14px; line-height: 1.2; font-weight: 600; color: var(--green); }
+  .card h1 { font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 24px; }
+  .card .card-eyebrow { display: block; margin-bottom: 10px; font-size: 15px; line-height: 1.2; font-weight: 600; color: var(--green); }
 
-  .bloco { margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--line); }
+  .bloco { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--line); }
   .checklist { list-style: none; }
-  .checklist li { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 18px; padding: 20px 0; }
   .checklist li:first-child { padding-top: 0; }
   .checklist li:last-child { padding-bottom: 0; }
   .checklist li::before {
-    content: "✓"; flex-shrink: 0; width: 26px; height: 26px; margin-top: 1px;
+    content: "✓"; flex-shrink: 0; width: 28px; height: 28px; margin-top: 1px;
     display: flex; align-items: center; justify-content: center;
     border: 2px solid var(--green); border-radius: 50%;
-    color: var(--green); font-weight: 900; font-size: 14px; line-height: 1;
+    color: var(--green); font-weight: 900; font-size: 15px; line-height: 1;
   }
-  .item-title { display: block; font-size: 18px; line-height: 1.3; font-weight: 800; color: var(--white); margin-bottom: 4px; }
-  .item-desc { display: block; font-size: 15px; line-height: 1.5; color: var(--text-light); }
+  .item-title { display: block; font-size: 20px; line-height: 1.3; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+  .item-desc { display: block; font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .item-desc .meta-item { color: var(--green); font-weight: 600; }
   .box-meta-line .g { white-space: nowrap; }
 
-  .como-participar-box { margin-top: 48px; padding: 32px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
-  .como-participar-box h2 { font-size: 18px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
-  .como-participar-box .box-sessao { margin: 0 0 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .como-participar-box { margin-top: 80px; padding: 40px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
+  .como-participar-box h2 { font-size: 20px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+  .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
   .como-participar-box .box-sessao li { padding: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
 
-  /* CONDUZIDO POR (formação em sequência sem quebrar linhas desnecessárias) */
-  .como-participar-box .box-conduz { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.6; color: var(--text-light); }
+  /* CONDUZIDO POR (formação em sequência contínua sem quebras de linha) */
+  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.65; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; }
 
   /* COMO PARTICIPAR E SITE DENTRO DO CARD */
-  .card-participar { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .card-participar p { font-size: 15px; line-height: 1.6; color: var(--text-light); margin-bottom: 12px; }
+  .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .card-participar p { font-size: 16px; line-height: 1.65; color: var(--text-light); margin-bottom: 16px; }
   .card-participar p strong { color: var(--white); font-weight: 700; }
-  .card-site { display: inline-block; font-size: 20px; font-weight: 800; color: var(--green); text-decoration: none; }
+  .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
 
-  .disclaimer { margin-top: 24px; font-size: 13px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
+  .disclaimer { margin-top: 20px; font-size: 14px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
 
   /* FAQ */
   .extra-sections { background: #FFFFFF; color: var(--navy-1); padding: 24px 0 0; }
@@ -99,15 +99,15 @@
 
   @media (max-width: 640px) {
     :root { --gutter: 24px; }
-    .brand-bar { padding: 12px 0; margin-bottom: 36px; }
-    .card { padding-bottom: 48px; border-radius: 0; }
-    .brand img { height: 42px; max-width: 130px; }
-    .card h1 { font-size: 26px; margin-bottom: 16px; }
-    .bloco { margin-top: 28px; padding-top: 28px; }
-    .como-participar-box { margin-top: 36px; padding: 22px 18px; }
+    .brand-bar { padding: 12px 0; margin-bottom: 48px; }
+    .card { padding-bottom: 56px; border-radius: 0; }
+    .brand img { height: 48px; max-width: 140px; }
+    .card h1 { font-size: 28px; margin-bottom: 20px; }
+    .bloco { margin-top: 36px; padding-top: 36px; }
+    .como-participar-box { margin-top: 56px; padding: 28px 22px; }
     .empresa-intro { padding: 52px 0 40px; }
-    .empresa-intro h1.page-title { font-size: 26px; }
-    .empresa-intro p.convite { font-size: 16px; }
+    .empresa-intro h1.page-title { font-size: 28px; }
+    .empresa-intro p.convite { font-size: 17px; }
     .extra-summary { font-size: 18px; padding: 18px 0; }
     .download-area { padding: 48px 0 60px; }
   }
