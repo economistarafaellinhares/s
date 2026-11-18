@@ -83,6 +83,12 @@
   .site { margin-top: 56px; font-size: 22px; font-weight: 800; color: var(--green); }
   .disclaimer { margin-top: 20px; font-size: 14px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
 
+  /* BLOCO EXTERNO (COMO PARTICIPAR FORA DO CARD) */
+  .externo-participar { background: #FFFFFF; color: var(--navy-1); padding: 40px 0; border-top: 1px solid rgba(23, 52, 77, .12); }
+  .externo-participar .wrap { display: flex; flex-direction: column; gap: 16px; }
+  .externo-participar p { font-size: 17px; line-height: 1.6; color: var(--navy-2); font-weight: 600; }
+  .externo-participar .site-externo { font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
+
   /* FAQ */
   .extra-sections { background: #FFFFFF; color: var(--navy-1); padding: 24px 0 0; }
   .extra-section { border-top: 1px solid rgba(23, 52, 77, .16); border-bottom: 1px solid rgba(23, 52, 77, .16); }
@@ -226,7 +232,7 @@
   <div class="wrap">
 
     <section>
-      <span class="card-eyebrow">Novo Benefício!</span>
+      <span class="card-eyebrow">NOVIDADE!</span>
       <h1>Portal com recursos gratuitos</h1>
     </section>
 
@@ -264,16 +270,21 @@
         </li>
       </ul>
 
-      <p class="box-conduz"><strong>Conduzido por Rafael Linhares</strong>, bacharel em Ciências Econômicas (PUC Minas), especialização em Gestão da Qualidade, Controle e Auditoria e certificação Lean Six Sigma Green Belt.</p>
-
-      <p class="box-passo"><strong>Como participar?</strong> Acesse o site e confira os recursos e realize seu agendamento.</p>
+      <p class="box-conduz"><strong>Conduzido por Rafael Linhares</strong>, bacharel em Ciências Econômicas (PUC Minas). Especialização em Gestão da Qualidade, Controle e Auditoria. Certificação Lean Six Sigma Green Belt.</p>
     </section>
 
-    <p class="site">rafaellinhares.com.br</p>
     <p class="disclaimer">Sessão de caráter educacional.</p>
 
   </div>
 </main>
+
+<!-- COMO PARTICIPAR E SITE FORA DO QUADRO -->
+<section class="externo-participar">
+  <div class="wrap">
+    <p><strong>Como participar?</strong> Acesse o site, confira os recursos e realize seu agendamento.</p>
+    <a href="https://rafaellinhares.com.br" class="site-externo" target="_blank" rel="noopener noreferrer">rafaellinhares.com.br</a>
+  </div>
+</section>
 
 <!-- PERGUNTAS FREQUENTES -->
 <section class="extra-sections">
@@ -300,10 +311,6 @@
         <details class="faq-item">
           <summary class="faq-question">Como são realizadas as sessões?</summary>
           <div class="faq-answer">Online, de forma individual e com total sigilo e confidencialidade.</div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">O que pode ser tratado nas sessões?</summary>
-          <div class="faq-answer">Aprender a usar os módulos financeiros de forma autônoma, conhecer a metodologia de melhoria ou esclarecer dúvidas sobre decisões e comportamento.</div>
         </details>
         <details class="faq-item">
           <summary class="faq-question">O que pode ser tratado nas sessões?</summary>
