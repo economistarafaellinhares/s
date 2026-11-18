@@ -48,14 +48,16 @@
   .empresa-intro {
     background: #FFFFFF;
     color: var(--navy-1);
-    padding: 72px 0 48px;
+    padding: 72px 0 0;
   }
 
+  /* Mesma largura do card (680px) e texto centralizado */
   .empresa-intro .empresa-intro-inner {
     width: 100%;
-    max-width: 888px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 0 var(--gutter);
+    padding: 0 24px;
+    text-align: center;
   }
 
   /* Margens padronizadas: título → parágrafo → parágrafo = 16px; fim do bloco = 40px */
@@ -73,10 +75,11 @@
     line-height: 1.4;
     font-weight: 600;
     color: #526779;
+    text-wrap: balance;
   }
 
   .empresa-intro .sub-head-destaque {
-    margin: 0 0 40px;
+    margin: 0;
     font-size: 16px;
     line-height: 1.4;
     font-weight: 700;
@@ -85,7 +88,7 @@
 
   .card-label {
     text-align: center;
-    margin: 40px 0 24px;
+    margin: 32px 0 20px;
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -455,20 +458,16 @@
       padding: 28px 22px;
     }
 
-    .empresa-intro { padding: 52px 0 40px; }
+    .empresa-intro { padding: 52px 0 0; }
 
-    .empresa-intro .empresa-intro-inner {
-      padding: 0 var(--gutter);
-    }
 
     .empresa-intro h1.page-title { font-size: 28px; }
 
     .empresa-intro h2.sub-head { font-size: 16px; }
 
-    .empresa-intro .sub-head-destaque {
-      font-size: 15px;
-      margin-bottom: 32px;
-    }
+    .empresa-intro .sub-head-destaque { font-size: 15px; }
+
+    .card-label { margin: 24px 0 16px; }
 
     .extra-summary {
       font-size: 18px;
@@ -721,7 +720,7 @@
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
 
     <h2 class="sub-head">
-      Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro:
+      Ofereça aos seus colaboradores uma ação voltada ao <span style="white-space:nowrap">bem-estar</span> financeiro:
     </h2>
 
     <p class="sub-head-destaque">
