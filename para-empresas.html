@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,18 +13,31 @@
     --navy-1: #091B2B; --navy-2: #10283E; --navy-3: #17344D;
     --green: #19C995; --green-light: #72E2BD; --white: #FFFFFF;
     --text-light: #D4DEE8; --text-muted: #94A7B8;
-    --line: rgba(148, 167, 184, .22); --gutter: 48px;
+    --line: rgba(148, 167, 184, .22); --gutter: 64px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
-  .wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
+  
+  .label:empty,
+  .sub-head:empty,
+  .signature:empty { display: none; }
+
+  .label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0E9E74;
+  }
+
+  .wrap { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 var(--gutter); }
 
   /* CONVITE PARA A EMPRESA (fluxo normal de página) */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
-  .empresa-intro .empresa-intro-inner { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
+  .empresa-intro .empresa-intro-inner { width: 100%; max-width: 888px; margin: 0 auto; padding: 0 var(--gutter); }
   .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
-  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); max-width: 584px; }
+  .empresa-intro h2.sub-head { margin-bottom: 40px; font-size: 18px; line-height: 1.4; font-weight: 600; color: #526779; }
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
@@ -35,6 +47,7 @@
   .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .brand img { height: 60px; width: auto; max-width: 180px; object-fit: contain; border-radius: 8px; }
 
+  .card .card-wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 48px; }
   .card h1 { font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 24px; }
   .card .card-eyebrow { display: block; margin-bottom: 10px; font-size: 15px; line-height: 1.2; font-weight: 600; color: var(--green); }
 
@@ -62,7 +75,7 @@
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
   .como-participar-box .box-sessao .sessao-titulo { display: block; font-weight: 800; color: var(--white); margin-bottom: 4px; }
 
-  /* CONDUZIDO POR (sem deslocamento) */
+  /* CONDUZIDO POR */
   .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 6px; }
   .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
@@ -100,6 +113,7 @@
     :root { --gutter: 24px; }
     .brand-bar { padding: 12px 0; margin-bottom: 48px; }
     .card { padding-bottom: 56px; border-radius: 0; }
+    .card .card-wrap { padding: 0 24px; }
     .brand img { height: 48px; max-width: 140px; }
     .card h1 { font-size: 28px; margin-bottom: 20px; }
     .bloco { margin-top: 36px; padding-top: 36px; }
@@ -107,7 +121,7 @@
     .empresa-intro { padding: 52px 0 40px; }
     .empresa-intro .empresa-intro-inner { padding: 0 var(--gutter); }
     .empresa-intro h1.page-title { font-size: 28px; }
-    .empresa-intro p.convite { font-size: 17px; max-width: 100%; }
+    .empresa-intro h2.sub-head { font-size: 16px; margin-bottom: 32px; }
     .extra-summary { font-size: 18px; padding: 18px 0; }
     .download-area { padding: 48px 0 60px; }
   }
@@ -177,8 +191,9 @@
 <!-- CONVITE À EMPRESA -->
 <section class="empresa-intro">
   <div class="empresa-intro-inner">
+    <p class="label"></p>
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
-    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: </span> baixe o card abaixo e compartilhe com a equipe.</p>
+    <h2 class="sub-head">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: baixe o card abaixo e compartilhe com a equipe.</h2>
   </div>
 </section>
 
@@ -193,7 +208,7 @@
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="card-wrap">
 
     <section>
       <span class="card-eyebrow">NOVIDADE!</span>
