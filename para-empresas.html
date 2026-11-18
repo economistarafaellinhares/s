@@ -20,10 +20,11 @@
   html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
   .wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
 
-  /* CONVITE PARA A EMPRESA */
+  /* CONVITE PARA A EMPRESA (fluxo normal de página) */
   .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
+  .empresa-intro .empresa-intro-inner { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
-  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); max-width: 540px; }
+  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); max-width: 720px; }
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
@@ -60,13 +61,13 @@
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
   .como-participar-box .box-sessao .sessao-titulo { display: block; font-weight: 800; color: var(--white); margin-bottom: 4px; }
 
-  /* CONDUZIDO POR (deslocado seguindo o alinhamento do parágrafo acima) */
-  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; padding-left: 46px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
+  /* CONDUZIDO POR (sem deslocamento) */
+  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 6px; }
   .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
   .conduz-lista div { font-size: 16px; line-height: 1.6; color: var(--text-light); }
 
-  /* COMO PARTICIPAR E SITE DENTRO DO CARD (mantendo fonte e destaque anteriores) */
+  /* SITE DENTRO DO CARD */
   .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
   .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
   .card-site .acesse-label { color: var(--white); font-weight: 700; }
@@ -102,8 +103,8 @@
     .card h1 { font-size: 28px; margin-bottom: 20px; }
     .bloco { margin-top: 36px; padding-top: 36px; }
     .como-participar-box { margin-top: 56px; padding: 28px 22px; }
-    .como-participar-box .box-conduz { padding-left: 0; }
     .empresa-intro { padding: 52px 0 40px; }
+    .empresa-intro .empresa-intro-inner { padding: 0 20px; }
     .empresa-intro h1.page-title { font-size: 28px; }
     .empresa-intro p.convite { font-size: 17px; max-width: 100%; }
     .extra-summary { font-size: 18px; padding: 18px 0; }
@@ -179,9 +180,9 @@
     </div>
   </header>
 
-<!-- CONVITE À EMPRESA -->
+<!-- CONVITE À EMPRESA (fluxo normal da página, com largura confortável) -->
 <section class="empresa-intro">
-  <div class="wrap">
+  <div class="empresa-intro-inner">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
     <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: basta baixar o card abaixo e compartilhar com a equipe.</p>
   </div>
@@ -245,8 +246,8 @@
       <div class="box-conduz">
         <strong>Conduzido por Rafael Linhares:</strong>
         <div class="conduz-lista">
-          <div>Formação em Ciências Econômicas (PUC Minas)</div>
-          <div>Especialização em Gestão da Qualidade, Controle e Auditoria (PUC Minas)</div>
+          <div>Bacharel em Ciências Econômicas (PUC Minas)</div>
+          <div>Especialização em Gestão da Qualidade, Controle e Auditoria</div>
           <div>Certificação Lean Six Sigma Green Belt</div>
         </div>
       </div>
