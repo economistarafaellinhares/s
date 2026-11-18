@@ -27,7 +27,7 @@
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
-  /* CARD (EXPORTADO EM JPEG) — mais estreito, mantendo tamanhos originais */
+  /* CARD (EXPORTADO EM JPEG) */
   .card { width: 100%; max-width: 680px; margin: 0 auto; padding-bottom: 72px; color: var(--text-light); background: linear-gradient(145deg, #091B2B 0%, #10283E 52%, #17344D 100%); -webkit-print-color-adjust: exact; print-color-adjust: exact; border-radius: 16px; overflow: hidden; }
   .brand-bar { background: #000; border-bottom: 2px solid var(--green); padding: 16px 0; margin-bottom: 64px; }
   .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -50,6 +50,7 @@
   .item-title { display: block; font-size: 20px; line-height: 1.3; font-weight: 800; color: var(--white); margin-bottom: 6px; }
   .item-desc { display: block; font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .item-desc .meta-item { color: var(--green); font-weight: 600; }
+  .box-meta-line { margin-top: 12px; }
   .box-meta-line .g { white-space: nowrap; }
 
   .como-participar-box { margin-top: 80px; padding: 40px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
@@ -57,8 +58,9 @@
   .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
   .como-participar-box .box-sessao li { padding: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
+  .como-participar-box .box-sessao .sessao-titulo { display: block; font-weight: 800; color: var(--white); margin-bottom: 4px; }
 
-  /* CONDUZIDO POR (formação em sequência sem bolinhas e com espaçamento) */
+  /* CONDUZIDO POR */
   .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.65; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 8px; }
   .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
@@ -67,7 +69,6 @@
   /* COMO PARTICIPAR E SITE DENTRO DO CARD */
   .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
   .card-participar p { font-size: 16px; line-height: 1.65; color: var(--text-light); margin-bottom: 16px; }
-  .card-participar p strong { color: var(--white); font-weight: 700; }
   .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
 
   /* FAQ */
@@ -104,6 +105,7 @@
     .empresa-intro { padding: 52px 0 40px; }
     .empresa-intro h1.page-title { font-size: 28px; }
     .empresa-intro p.convite { font-size: 17px; }
+    .empresa-intro p.convite br { display: none; }
     .extra-summary { font-size: 18px; padding: 18px 0; }
     .download-area { padding: 48px 0 60px; }
   }
@@ -177,11 +179,11 @@
     </div>
   </header>
 
-<!-- CONVITE À EMPRESA (com o como participar integrado no parágrafo) -->
+<!-- CONVITE À EMPRESA -->
 <section class="empresa-intro">
   <div class="wrap">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
-    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: basta baixar o card abaixo e compartilhar com a equipe.</p>
+    <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro:<br>basta baixar o card abaixo e compartilhar com a equipe.</p>
   </div>
 </section>
 
@@ -231,7 +233,10 @@
       <ul class="checklist box-sessao">
         <li>
           <div>
-            <span class="item-desc"><strong>1 sessão gratuita por pessoa</strong> para aprender a utilizar os módulos financeiros de forma autônoma</span>
+            <span class="item-desc">
+              <span class="sessao-titulo">1 sessão gratuita por pessoa</span>
+              Aprenda a utilizar os módulos financeiros de forma autônoma
+            </span>
             <span class="item-desc box-meta-line"><span class="meta-item g">50 min · Online</span><span class="meta-item sep"> · </span><span class="meta-item g">Individual · Confidencial · Educacional</span></span>
           </div>
         </li>
@@ -240,8 +245,8 @@
       <div class="box-conduz">
         <strong>Conduzido por Rafael Linhares:</strong>
         <div class="conduz-lista">
-          <div>Formação em Ciências Econômicas (PUC Minas)</div>
-          <div>Especialização em Gestão da Qualidade, Controle e Auditoria (PUC Minas)</div>
+          <div>Bacharel em Ciências Econômicas (PUC Minas)</div>
+          <div>Especialização em Gestão da Qualidade, Controle e Auditoria</div>
           <div>Certificação Lean Six Sigma Green Belt</div>
         </div>
       </div>
