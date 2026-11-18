@@ -11,19 +11,20 @@
 <style>
   :root {
     --navy-1: #091B2B; --navy-2: #10283E; --navy-3: #17344D;
-    --green: #19C995; --green-light: #72E2BD; --green-text: #0E9E74;
-    --white: #FFFFFF; --text-light: #D4DEE8; --text-muted: #94A7B8;
-    --text-soft: #526779; --line: rgba(23, 52, 77, .16); --gutter: 64px;
+    --green: #19C995; --green-light: #72E2BD; --white: #FFFFFF;
+    --text-light: #D4DEE8; --text-muted: #94A7B8;
+    --line: rgba(148, 167, 184, .22); --gutter: 48px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-  .page { width: 100%; max-width: 888px; margin: 0 auto; padding: 72px var(--gutter) 0; }
+  html, body { background: #FFFFFF; font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; color: var(--navy-1); }
+  .wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 var(--gutter); }
 
-  /* CONVITE PARA A EMPRESA (mesmo espaçamento, posição e tamanho do H1 de referência) */
-  .empresa-intro { background: #FFFFFF; color: var(--navy-1); }
+  /* CONVITE PARA A EMPRESA (fluxo normal de página) */
+  .empresa-intro { background: #FFFFFF; color: var(--navy-1); padding: 72px 0 48px; }
+  .empresa-intro .empresa-intro-inner { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   .empresa-intro h1.page-title { margin-bottom: 16px; font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--navy-1); }
-  .empresa-intro p.convite { margin-bottom: 40px; font-size: 18px; line-height: 1.4; font-weight: 600; color: var(--text-soft); }
+  .empresa-intro p.convite { font-size: 20px; line-height: 1.5; font-weight: 600; color: var(--navy-2); max-width: 720px; }
 
   .card-label { text-align: center; margin: 40px 0 24px; font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
 
@@ -33,11 +34,10 @@
   .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .brand img { height: 60px; width: auto; max-width: 180px; object-fit: contain; border-radius: 8px; }
 
-  .card-wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 48px; }
   .card h1 { font-size: 40px; line-height: 1.15; font-weight: 800; color: var(--white); margin-bottom: 24px; }
   .card .card-eyebrow { display: block; margin-bottom: 10px; font-size: 15px; line-height: 1.2; font-weight: 600; color: var(--green); }
 
-  .bloco { margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(148, 167, 184, .22); }
+  .bloco { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--line); }
   .checklist { list-style: none; }
   .checklist li { display: flex; align-items: flex-start; gap: 18px; padding: 20px 0; }
   .checklist li:first-child { padding-top: 0; }
@@ -56,19 +56,19 @@
 
   .como-participar-box { margin-top: 80px; padding: 40px; border-left: 4px solid var(--green); border-radius: 12px; background: rgba(255, 255, 255, .06); }
   .como-participar-box h2 { font-size: 20px; line-height: 1.2; font-weight: 800; color: var(--white); margin-bottom: 12px; }
-  .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid rgba(148, 167, 184, .22); }
+  .como-participar-box .box-sessao { margin: 0 0 24px; padding-top: 24px; border-top: 1px solid var(--line); }
   .como-participar-box .box-sessao li { padding: 0; }
   .como-participar-box .box-sessao li::before { content: ""; border-color: var(--white); background: radial-gradient(circle, var(--white) 0 4px, transparent 5px); }
   .como-participar-box .box-sessao .sessao-titulo { display: block; font-weight: 800; color: var(--white); margin-bottom: 4px; }
 
   /* CONDUZIDO POR (sem deslocamento) */
-  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(148, 167, 184, .22); font-size: 16px; line-height: 1.6; color: var(--text-light); }
+  .como-participar-box .box-conduz { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--text-light); }
   .como-participar-box .box-conduz strong { color: var(--white); font-weight: 800; display: block; margin-bottom: 6px; }
   .conduz-lista { display: flex; flex-direction: column; gap: 4px; }
   .conduz-lista div { font-size: 16px; line-height: 1.6; color: var(--text-light); }
 
   /* SITE DENTRO DO CARD */
-  .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(148, 167, 184, .22); }
+  .card-participar { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
   .card-site { display: inline-block; font-size: 22px; font-weight: 800; color: var(--green); text-decoration: none; }
   .card-site .acesse-label { color: var(--white); font-weight: 700; }
 
@@ -96,24 +96,25 @@
   .download-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
   @media (max-width: 640px) {
-    :root { --gutter: 32px; }
-    .page { padding-top: calc(52px + env(safe-area-inset-top)); padding-bottom: env(safe-area-inset-bottom); padding-left: calc(var(--gutter) + env(safe-area-inset-left)); padding-right: calc(var(--gutter) + env(safe-area-inset-right)); }
+    :root { --gutter: 24px; }
     .brand-bar { padding: 12px 0; margin-bottom: 48px; }
     .card { padding-bottom: 56px; border-radius: 0; }
     .brand img { height: 48px; max-width: 140px; }
-    .card-wrap { padding: 0 24px; }
     .card h1 { font-size: 28px; margin-bottom: 20px; }
     .bloco { margin-top: 36px; padding-top: 36px; }
     .como-participar-box { margin-top: 56px; padding: 28px 22px; }
+    .empresa-intro { padding: 52px 0 40px; }
+    .empresa-intro .empresa-intro-inner { padding: 0 20px; }
     .empresa-intro h1.page-title { font-size: 28px; }
-    .empresa-intro p.convite { font-size: 16px; margin-bottom: 32px; }
+    .empresa-intro p.convite { font-size: 17px; max-width: 100%; }
     .extra-summary { font-size: 18px; padding: 18px 0; }
     .download-area { padding: 48px 0 60px; }
   }
 
   /* CABEÇALHO E RODAPÉ */
+  .rl-header a, .rl-footer a { text-decoration: none; }
   .rl-header, .rl-footer { background: #000000; color: #ffffff; font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; }
-  .rl-header { position: sticky; top: 0; z-index: 50; padding-top: env(safe-area-inset-top); }
+  .rl-header { position: sticky; top: 0; z-index: 50; padding-top: env(safe-area-inset-top); box-shadow: 0 1px 0 rgba(255, 255, 255, .14); }
   .rl-header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 1280px; height: 64px; margin: 0 auto; padding: 0 32px; }
   .rl-logo { justify-self: start; display: flex; width: 36px; height: 36px; }
   .rl-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
@@ -136,7 +137,7 @@
   .rl-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .rl-menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
 
-  .rl-footer { margin-top: 96px; padding: 48px 32px calc(28px + env(safe-area-inset-bottom)); }
+  .rl-footer { margin-top: 0; padding: 48px 32px calc(28px + env(safe-area-inset-bottom)); }
   .rl-footer-inner { max-width: 1280px; margin: 0 auto; }
   .rl-footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; }
   .rl-footer-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .16); font-size: 13px; color: rgba(255, 255, 255, .6); }
@@ -151,7 +152,7 @@
     .rl-nav a, .rl-nav a[aria-current="page"] { padding: 14px 0; font-size: 16px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
     .rl-nav a:last-child { border-bottom: 0; }
     .rl-nav a[aria-current="page"] { font-weight: 700; }
-    .rl-footer { margin-top: 64px; padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
+    .rl-footer { padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
     .rl-footer-nav { gap: 10px 24px; }
     .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
   }
@@ -170,8 +171,8 @@
         <a href="para-voce.html">Para Você</a>
         <a href="agendamento.html">Agendamento</a>
       </nav>
-      <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+      <a href="https://rafaellinhares.com.br" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="Site de Rafael Linhares">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </a>
       <button type="button" class="rl-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="rl-nav-principal">
         <span></span><span></span><span></span>
@@ -179,12 +180,13 @@
     </div>
   </header>
 
-<main class="page">
-  <section class="empresa-intro">
+<!-- CONVITE À EMPRESA (fluxo normal da página, com largura confortável) -->
+<section class="empresa-intro">
+  <div class="empresa-intro-inner">
     <h1 class="page-title">Ação Gratuita nas Empresas</h1>
     <p class="convite">Ofereça aos seus colaboradores uma ação voltada ao bem-estar financeiro: basta baixar o card abaixo e compartilhar com a equipe.</p>
-  </section>
-</main>
+  </div>
+</section>
 
 <div class="card-label">Card de Divulgação</div>
 
@@ -192,12 +194,12 @@
 <main class="card" id="card">
 
   <div class="brand-bar">
-    <div class="card-wrap brand">
+    <div class="wrap brand">
       <img src="https://assets.zyrosite.com/kFnc6zJCRsV1G3iB/1756917922612-uvo8MUehuEk0x0lw.jpg" alt="Logo Rafael Linhares" crossorigin="anonymous">
     </div>
   </div>
 
-  <div class="card-wrap">
+  <div class="wrap">
 
     <section>
       <span class="card-eyebrow">NOVIDADE!</span>
@@ -260,7 +262,7 @@
 
 <!-- PERGUNTAS FREQUENTES -->
 <section class="extra-sections">
-  <div class="page" style="padding-top: 24px;">
+  <div class="wrap">
     <details class="extra-section">
       <summary class="extra-summary">Perguntas frequentes</summary>
       <div class="extra-content">
@@ -355,14 +357,14 @@
     <div class="rl-footer-inner">
       <nav class="rl-footer-nav" aria-label="Rodapé">
         <a href="index.html">Início</a>
-        <a href="para-voce.html" aria-current="page">Para Você</a>
-        <a href="para-empresas.html">Para Empresas</a>
+        <a href="para-voce.html">Para Você</a>
+        <a href="para-empresas.html" aria-current="page">Para Empresas</a>
         <a href="agendamento.html">Agendamento</a>
       </nav>
       <div class="rl-footer-bottom">
         <span>© 2026 Rafael Linhares</span>
-        <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+        <a href="https://rafaellinhares.com.br" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="Site de Rafael Linhares">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </a>
       </div>
     </div>
