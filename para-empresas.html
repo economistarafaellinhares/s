@@ -296,11 +296,6 @@
     text-decoration: none;
   }
 
-  .card-site .acesse-label {
-    color: var(--white);
-    font-weight: 700;
-  }
-
   /* FAQ */
   .extra-sections {
     background: #FFFFFF;
@@ -385,19 +380,66 @@
 
   /* DOWNLOAD */
   .download-area {
-    padding: 64px 0 80px;
+    padding: 64px 0 24px;
     background: #FFFFFF;
     display: flex;
     justify-content: center;
   }
 
+  /* MENSAGEM OPCIONAL PARA ENCAMINHAR COM O CARD (minimalista) */
+  .msg-area {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    text-align: center;
+  }
+
+  .msg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 4px;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #526779;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .2s ease;
+  }
+
+  .msg-btn:hover { color: #0E9E74; }
+  .msg-btn.copiado { color: #0E9E74; }
+  .msg-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 4px; }
+  .msg-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .msg-dica {
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #7A8C9B;
+  }
+
+  .msg-texto {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #526779;
+    overflow-wrap: anywhere;
+  }
+
+
   .download-btn {
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background: transparent;
-    border: 1px solid rgba(23, 52, 77, .15);
-    color: var(--text-muted);
+    background: #000000;
+    border: 1px solid #000000;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -406,9 +448,8 @@
   }
 
   .download-btn:hover {
-    border-color: var(--green);
-    color: var(--green);
-    background: rgba(25, 201, 149, .05);
+    background: #222222;
+    border-color: #222222;
   }
 
   .download-btn:disabled { opacity: .4; cursor: wait; }
@@ -474,7 +515,9 @@
       padding: 18px 0;
     }
 
-    .download-area { padding: 48px 0 60px; }
+    .download-area { padding: 48px 0 20px; }
+
+    .msg-area { padding-bottom: 60px; }
   }
 
   /* =====================================================
@@ -799,7 +842,7 @@
 
     <div class="card-participar">
       <a href="https://rafaellinhares.com.br" class="card-site" target="_blank" rel="noopener noreferrer">
-        <span class="acesse-label">Acesse:</span> rafaellinhares.com.br
+        rafaellinhares.com.br
       </a>
     </div>
 
@@ -874,6 +917,18 @@
   </button>
 </div>
 
+<!-- MENSAGEM OPCIONAL PARA ENCAMINHAR JUNTO COM O CARD -->
+<section class="msg-area" aria-label="Mensagem opcional para encaminhar">
+  <p class="msg-dica">Opcional: para enviar junto com o card</p>
+
+  <p class="msg-texto" id="msgTexto">Confira os recursos e o agendamento em: https://rafaellinhares.com.br</p>
+
+  <button type="button" class="msg-btn" id="copiarMsg">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    <span id="copiarMsgLabel">Copiar mensagem com link</span>
+  </button>
+</section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
@@ -942,6 +997,59 @@
       button.disabled = false;
     }
   });
+</script>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copiarMsg');
+    var label = document.getElementById('copiarMsgLabel');
+    var texto = document.getElementById('msgTexto');
+    if (!btn || !label || !texto) return;
+
+    var original = label.textContent;
+    var timer;
+
+    function avisar(msg, ok) {
+      label.textContent = msg;
+      btn.classList.toggle('copiado', ok);
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        label.textContent = original;
+        btn.classList.remove('copiado');
+      }, 2200);
+    }
+
+    function copiarFallback(t) {
+      var ta = document.createElement('textarea');
+      ta.value = t;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (_) {}
+      ta.remove();
+      return ok;
+    }
+
+    btn.addEventListener('click', function () {
+      var t = texto.textContent.replace(/\s+/g, ' ').trim();
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(t).then(
+          function () { avisar('Mensagem copiada!', true); },
+          function () {
+            var ok = copiarFallback(t);
+            avisar(ok ? 'Mensagem copiada!' : 'Não foi possível copiar', ok);
+          }
+        );
+      } else {
+        var ok = copiarFallback(t);
+        avisar(ok ? 'Mensagem copiada!' : 'Não foi possível copiar', ok);
+      }
+    });
+  })();
 </script>
 
 <footer class="rl-footer">
