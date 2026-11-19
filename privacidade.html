@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Política de Privacidade | Rafael Linhares</title>
+<meta name="description" content="Como o site trata dados pessoais: agendamento de sessões, contato, cookies, compartilhamento e direitos do titular, conforme a LGPD.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://rafaellinhares.com.br/privacidade">
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="/00136c20-a269-4d25-839d-06056173b7cd.jpeg">
+<link rel="apple-touch-icon" href="/00136c20-a269-4d25-839d-06056173b7cd.jpeg">
+
+<!-- Open Graph / redes sociais -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Projeto Voluntário | Rafael Linhares | Economia">
+<meta property="og:title" content="Política de Privacidade | Rafael Linhares">
+<meta property="og:description" content="Como o site rafaellinhares.com.br trata dados pessoais, conforme a LGPD.">
+<meta property="og:url" content="https://rafaellinhares.com.br/privacidade">
+<meta property="og:image" content="https://rafaellinhares.com.br/og-padrao.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rafael Linhares — educação financeira gratuita">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --navy-1: #091B2B;
+    --green: #19C995;
+    --gutter: 64px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #FFFFFF; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+  body {
+    background: #FFFFFF;
+    color: var(--navy-1);
+    font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+
+  .page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px var(--gutter) 0;
+  }
+
+  .page h1 {
+    margin-bottom: 24px;
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--navy-1);
+  }
+
+  @media (max-width: 640px) {
+    :root { --gutter: 16px; }
+    .page { padding-top: 40px; }
+    .page h1 { font-size: 28px; padding: 0 16px; }
+  }
+
+    /* =====================================================
+        CABEÇALHO E RODAPÉ (MINIMALISTAS)
+    ===================================================== */
+
+    .rl-header,
+    .rl-footer {
+      background: #000000;
+      color: #ffffff;
+      font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    }
+
+    .rl-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .rl-header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      max-width: 1280px;
+      height: 64px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .rl-logo {
+      justify-self: start;
+      display: flex;
+      width: 36px;
+      height: 36px;
+    }
+
+    .rl-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .rl-social svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .rl-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .rl-nav a,
+    .rl-footer-nav a {
+      padding: 4px 0;
+      font-size: 15px;
+      line-height: 1.4;
+      color: #ffffff;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s ease, opacity .2s ease;
+    }
+
+    .rl-nav a[aria-current="page"],
+    .rl-footer-nav a[aria-current="page"] {
+      border-bottom-color: #ffffff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .rl-nav a:hover,
+      .rl-footer-nav a:hover {
+        border-bottom-color: #ffffff;
+      }
+    }
+
+    .rl-social {
+      display: flex;
+      width: 28px;
+      height: 28px;
+      color: #ffffff;
+    }
+
+    .rl-header .rl-social {
+      justify-self: end;
+    }
+
+    /* MENU MOBILE (3 RISCOS) */
+
+    .rl-menu-toggle {
+      display: none;
+      position: relative;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: #ffffff;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .rl-menu-toggle:focus-visible {
+      outline: 2px solid #0B7A59;
+      outline-offset: 3px;
+    }
+
+    .rl-menu-toggle span {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      transition: transform .2s ease, opacity .2s ease, top .2s ease;
+    }
+
+    .rl-menu-toggle span:nth-child(1) { top: 8px; }
+    .rl-menu-toggle span:nth-child(2) { top: 13px; }
+    .rl-menu-toggle span:nth-child(3) { top: 18px; }
+
+    .rl-menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 13px; transform: rotate(45deg); }
+    .rl-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .rl-menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
+
+    .rl-footer {
+      margin-top: 96px;
+      padding: 48px 32px calc(28px + env(safe-area-inset-bottom));
+    }
+
+    .rl-footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .rl-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 32px;
+    }
+
+    .rl-footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .16);
+      font-size: 13px;
+      color: rgba(255, 255, 255, .6);
+    }
+
+    .rl-footer .rl-social {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (max-width: 640px) {
+
+      .rl-header-inner {
+        grid-template-columns: 1fr auto auto;
+        grid-template-areas:
+          "logo social toggle"
+          "nav  nav    nav";
+        align-items: center;
+        height: auto;
+        padding: 12px 20px;
+        column-gap: 18px;
+        row-gap: 0;
+      }
+
+      .rl-logo { grid-area: logo; width: 30px; height: 30px; }
+      .rl-header .rl-social { grid-area: social; width: 24px; height: 24px; }
+
+      .rl-menu-toggle { display: block; grid-area: toggle; }
+
+      .rl-nav {
+        grid-area: nav;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 8px;
+      }
+
+      .rl-header.is-open .rl-nav { display: flex; }
+
+      .rl-nav a,
+      .rl-nav a[aria-current="page"] {
+        padding: 14px 0;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+      }
+
+      .rl-nav a:last-child { border-bottom: 0; }
+
+      .rl-nav a[aria-current="page"] { font-weight: 700; }
+
+      .rl-footer { margin-top: 64px; padding: 40px 20px calc(24px + env(safe-area-inset-bottom)); }
+      .rl-footer-nav { gap: 10px 24px; }
+      .rl-footer-bottom { flex-direction: column-reverse; gap: 16px; }
+    }
+
+
+    /* =====================================================
+        ACESSIBILIDADE, BOTÃO FIXO DE AGENDAMENTO E CONTATO
+    ===================================================== */
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 8px;
+      top: -64px;
+      z-index: 100;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .skip-link:focus { top: 8px; outline: 2px solid #0B7A59; outline-offset: 2px; }
+
+    #conteudo:focus { outline: none; }
+
+    /* área de toque de 44px no botão de 3 riscos */
+    .rl-menu-toggle::after { content: ""; position: absolute; inset: -8px; }
+
+    .rl-header a:focus-visible,
+    .rl-footer a:focus-visible,
+    .rl-menu-toggle:focus-visible { outline-color: #ffffff; }
+
+    .rl-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-self: end;
+    }
+
+    .rl-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: #19C995;
+      color: #091B2B;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+
+    .rl-cta span { font-weight: 500; margin-left: .35em; }
+    .rl-cta:hover { background: #72E2BD; }
+    .rl-header .rl-cta:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+    .rl-cta--bar { display: none; }
+    .rl-cta--bar:focus-visible { outline: 2px solid #091B2B; outline-offset: 3px; }
+
+    @media (max-width: 860px) {
+      .rl-cta--header { display: none; }
+
+      .rl-cta--bar {
+        display: flex;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        z-index: 60;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+      }
+
+      body.tem-cta { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    }
+
+    @media (max-width: 640px) {
+      .rl-actions { display: contents; }
+    }
+
+    .rl-footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 28px;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    .rl-footer .rl-priv {
+      color: rgba(255, 255, 255, .85);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .rl-footer-contact a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+
+    .politica { max-width: 760px; }
+    .politica h1 { margin-bottom: 8px; }
+    .politica .atualizacao { margin-bottom: 24px; font-size: 14px; color: #5F7285; }
+    .politica h2 { margin: 36px 0 10px; font-size: 22px; line-height: 1.3; font-weight: 800; color: var(--navy-1); }
+    .politica p, .politica li { font-size: 16px; line-height: 1.7; color: #17344D; }
+    .politica p { margin-bottom: 12px; }
+    .politica ul { margin: 0 0 12px 22px; }
+    .politica li { margin-bottom: 6px; }
+    .politica a { color: #0B7A59; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 640px) {
+      .politica { padding-left: 24px; padding-right: 24px; }
+      .politica h1 { padding: 0; }
+      .politica h2 { font-size: 20px; }
+    }
+</style>
+</head>
+
+<body class="tem-cta">
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="rl-header">
+    <div class="rl-header-inner">
+
+      <a href="/" class="rl-logo" aria-label="Rafael Linhares — Início">
+        <img src="/00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="">
+      </a>
+
+      <nav class="rl-nav" id="rl-nav-principal" aria-label="Principal">
+        <a href="/">Início</a>
+        <a href="/para-empresas">Para Empresas</a>
+        <a href="/para-voce">Para Você</a>
+        <a href="/agendamento">Agendamento</a>
+      </nav>
+
+      <div class="rl-actions">
+      <a href="/agendamento" class="rl-cta rl-cta--header">Agendar sessão gratuita</a>
+        <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares (abre em nova aba)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+        </a>
+      </div>
+
+      <button type="button" class="rl-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="rl-nav-principal">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+<main class="page politica" id="conteudo" tabindex="-1">
+
+  <h1>Política de Privacidade</h1>
+  <p class="atualizacao">Última atualização: 19 de novembro de 2026.</p>
+
+  <p>Esta política explica como o site <strong>rafaellinhares.com.br</strong> ("site") trata dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018).</p>
+
+  <h2>1. Quem é o responsável</h2>
+  <p>O responsável pelo tratamento dos dados é Rafael Linhares, economista, que também atua como encarregado pelo tratamento de dados pessoais. O contato está indicado na seção 9.</p>
+
+  <h2>2. Quais dados são tratados</h2>
+  <ul>
+    <li><strong>Agendamento de sessões:</strong> ao agendar pela ferramenta de agenda (Calendly), podem ser coletados nome, e-mail, data e horário escolhidos, fuso horário e as informações que você optar por preencher no formulário.</li>
+    <li><strong>Comunicação:</strong> dados que você enviar voluntariamente ao entrar em contato, como por mensagem no LinkedIn.</li>
+    <li><strong>Dados técnicos:</strong> ao acessar o site, os provedores de hospedagem podem registrar dados como endereço IP, tipo de navegador, páginas acessadas, data e hora, para o funcionamento e a segurança do serviço.</li>
+  </ul>
+  <p>O site não solicita documentos, dados bancários nem informações financeiras pessoais. Recomendamos que você não inclua dados sensíveis ou financeiros detalhados no formulário de agendamento.</p>
+
+  <h2>3. Para que os dados são usados</h2>
+  <ul>
+    <li>agendar, confirmar, remarcar e realizar a sessão;</li>
+    <li>responder mensagens e dúvidas;</li>
+    <li>manter a segurança e o funcionamento do site;</li>
+    <li>cumprir obrigações legais, quando houver.</li>
+  </ul>
+  <p>Os dados não são usados para publicidade e não são vendidos.</p>
+
+  <h2>4. Bases legais</h2>
+  <p>O tratamento se apoia no seu consentimento, manifestado ao fornecer seus dados e agendar a sessão; no atendimento de pedidos feitos por você; no cumprimento de obrigação legal ou regulatória; e, no que for necessário para a segurança do site, no legítimo interesse, respeitados os seus direitos.</p>
+
+  <h2>5. Compartilhamento</h2>
+  <p>Não vendemos dados pessoais. Os dados podem ser tratados por prestadores de serviço necessários ao funcionamento do site e das sessões, como a ferramenta de agendamento (Calendly), serviços de hospedagem (como GitHub Pages e Netlify) e a plataforma de videochamada usada na sessão, quando houver. Esses prestadores seguem políticas próprias, e alguns podem armazenar dados fora do Brasil; nesses casos, buscamos prestadores que adotem salvaguardas compatíveis com a LGPD.</p>
+  <p>As empresas que divulgam a ação gratuita não têm acesso aos agendamentos, às informações de quem participa nem ao conteúdo das conversas.</p>
+
+  <h2>6. Cookies e rastreamento</h2>
+  <p>O site não utiliza cookies próprios para análise ou publicidade. Ferramentas de terceiros incorporadas, como o widget de agendamento, podem usar cookies ou tecnologias semelhantes conforme suas próprias políticas. Você pode gerenciar cookies nas configurações do seu navegador.</p>
+
+  <h2>7. Por quanto tempo os dados são guardados</h2>
+  <p>Pelo tempo necessário para cumprir as finalidades descritas ou obrigações legais. Depois disso, os dados são eliminados ou anonimizados, salvo se a lei exigir a guarda. Você pode pedir a eliminação a qualquer momento, observadas as hipóteses legais.</p>
+
+  <h2>8. Seus direitos</h2>
+  <p>Nos termos do art. 18 da LGPD, você pode solicitar:</p>
+  <ul>
+    <li>confirmação de que seus dados são tratados e acesso a eles;</li>
+    <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+    <li>anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade;</li>
+    <li>portabilidade dos dados, quando aplicável;</li>
+    <li>informação sobre com quem os dados foram compartilhados;</li>
+    <li>revogação do consentimento e oposição a tratamentos, quando cabível.</li>
+  </ul>
+  <p>Podemos pedir informações para confirmar sua identidade antes de atender ao pedido.</p>
+
+  <h2>9. Contato</h2>
+  <p>Para exercer seus direitos ou tirar dúvidas sobre esta política, escreva para <a href="mailto:rafael.linhares@live.com">rafael.linhares@live.com</a> ou fale com Rafael Linhares pelo <a href="https://www.linkedin.com/in/rafael-linhares-s" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (abre em nova aba)</span></a>. Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+  <h2>10. Segurança</h2>
+  <p>Adotamos medidas técnicas e organizacionais razoáveis para proteger os dados, incluindo conexão segura (HTTPS). Nenhum sistema é totalmente imune a riscos; em caso de incidente relevante, tomaremos as providências previstas na LGPD.</p>
+
+  <h2>11. Menores de idade</h2>
+  <p>O site e as sessões são destinados a maiores de 18 anos.</p>
+
+  <h2>12. Links externos</h2>
+  <p>O site contém links para páginas de terceiros, como LinkedIn, órgãos públicos e ferramentas externas. Não nos responsabilizamos pelas práticas de privacidade desses sites; consulte a política de cada um.</p>
+
+  <h2>13. Alterações desta política</h2>
+  <p>Esta política pode ser atualizada. A versão vigente fica sempre nesta página, com a data da última atualização.</p>
+
+</main>
+
+  <footer class="rl-footer">
+    <div class="rl-footer-inner">
+
+      <nav class="rl-footer-nav" aria-label="Rodapé">
+        <a href="/">Início</a>
+        <a href="/para-voce">Para Você</a>
+        <a href="/para-empresas">Para Empresas</a>
+        <a href="/agendamento">Agendamento</a>
+      </nav>
+
+      <div class="rl-footer-contact">
+        <a href="mailto:rafael.linhares@live.com">rafael.linhares@live.com</a>
+      </div>
+      <!-- WhatsApp (quando existir): <a href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener noreferrer">WhatsApp</a> -->
+
+      <div class="rl-footer-bottom">
+        <span>© 2026 Rafael Linhares · <a href="/privacidade" class="rl-priv">Política de Privacidade</a></span>
+        <a href="https://www.linkedin.com/in/rafael-linhares-s" class="rl-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafael Linhares (abre em nova aba)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="4.5" cy="4.5" r="2.5"/><rect x="2" y="9" width="5" height="13"/><path d="M9 9h4.5v1.800c.7-1.200 2.100-2.100 4-2.100 3.5 0 4.5 2.300 4.5 5.5V22h-5v-6.5c0-1.5-.3-2.5-1.700-2.5-1.5 0-2.300 1-2.300 2.700V22H9z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.querySelector('.rl-header');
+      var toggle = document.querySelector('.rl-menu-toggle');
+      if (!header || !toggle) return;
+
+      function setMenu(open) {
+        header.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      }
+
+      toggle.addEventListener('click', function () {
+        setMenu(!header.classList.contains('is-open'));
+      });
+
+      header.querySelectorAll('.rl-nav a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && header.classList.contains('is-open')) {
+          setMenu(false);
+          toggle.focus();
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 640) setMenu(false);
+      });
+    })();
+  </script>
+
+<a href="/agendamento" class="rl-cta rl-cta--bar">Agendar sessão gratuita <span>· 50 min · online</span></a>
+
+</body>
+</html>
