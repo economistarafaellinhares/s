@@ -8,9 +8,11 @@
   ║  TEMPLATE DE SITE PARA PSICÓLOGOS(AS) — COMO PREENCHER       ║
   ╠══════════════════════════════════════════════════════════════╣
   ║ 1) Preencha o bloco CONFIG no final deste arquivo (<script>).║
-  ║    Nome, CRP, contatos, Calendly e WhatsApp aparecem em      ║
+  ║    Nome, CRP, contatos e WhatsApp aparecem em                ║
   ║    todo o site automaticamente.                              ║
   ║ 2) Edite os textos marcados com [COLCHETES] (busque por "[").║
+  ║    Cole o código da agenda na seção "Agendamento" (busque   ║
+  ║    por "COLE AQUI").                                         ║
   ║ 3) Salve sua foto como "foto.jpg" na mesma pasta.            ║
   ║ 4) Cole o link do seu arquivo de Termos de uso no CONFIG.    ║
   ║ 5) Troque as 3 linhas marcadas "EDITE (SEO)" aqui no <head>. ║
@@ -111,47 +113,9 @@ details p+p{margin-top:-.5rem}
 .sched-note p{font-size:.95rem;line-height:1.7;text-wrap:pretty}
 .sched-note a{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:3px}
 .cal{max-width:720px;margin:0 auto;border:1px solid var(--line);border-radius:20px;overflow:hidden;min-height:200px;background:var(--white)}
-.cal iframe{display:block;width:100%;height:640px;border:0}
-.mc{display:grid;grid-template-columns:1fr}
-.mc-side{padding:1.25rem;border-bottom:1px solid var(--line)}
-.mc-side .gm{margin-bottom:.9rem}
-.mc-n{color:var(--muted);font-size:.92rem}
-.mc-side h3{font-size:1.1rem;margin:.2rem 0 .9rem}
-.mc-side ul{list-style:none;display:grid;gap:.4rem;color:var(--muted);font-size:.93rem}
-.mc-main{padding:1.25rem}
-.mc-title{font-size:1rem;font-weight:600;margin-bottom:.75rem}
-.mc-body{display:grid;gap:1.5rem}
-.mc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
-.mc-head strong::first-letter{text-transform:uppercase}
-.mc-nav{width:38px;height:38px;border-radius:50%;border:0;background:var(--mint);color:var(--navy);font-size:1.15rem;cursor:pointer}
-.mc-nav:disabled{opacity:.35;cursor:default}
-.mc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.mc-wd{font-size:.72rem;color:var(--muted);text-transform:uppercase;padding:.3rem 0}
-.mc-day{aspect-ratio:1;min-height:36px;border:0;border-radius:50%;background:none;font:inherit;font-size:.88rem;color:#B3C0CC;position:relative}
-.mc-day.av{background:var(--mint);color:var(--navy);font-weight:600;cursor:pointer}
-.mc-day.av:hover{background:#cdf1e6}
-.mc-day.on{background:var(--navy);color:#fff}
-.mc-day.today::after{content:"";position:absolute;bottom:6px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--green)}
-.mc-tz{margin-top:1rem;font-size:.82rem;color:var(--muted)}
-.mc-slots{display:grid;gap:.6rem;align-content:start}
-.mc-slots h4{font-size:.98rem;font-weight:600;margin-bottom:.75rem;text-transform:capitalize}
-.mc-t{min-height:42px;border:1.5px solid var(--green);border-radius:10px;background:var(--white);color:var(--navy);font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
-.mc-t:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-.mc-f{display:grid;gap:1rem;max-width:460px}
-.mc-f label{display:grid;gap:.35rem;font-size:.92rem;font-weight:600}
-.mc-f input[type=text],.mc-f input[type=email]{min-height:48px;padding:0 .9rem;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--navy)}
-.mc-f input:focus{outline:3px solid var(--green);outline-offset:1px;border-color:var(--green)}
-.mc-r{display:flex;gap:.6rem;flex-wrap:wrap}
-.mc-r label{display:flex;align-items:center;gap:.5rem;font-weight:400;border:1.5px solid var(--line);border-radius:10px;padding:.7rem 1rem;min-height:48px;cursor:pointer}
-.mc-r input{accent-color:#19C995;width:18px;height:18px}
-.mc-err{color:#B3261E;font-size:.88rem;min-height:1.2em}
-.mc-link{background:none;border:0;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;min-height:44px;justify-self:start}
-.mc-ok h3{font-size:1.3rem;margin-bottom:.6rem}
-.mc-ok p{color:var(--muted)}
-.mc-demo{margin-top:1.25rem;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.9rem}
-
+.calendly-inline-widget{width:100%}
 /* Rodapé */
-footer{background:var(--navy);color:#C9D6E2;padding:3rem 0 5.5rem;font-size:.92rem}
+footer{background:var(--navy);color:#C9D6E2;padding:3rem 0 2rem;font-size:.92rem}
 .foot{display:grid;gap:1.75rem}
 footer strong{display:block;color:#fff;font-weight:600;font-size:1rem}
 footer p{margin-top:.5rem}
@@ -164,6 +128,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--green)}
 .legal a,.legal button{background:none;border:0;color:#C9D6E2;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
 .legal a:hover,.legal button:hover{color:var(--green)}
 .copy{font-size:.85rem;color:#8FA3B7}
+
+/* Contratar layout */
+.layout-cta{background:var(--navy2);color:#C9D6E2;text-align:center;padding:2rem 1.25rem 5.5rem;border-top:1px solid var(--navy3)}
+.layout-cta .btn{width:100%;max-width:320px}
+.layout-cta p{margin-top:.75rem;font-size:.88rem;color:#8FA3B7}
 
 /* Política de privacidade (janela) */
 dialog{border:0;border-radius:20px;max-width:720px;width:calc(100% - 2rem);max-height:86vh;padding:0;color:var(--text);margin:auto;overflow:hidden}
@@ -197,11 +166,6 @@ dialog::backdrop{background:rgba(9,27,43,.7)}
   .destaque h2{font-size:2.5rem;margin-bottom:4rem}
   .destaque .sub2{margin-top:3.25rem}
   .destaque .narrow{background:none;border:0;border-radius:0;padding:0}
-  .mc{grid-template-columns:210px 1fr}
-  .mc-side{border-bottom:0;border-right:1px solid var(--line);padding:1.5rem}
-  .mc-main{padding:1.5rem}
-  .mc-body.two{grid-template-columns:1fr 130px}
-  .cal iframe{height:700px}
   .foot{grid-template-columns:1.4fr 1fr;align-items:start}
 }
 </style>
@@ -282,8 +246,18 @@ dialog::backdrop{background:rgba(9,27,43,.7)}
     <h2>Agendamento</h2>
     <!-- EDITE: texto da primeira sessão (valor, confirmação, forma de contato) -->
     <details class="sched-note"><summary>Primeira sessão?</summary><p>Se for a sua primeira sessão, entrarei em contato assim que receber o agendamento para informar o valor e confirmar sua participação.<span data-wpp-txt> Se preferir, <a data-wpp-link href="#" target="_blank" rel="noopener">fale comigo pelo WhatsApp</a>.</span></p></details>
-    <!-- O calendário real (Calendly) é ativado pelo CONFIG.calendly. Sem o link, aparece uma versão de demonstração. -->
-    <div class="cal" id="calendly"></div>
+    <div class="cal" id="calendly">
+      <!-- ═══════════════════════════════════════════════════════════
+           COLE AQUI O CÓDIGO DE INCORPORAÇÃO DA AGENDA (Calendly)
+           No Calendly: Tipo de evento > Compartilhar > "Adicionar ao site" > "Widget em linha" > copie o código.
+           Apague o exemplo abaixo e cole o seu no lugar.
+           ═══════════════════════════════════════════════════════════ -->
+      <!-- Widget em linha do Calendly - início -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/rafael-linhares-t9cu/sessao" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Widget em linha do Calendly - fim -->
+      <!-- ═══════════════ FIM DO CÓDIGO DA AGENDA ═══════════════ -->
+    </div>
   </div>
 </section>
 </main>
@@ -309,6 +283,12 @@ dialog::backdrop{background:rgba(9,27,43,.7)}
     </div>
   </div>
 </footer>
+
+<!-- CONTRATAR LAYOUT: link de pagamento (Mercado Pago). Troque o href se o link mudar. -->
+<div class="layout-cta">
+  <a class="btn" href="https://mpago.la/1auHcEE" target="_blank" rel="noopener">Contratar layout</a>
+  <p>Cancele quando quiser</p>
+</div>
 
 <a class="wpp" id="wpp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
@@ -384,7 +364,6 @@ var CONFIG={
   telefone:    "",   // ex.: "(41) 99999-9999"
   instagram:   "",   // ex.: "https://www.instagram.com/seuperfil"
   linkedin:    "",   // ex.: "https://www.linkedin.com/in/seuperfil"
-  calendly:    "",   // ex.: "https://calendly.com/seu-usuario/sessao" (vazio = calendário de demonstração)
   termos:      "",   // link ou arquivo dos seus Termos de uso, ex.: "termos.pdf" (vazio = oculta o link)
   atualizacaoPolitica: "mês/ano" // ex.: "janeiro/2027"
 };
@@ -457,62 +436,6 @@ function miss(){box.classList.add('nophoto')}
 img.addEventListener('error',miss);
 if(img.complete&&img.naturalWidth===0)miss();
 
-/* Calendário de demonstração (usado só quando CONFIG.calendly está vazio) */
-function mockCalendar(root){
-  var M=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-  var D=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
-  var T=['08:00','09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
-  var now=new Date();now.setHours(0,0,0,0);
-  var max=new Date(now);max.setDate(max.getDate()+60);
-  var st={y:now.getFullYear(),m:now.getMonth(),d:null,step:0,t:null,tipo:'Adulto',nome:'',email:'',err:''};
-  function ok(dt){var x=dt.getDay();return dt>now&&dt<=max&&x>0&&x<6}
-  function slots(dt){return T.filter(function(_,i){return (dt.getDate()+i)%4!==0})}
-  function label(dt){return D[dt.getDay()]+', '+dt.getDate()+' de '+M[dt.getMonth()]}
-  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
-  function side(){return '<div class="mc-side"><span class="gm" aria-hidden="true">'+esc(I)+'</span><p class="mc-n">'+esc(C.nome)+'</p><h3>Sessão de psicoterapia</h3><ul><li>Duração: 50 min</li><li>Videochamada (on-line)</li>'+(st.d&&st.step>0?'<li><b>'+label(st.d)+', '+st.t+'</b></li>':'')+'</ul></div>'}
-  function cal(){
-    var first=new Date(st.y,st.m,1),n=new Date(st.y,st.m+1,0).getDate(),h='';
-    var wd=['D','S','T','Q','Q','S','S'].map(function(x){return '<div class="mc-wd">'+x+'</div>'}).join('');
-    for(var i=0;i<first.getDay();i++)h+='<span></span>';
-    for(var d=1;d<=n;d++){
-      var dt=new Date(st.y,st.m,d),av=ok(dt),on=st.d&&st.d.getTime()===dt.getTime(),td=dt.getTime()===now.getTime();
-      h+='<button class="mc-day'+(av?' av':'')+(on?' on':'')+(td?' today':'')+'" '+(av?'data-a="day" data-v="'+d+'"':'disabled')+' aria-label="'+d+' de '+M[st.m]+(av?'':' indisponível')+'">'+d+'</button>';
-    }
-    var prevOff=(st.y===now.getFullYear()&&st.m<=now.getMonth());
-    return '<div><div class="mc-head"><button class="mc-nav" data-a="prev" aria-label="Mês anterior"'+(prevOff?' disabled':'')+'>‹</button><strong>'+M[st.m]+' de '+st.y+'</strong><button class="mc-nav" data-a="next" aria-label="Próximo mês">›</button></div><div class="mc-grid">'+wd+h+'</div><p class="mc-tz">Fuso horário: Brasília (GMT−3)</p></div>';
-  }
-  function draw(){
-    var body='';
-    if(st.step===0){
-      body='<p class="mc-title">Selecione a data e o horário</p><div class="mc-body'+(st.d?' two':'')+'">'+cal();
-      if(st.d)body+='<div class="mc-slots"><h4>'+label(st.d)+'</h4>'+slots(st.d).map(function(t){return '<button class="mc-t" data-a="time" data-v="'+t+'">'+t+'</button>'}).join('')+'</div>';
-      body+='</div>';
-    }else if(st.step===1){
-      body='<p class="mc-title">Informe seus dados</p><div class="mc-f"><label>Atendimento para<span class="mc-r"><label><input type="radio" name="tipo" value="Adolescente"'+(st.tipo==='Adolescente'?' checked':'')+'> Adolescente</label><label><input type="radio" name="tipo" value="Adulto"'+(st.tipo==='Adulto'?' checked':'')+'> Adulto</label></span></label><label>Nome<input type="text" id="mc-nome" autocomplete="name" value="'+esc(st.nome)+'"></label><label>E-mail<input type="email" id="mc-email" autocomplete="email" value="'+esc(st.email)+'"></label><p class="mc-err" role="alert">'+st.err+'</p><button class="btn" data-a="ok">Confirmar agendamento</button><button class="mc-link" data-a="back">Voltar</button></div>';
-    }else{
-      body='<div class="mc-ok"><h3>Agendamento solicitado</h3><p>'+st.tipo+' · '+label(st.d)+', '+st.t+' (Brasília)</p><p>Uma confirmação seria enviada para '+esc(st.email)+'.</p><p class="mc-demo">Visualização de exemplo: nenhum horário foi reservado. Para ativar o calendário real, preencha "calendly" no CONFIG.</p></div>';
-    }
-    root.innerHTML='<div class="mc">'+side()+'<div class="mc-main">'+body+'</div></div>';
-  }
-  function read(){var a=$('#mc-nome',root),e=$('#mc-email',root),r=$('input[name=tipo]:checked',root);if(a)st.nome=a.value;if(e)st.email=e.value;if(r)st.tipo=r.value}
-  root.addEventListener('click',function(e){
-    var x=e.target.closest('[data-a]');if(!x)return;var a=x.getAttribute('data-a');read();
-    if(a==='prev'){st.m--;if(st.m<0){st.m=11;st.y--}}
-    else if(a==='next'){st.m++;if(st.m>11){st.m=0;st.y++}}
-    else if(a==='day'){st.d=new Date(st.y,st.m,+x.getAttribute('data-v'))}
-    else if(a==='time'){st.t=x.getAttribute('data-v');st.step=1;st.err=''}
-    else if(a==='back'){st.step=0}
-    else if(a==='ok'){if(!st.nome.trim()||st.email.indexOf('@')<1){st.err='Preencha seu nome e um e-mail válido.'}else{st.step=2;st.err=''}}
-    draw();
-  });
-  draw();
-}
-var cal=$('#calendly');
-if(C.calendly){
-  var f=document.createElement('iframe');
-  f.src=C.calendly+(C.calendly.indexOf('?')>-1?'&':'?')+'hide_gdpr_banner=1&primary_color=19c995&text_color=091b2b';
-  f.title='Agendamento de sessão';f.loading='lazy';cal.appendChild(f);
-}else{mockCalendar(cal)}
 $('#ano').textContent=new Date().getFullYear();
 })();
 </script>
