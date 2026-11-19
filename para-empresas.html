@@ -885,6 +885,10 @@
   .rl-beneficios span { display: block; font-size: 15px; line-height: 1.55; color: #526779; }
 
   .rl-passos {
+    width: 100%;
+    max-width: 680px;
+    margin: 28px auto 0;
+    padding: 0 24px;
     list-style: none;
     counter-reset: passo;
     display: grid;
@@ -914,7 +918,7 @@
   .empresa-nota { margin-top: 18px; font-size: 14px; line-height: 1.5; color: #526779; text-align: center; }
 
   @media (max-width: 640px) {
-    .rl-passos { grid-template-columns: 1fr; }
+    .rl-passos { grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
   }
 </style>
 </head>
@@ -927,7 +931,7 @@
     <div class="rl-header-inner">
 
       <a href="/" class="rl-logo" aria-label="Rafael Linhares — Início">
-        <img src="/00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="">
+        <img src="/00136c20-a269-4d25-839d-06056173b7cd.jpeg" alt="Rafael Linhares">
       </a>
 
       <nav class="rl-nav" id="rl-nav-principal" aria-label="Principal">
@@ -1050,7 +1054,7 @@
 </div>
 
 <div class="download-area">
-  <button class="download-btn" id="saveJpeg" title="Salvar Card em JPEG" aria-label="Salvar Card em JPEG">
+  <button class="download-btn" id="saveJpeg" title="Baixar card em JPEG" aria-label="Baixar card em JPEG">
     <svg viewBox="0 0 24 24">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
       <polyline points="7 10 12 15 17 10"></polyline>
@@ -1210,58 +1214,7 @@
   });
 </script>
 
-<script>
-  (function () {
-    var btn = document.getElementById('copiarMsg');
-    var label = document.getElementById('copiarMsgLabel');
-    var texto = document.getElementById('msgTexto');
-    if (!btn || !label || !texto) return;
 
-    var original = label.textContent;
-    var timer;
-
-    function avisar(msg, ok) {
-      label.textContent = msg;
-      btn.classList.toggle('copiado', ok);
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        label.textContent = original;
-        btn.classList.remove('copiado');
-      }, 2200);
-    }
-
-    function copiarFallback(t) {
-      var ta = document.createElement('textarea');
-      ta.value = t;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (_) {}
-      ta.remove();
-      return ok;
-    }
-
-    btn.addEventListener('click', function () {
-      var t = texto.textContent.replace(/\s+/g, ' ').trim();
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(t).then(
-          function () { avisar('Mensagem copiada!', true); },
-          function () {
-            var ok = copiarFallback(t);
-            avisar(ok ? 'Mensagem copiada!' : 'Não foi possível copiar', ok);
-          }
-        );
-      } else {
-        var ok = copiarFallback(t);
-        avisar(ok ? 'Mensagem copiada!' : 'Não foi possível copiar', ok);
-      }
-    });
-  })();
-</script>
 
 <footer class="rl-footer">
     <div class="rl-footer-inner">
