@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  TEMPLATE DE SITE PARA PSICÓLOGOS(AS) — COMO PREENCHER       ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║ 1) Preencha o bloco CONFIG no final deste arquivo (<script>).║
+  ║    Nome, CRP, contatos, Calendly e WhatsApp aparecem em      ║
+  ║    todo o site automaticamente.                              ║
+  ║ 2) Edite os textos marcados com [COLCHETES] (busque por "[").║
+  ║ 3) Salve sua foto como "foto.jpg" na mesma pasta.            ║
+  ║ 4) Cole o link do seu arquivo de Termos de uso no CONFIG.    ║
+  ║ 5) Troque as 3 linhas marcadas "EDITE (SEO)" aqui no <head>. ║
+  ║ 6) Revise a Política de Privacidade (final do arquivo) com   ║
+  ║    um(a) advogado(a) antes de publicar.                      ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<!-- EDITE (SEO): título, descrição e título de compartilhamento -->
+<title>[Nome completo] | Psicóloga(o) clínica(o) – [CRP 00/00000]</title>
+<meta name="description" content="Psicoterapia on-line para [adolescentes e adultos] em todo o Brasil. [Nome completo], psicóloga(o) clínica(o) [CRP 00/00000].">
+<meta property="og:title" content="[Nome completo] | Psicóloga(o) clínica(o)">
+<meta property="og:description" content="Psicoterapia on-line para todo o Brasil.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#091B2B">
+<style>
+/* CORES: troque aqui para mudar a identidade visual do site inteiro */
+:root{
+  --navy:#091B2B; --navy2:#10283E; --navy3:#17344D;
+  --green:#19C995; --green-d:#14b383; --mint:#E6F8F2; --white:#fff;
+  --text:#091B2B; --muted:#52667A; --line:#DCE5EC;
+  --r:16px; --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--white);line-height:1.65;-webkit-text-size-adjust:100%;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+.narrow{max-width:760px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;font-weight:600}
+h2{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:2.5rem}
+section{padding:3.25rem 0}
+.alt{background:var(--mint)}
+.lead{font-size:1.08rem;line-height:1.75;color:var(--navy3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.85rem 1.8rem;border-radius:999px;background:var(--green);color:var(--navy);font-weight:600;text-decoration:none;font-size:1rem;border:0;cursor:pointer;transition:background .25s,transform .25s}
+.btn:hover{background:var(--green-d);transform:translateY(-1px)}
+.btn.full{width:100%}
+
+/* Cabeçalho */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--navy);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex;align-items:center;text-decoration:none;color:#fff}
+.gm{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:1.05rem;letter-spacing:.02em;flex:none}
+nav ul{list-style:none;display:none;gap:1.75rem}
+nav a{text-decoration:none;font-size:.92rem;color:#C9D6E2;position:relative;padding:.3rem 0;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
+nav a:hover{color:#fff}nav a:hover::after{width:100%}
+.burger{width:48px;height:48px;background:none;border:0;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;margin-right:-10px}
+.burger span{width:24px;height:2px;background:#fff;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu{position:fixed;top:64px;left:0;right:0;background:var(--navy);padding:.5rem 1.25rem 1.5rem;border-top:1px solid var(--navy3);transform:translateY(-120%);visibility:hidden;transition:transform .3s,visibility .3s}
+.menu.open{transform:none;visibility:visible}
+.menu a{display:block;padding:1rem 0;color:#fff;text-decoration:none;border-bottom:1px solid var(--navy3);font-size:1.05rem}
+.menu .btn{margin-top:1.25rem;color:var(--navy);border:0}
+
+/* WhatsApp flutuante */
+.wpp{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:var(--green);color:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(9,27,43,.28);transition:transform .25s,background .25s}
+.wpp:hover{transform:scale(1.07);background:var(--green-d)}
+.wpp svg{width:30px;height:30px}
+
+/* Início */
+.hero{padding:calc(64px + 1.75rem) 0 3rem}
+.hero-grid{display:grid;grid-template-columns:1fr;grid-template-areas:"title" "photo" "cta";gap:1.5rem;align-items:start}
+.h-title{grid-area:title}.photo{grid-area:photo}.h-cta{grid-area:cta}
+.hero h1{font-size:clamp(1.6rem,7.4vw,3rem);font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:1.08;margin-bottom:.9rem}
+.insc{font-size:1.02rem;font-weight:600;line-height:1.5;padding-left:.9rem;border-left:3px solid var(--green)}
+.photo{position:relative;min-height:340px;display:flex;align-items:flex-end;justify-content:center;width:100%;max-width:380px;margin:0 auto}
+.photo::before{content:"";position:absolute;left:6%;right:6%;bottom:0;top:14%;background:var(--mint);border-radius:28px}
+.photo::after{content:"";position:absolute;left:0;bottom:0;width:34%;height:42%;background:var(--navy);border-radius:0 0 0 28px;clip-path:polygon(0 100%,0 0,100% 100%)}
+.photo img,.photo .mono{position:relative;z-index:1}
+.photo img{width:auto;height:auto;max-height:600px;margin:0 auto;object-fit:contain}
+.mono{display:none;width:90px;height:90px;border-radius:24px;background:var(--navy);color:var(--green);align-items:center;justify-content:center;font-size:2.2rem;font-weight:700;margin:0 0 3rem}
+.photo.nophoto img{display:none}.photo.nophoto .mono{display:flex}
+
+/* Sobre / Abordagem */
+.destaque h2{font-size:clamp(1.4rem,5.4vw,2.5rem);max-width:24ch;margin-bottom:2.5rem}
+.destaque h3{font-size:1.15rem;margin-bottom:.7rem;padding-left:.9rem;border-left:3px solid var(--green)}
+.destaque .lead{margin:0}
+.destaque .sub2{margin-top:1rem}
+.destaque .narrow{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.25rem 1.5rem}
+
+/* Dúvidas */
+.faq{display:grid;gap:.75rem}
+details{border:1px solid var(--line);border-radius:var(--r);padding:0 1.25rem;transition:border-color .2s}
+details[open]{border-color:var(--green)}
+summary{cursor:pointer;list-style:none;min-height:60px;padding:.6rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:600;font-size:1.02rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;color:var(--green);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 1.25rem;color:var(--muted)}
+details p+p{margin-top:-.5rem}
+
+/* Agendamento */
+.sched-note{max-width:720px;margin:0 auto 2.5rem;background:var(--white)}
+.sched-note p{font-size:.95rem;line-height:1.7;text-wrap:pretty}
+.sched-note a{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:3px}
+.cal{max-width:720px;margin:0 auto;border:1px solid var(--line);border-radius:20px;overflow:hidden;min-height:200px;background:var(--white)}
+.cal iframe{display:block;width:100%;height:640px;border:0}
+.mc{display:grid;grid-template-columns:1fr}
+.mc-side{padding:1.25rem;border-bottom:1px solid var(--line)}
+.mc-side .gm{margin-bottom:.9rem}
+.mc-n{color:var(--muted);font-size:.92rem}
+.mc-side h3{font-size:1.1rem;margin:.2rem 0 .9rem}
+.mc-side ul{list-style:none;display:grid;gap:.4rem;color:var(--muted);font-size:.93rem}
+.mc-main{padding:1.25rem}
+.mc-title{font-size:1rem;font-weight:600;margin-bottom:.75rem}
+.mc-body{display:grid;gap:1.5rem}
+.mc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.mc-head strong::first-letter{text-transform:uppercase}
+.mc-nav{width:38px;height:38px;border-radius:50%;border:0;background:var(--mint);color:var(--navy);font-size:1.15rem;cursor:pointer}
+.mc-nav:disabled{opacity:.35;cursor:default}
+.mc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.mc-wd{font-size:.72rem;color:var(--muted);text-transform:uppercase;padding:.3rem 0}
+.mc-day{aspect-ratio:1;min-height:36px;border:0;border-radius:50%;background:none;font:inherit;font-size:.88rem;color:#B3C0CC;position:relative}
+.mc-day.av{background:var(--mint);color:var(--navy);font-weight:600;cursor:pointer}
+.mc-day.av:hover{background:#cdf1e6}
+.mc-day.on{background:var(--navy);color:#fff}
+.mc-day.today::after{content:"";position:absolute;bottom:6px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--green)}
+.mc-tz{margin-top:1rem;font-size:.82rem;color:var(--muted)}
+.mc-slots{display:grid;gap:.6rem;align-content:start}
+.mc-slots h4{font-size:.98rem;font-weight:600;margin-bottom:.75rem;text-transform:capitalize}
+.mc-t{min-height:42px;border:1.5px solid var(--green);border-radius:10px;background:var(--white);color:var(--navy);font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
+.mc-t:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mc-f{display:grid;gap:1rem;max-width:460px}
+.mc-f label{display:grid;gap:.35rem;font-size:.92rem;font-weight:600}
+.mc-f input[type=text],.mc-f input[type=email]{min-height:48px;padding:0 .9rem;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--navy)}
+.mc-f input:focus{outline:3px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.mc-r{display:flex;gap:.6rem;flex-wrap:wrap}
+.mc-r label{display:flex;align-items:center;gap:.5rem;font-weight:400;border:1.5px solid var(--line);border-radius:10px;padding:.7rem 1rem;min-height:48px;cursor:pointer}
+.mc-r input{accent-color:#19C995;width:18px;height:18px}
+.mc-err{color:#B3261E;font-size:.88rem;min-height:1.2em}
+.mc-link{background:none;border:0;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;min-height:44px;justify-self:start}
+.mc-ok h3{font-size:1.3rem;margin-bottom:.6rem}
+.mc-ok p{color:var(--muted)}
+.mc-demo{margin-top:1.25rem;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.9rem}
+
+/* Rodapé */
+footer{background:var(--navy);color:#C9D6E2;padding:3rem 0 5.5rem;font-size:.92rem}
+.foot{display:grid;gap:1.75rem}
+footer strong{display:block;color:#fff;font-weight:600;font-size:1rem}
+footer p{margin-top:.5rem}
+footer ul{list-style:none}
+footer a{text-decoration:none}footer a:hover{color:var(--green)}
+.clist{display:grid;gap:.55rem;margin-top:.8rem}
+.clist a{display:inline-flex;align-items:center;gap:.7rem;min-height:40px}
+.ic{width:20px;height:20px;flex:none;color:var(--green)}
+.legal{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--navy3)}
+.legal a,.legal button{background:none;border:0;color:#C9D6E2;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
+.legal a:hover,.legal button:hover{color:var(--green)}
+.copy{font-size:.85rem;color:#8FA3B7}
+
+/* Política de privacidade (janela) */
+dialog{border:0;border-radius:20px;max-width:720px;width:calc(100% - 2rem);max-height:86vh;padding:0;color:var(--text);margin:auto;overflow:hidden}
+dialog::backdrop{background:rgba(9,27,43,.7)}
+.dlg{display:flex;flex-direction:column;max-height:86vh}
+.dlg-h{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem 1rem 1.5rem;border-bottom:1px solid var(--line)}
+.dlg-h h2{margin:0;font-size:1.25rem}
+.dlg-x{width:44px;height:44px;border:0;border-radius:50%;background:var(--mint);color:var(--navy);font-size:1.4rem;cursor:pointer;flex:none}
+.dlg-b{padding:1.25rem 1.5rem 1.75rem;overflow-y:auto;font-size:.95rem}
+.dlg-b h3{font-size:1.02rem;margin:1.4rem 0 .4rem}
+.dlg-b p,.dlg-b li{color:var(--navy3)}
+.dlg-b ul{padding-left:1.2rem;display:grid;gap:.3rem}
+.dlg-b .upd{color:var(--muted);font-size:.85rem}
+
+/* Entrada única do topo */
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-grid>*{animation:in .8s ease both}.hero-grid>*:nth-child(2){animation-delay:.15s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+@media (min-width:760px){
+  section{padding:6rem 0}
+  nav ul{display:flex}.burger,.menu{display:none}
+  .hero{padding:calc(64px + 3.5rem) 0 5rem}
+  .hero-grid{grid-template-columns:1.15fr .85fr;grid-template-areas:"title photo" "cta photo";gap:1.25rem 3.5rem;align-items:center}
+  .h-title{align-self:end}.h-cta{align-self:start}
+  .hero h1{font-size:clamp(2.2rem,4.2vw,3.2rem)}
+  .btn.full,.hero .btn.full{width:auto}
+  .photo{max-width:none;min-height:560px}
+  .photo img{max-height:680px}
+  h2{margin-bottom:2.5rem}
+  .destaque h2{font-size:2.5rem;margin-bottom:4rem}
+  .destaque .sub2{margin-top:3.25rem}
+  .destaque .narrow{background:none;border:0;border-radius:0;padding:0}
+  .mc{grid-template-columns:210px 1fr}
+  .mc-side{border-bottom:0;border-right:1px solid var(--line);padding:1.5rem}
+  .mc-main{padding:1.5rem}
+  .mc-body.two{grid-template-columns:1fr 130px}
+  .cal iframe{height:700px}
+  .foot{grid-template-columns:1.4fr 1fr;align-items:start}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#inicio" data-aria="{nome}, página inicial"><span class="gm" data-iniciais aria-hidden="true">XX</span></a>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#abordagem">Abordagem</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="#agendar">Agendamento</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#sobre">Sobre mim</a>
+    <a href="#abordagem">Abordagem</a>
+    <a href="#duvidas">Dúvidas frequentes</a>
+    <a href="#contato">Contato</a>
+    <a class="btn" href="#agendar">Agendar</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="h-title">
+      <!-- Nome e CRP vêm do CONFIG. Se o nome for longo, use "nomeLinha1" e "nomeLinha2" no CONFIG para quebrar a linha. -->
+      <h1 data-nome-quebrado>Nome<br>Sobrenome</h1>
+      <p class="insc"><span data-titulo>Psicóloga(o) clínica(o)</span><br><span data-crp>CRP 00/00000</span></p>
+    </div>
+    <!-- FOTO: salve como "foto.jpg" na mesma pasta deste arquivo. Sem foto, aparecem as iniciais. -->
+    <div class="photo" id="photo">
+      <img src="foto.jpg" data-alt="{nome}, {titulo}" alt="" width="800" height="1000" fetchpriority="high">
+      <div class="mono" data-iniciais aria-hidden="true">XX</div>
+    </div>
+    <div class="h-cta"><a class="btn full" href="#agendar">Agendar</a></div>
+  </div>
+</section>
+
+<section class="alt destaque" id="sobre">
+  <div class="wrap">
+    <!-- EDITE: título principal (modalidade e abrangência do atendimento) -->
+    <h2>[Serviço de psicoterapia on-line para todo o Brasil]</h2>
+    <div class="narrow">
+      <h3>Sobre mim e meu trabalho</h3>
+      <!-- EDITE: formação, instituição, tempo de experiência e propósito do seu trabalho -->
+      <p class="lead">[Formada(o) em psicologia pela (instituição). Atuo dedicada(o) em ofertar um espaço de acolhimento e promover saúde mental e qualidade de vida aos meus pacientes.]</p>
+    </div>
+    <div class="narrow sub2" id="abordagem">
+      <h3>Abordagem terapêutica</h3>
+      <!-- EDITE: sua abordagem (ex.: TCC, análise do comportamento, psicanálise, ACT) e público atendido -->
+      <p class="lead">[Respaldada(o) pela (sua abordagem), proporciono um atendimento ético, com foco no seu crescimento pessoal/profissional e na sua qualidade de vida.]</p>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap narrow">
+    <h2>Dúvidas frequentes</h2>
+    <!-- EDITE: ajuste as respostas à sua rotina. Para adicionar uma pergunta, copie um bloco <details>. -->
+    <div class="faq">
+      <details><summary>O atendimento online é seguro?</summary><p>As sessões ocorrem por plataformas de vídeo que garantem total sigilo, atendendo às regulamentações do Conselho Federal de Psicologia.</p></details>
+      <details><summary>Como devo me preparar para o atendimento online?</summary><p>Esteja em um local apropriado, tranquilo, sigiloso e sem interrupções. Recomenda-se o uso de fones de ouvido.</p></details>
+      <details><summary>Informações gerais</summary><p>Na primeira sessão, vamos conversar para compreender os motivos que levaram você à terapia, explicarei como posso ajudar e como funcionará o processo.</p><p>As sessões ocorrem [uma vez na semana ou a cada 15 dias], conforme avaliação profissional, e têm duração de aproximadamente [50 minutos].</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="agendar">
+  <div class="wrap">
+    <h2>Agendamento</h2>
+    <!-- EDITE: texto da primeira sessão (valor, confirmação, forma de contato) -->
+    <details class="sched-note"><summary>Primeira sessão?</summary><p>Se for a sua primeira sessão, entrarei em contato assim que receber o agendamento para informar o valor e confirmar sua participação.<span data-wpp-txt> Se preferir, <a data-wpp-link href="#" target="_blank" rel="noopener">fale comigo pelo WhatsApp</a>.</span></p></details>
+    <!-- O calendário real (Calendly) é ativado pelo CONFIG.calendly. Sem o link, aparece uma versão de demonstração. -->
+    <div class="cal" id="calendly"></div>
+  </div>
+</section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="gm" data-iniciais aria-hidden="true" style="margin-bottom:1rem">XX</span>
+        <strong data-nome>Nome completo</strong>
+        <p><span data-titulo>Psicóloga(o) clínica(o)</span> · <span data-crp>CRP 00/00000</span><br><span data-servico>Psicoterapia on-line para todo o Brasil</span></p>
+      </div>
+      <div>
+        <strong>Contato</strong>
+        <!-- Os itens abaixo são preenchidos pelo CONFIG. Contato deixado em branco no CONFIG é removido automaticamente. -->
+        <ul class="clist" id="clist"></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <button type="button" id="abrir-priv">Política de privacidade</button>
+      <a id="termos" href="#" target="_blank" rel="noopener">Termos de uso</a>
+      <span class="copy" style="display:inline-flex;align-items:center;min-height:44px">© <span id="ano">2026</span> <span data-nome>Nome completo</span>. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wpp" id="wpp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<!--
+  POLÍTICA DE PRIVACIDADE (LGPD) — modelo genérico para psicólogos(as).
+  Os dados {entre chaves} vêm do CONFIG. Revise o conteúdo com um(a) advogado(a)
+  e ajuste ao que você realmente faz (ferramentas usadas, prazos de guarda etc.).
+-->
+<dialog id="priv" aria-labelledby="priv-t">
+  <div class="dlg">
+    <div class="dlg-h"><h2 id="priv-t">Política de privacidade</h2><button class="dlg-x" type="button" id="fechar-priv" aria-label="Fechar">×</button></div>
+    <div class="dlg-b">
+      <p class="upd">Última atualização: <span data-atualizacao>[mês/ano]</span></p>
+
+      <h3>1. Quem é o(a) responsável pelos seus dados</h3>
+      <p><span data-nome>Nome completo</span>, <span data-titulo>psicóloga(o)</span>, <span data-crp>CRP 00/00000</span>, é a controladora dos dados pessoais tratados neste site e no atendimento, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD). Contato para assuntos de privacidade: <span data-email-priv>[e-mail]</span>.</p>
+
+      <h3>2. Quais dados são coletados</h3>
+      <ul>
+        <li>Dados de identificação e contato: nome, e-mail e, quando informado, telefone ou WhatsApp.</li>
+        <li>Dados de agendamento: data, horário e se o atendimento é para adolescente ou adulto.</li>
+        <li>Informações trazidas durante o atendimento e registros profissionais, que são dados sensíveis de saúde e ficam protegidos por sigilo profissional.</li>
+        <li>Dados técnicos de navegação fornecidos pelo navegador, quando você acessa serviços de terceiros incorporados ao site (por exemplo, o calendário).</li>
+      </ul>
+
+      <h3>3. Para que usamos seus dados</h3>
+      <ul>
+        <li>Agendar, confirmar e realizar as sessões de psicoterapia.</li>
+        <li>Responder mensagens e dúvidas enviadas por você.</li>
+        <li>Cumprir obrigações legais e éticas da profissão, como a manutenção de registros documentais.</li>
+      </ul>
+      <p>As bases legais usadas são o seu consentimento, a execução de contrato ou de procedimentos preliminares a pedido seu, o cumprimento de obrigação legal ou regulatória e a tutela da saúde, conforme o caso.</p>
+
+      <h3>4. Compartilhamento</h3>
+      <p>Seus dados não são vendidos. Podem ser tratados por prestadores necessários ao serviço, como a plataforma de agendamento, a plataforma de videochamada e o aplicativo de mensagens, cada um com sua própria política de privacidade. O conteúdo das sessões é sigiloso e só pode ser revelado nas hipóteses previstas no Código de Ética Profissional do Psicólogo e na legislação.</p>
+
+      <h3>5. Por quanto tempo guardamos os dados</h3>
+      <p>Os dados são mantidos pelo tempo necessário à finalidade do atendimento. Registros profissionais são guardados pelos prazos exigidos pelas normas do Conselho Federal de Psicologia. Depois disso, são eliminados de forma segura.</p>
+
+      <h3>6. Segurança</h3>
+      <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda ou alteração. Nenhum sistema é totalmente imune a riscos, e por isso trabalhamos para reduzi-los continuamente.</p>
+
+      <h3>7. Adolescentes</h3>
+      <p>O atendimento de menores de 18 anos observa a legislação aplicável e, quando necessário, conta com o consentimento ou a ciência dos responsáveis legais.</p>
+
+      <h3>8. Seus direitos</h3>
+      <p>Você pode solicitar a confirmação de que tratamos seus dados, acesso, correção, anonimização, portabilidade, informações sobre compartilhamento, eliminação de dados tratados com base em consentimento e a revogação do consentimento. Algumas solicitações podem ter limites impostos por obrigações legais e pelo sigilo profissional. Para exercer seus direitos, escreva para <span data-email-priv>[e-mail]</span>. Você também pode recorrer à Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+      <h3>9. Alterações</h3>
+      <p>Esta política pode ser atualizada. A data da última revisão aparece no topo desta página.</p>
+    </div>
+  </div>
+</dialog>
+
+<script type="application/ld+json" id="ld"></script>
+<script>
+(function(){
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG — PREENCHA AQUI. Tudo o que estiver em branco ("") é ocultado.
+   ═══════════════════════════════════════════════════════════════ */
+var CONFIG={
+  nome:        "Nome Completo da Psicóloga",       // aparece no topo, rodapé, política e SEO
+  nomeLinha1:  "Nome",                              // 1ª linha do título grande (opcional; vazio = usa o nome inteiro)
+  nomeLinha2:  "Completo da Psicóloga",             // 2ª linha do título grande
+  titulo:      "Psicóloga clínica",                 // ou "Psicólogo clínico"
+  crp:         "CRP 00/00000",
+  servico:     "Psicoterapia on-line para todo o Brasil",
+  whatsapp:    "",   // link do WhatsApp, ex.: "https://wa.me/5541999999999" (vazio = remove o botão flutuante)
+  email:       "",   // e-mail de contato, ex.: "contato@seusite.com.br"
+  emailPrivacidade: "", // e-mail para pedidos de privacidade (vazio = usa o e-mail de contato)
+  telefone:    "",   // ex.: "(41) 99999-9999"
+  instagram:   "",   // ex.: "https://www.instagram.com/seuperfil"
+  linkedin:    "",   // ex.: "https://www.linkedin.com/in/seuperfil"
+  calendly:    "",   // ex.: "https://calendly.com/seu-usuario/sessao" (vazio = calendário de demonstração)
+  termos:      "",   // link ou arquivo dos seus Termos de uso, ex.: "termos.pdf" (vazio = oculta o link)
+  atualizacaoPolitica: "mês/ano" // ex.: "janeiro/2027"
+};
+/* ═════════════ FIM DA CONFIGURAÇÃO ═════════════ */
+
+var C=CONFIG,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function ini(n){var p=n.replace(/\b(de|da|do|das|dos|e)\b/gi,'').trim().split(/\s+/);return ((p[0]||'')[0]||'')+((p.length>1?p[p.length-1][0]:'')||'')}
+var I=ini(C.nome).toUpperCase(),mailP=C.emailPrivacidade||C.email;
+function fill(sel,fn){$$(sel).forEach(fn)}
+fill('[data-nome]',function(e){e.textContent=C.nome});
+fill('[data-titulo]',function(e){e.textContent=C.titulo});
+fill('[data-crp]',function(e){e.textContent=C.crp});
+fill('[data-servico]',function(e){e.textContent=C.servico});
+fill('[data-iniciais]',function(e){e.textContent=I});
+fill('[data-atualizacao]',function(e){e.textContent=C.atualizacaoPolitica});
+fill('[data-email-priv]',function(e){
+  if(mailP){e.innerHTML='<a href="mailto:'+mailP+'" style="text-decoration:underline">'+mailP+'</a>'}else{e.textContent='o contato informado neste site'}
+});
+fill('[data-aria]',function(e){e.setAttribute('aria-label',e.getAttribute('data-aria').replace('{nome}',C.nome))});
+fill('[data-alt]',function(e){e.alt=e.getAttribute('data-alt').replace('{nome}',C.nome).replace('{titulo}',C.titulo)});
+var h1=$('[data-nome-quebrado]');
+if(C.nomeLinha1&&C.nomeLinha2){h1.innerHTML='';h1.appendChild(document.createTextNode(C.nomeLinha1));h1.appendChild(document.createElement('br'));h1.appendChild(document.createTextNode(C.nomeLinha2))}else{h1.textContent=C.nome}
+document.title=C.nome+' | '+C.titulo+' – '+C.crp;
+
+/* WhatsApp */
+var w=$('#wpp');
+if(C.whatsapp){w.href=C.whatsapp;fill('[data-wpp-link]',function(a){a.href=C.whatsapp})}else{w.remove();var t=$('[data-wpp-txt]');if(t)t.remove()}
+
+/* Contatos do rodapé (itens em branco são omitidos) */
+var P={
+ mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+ tel:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+ ig:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>',
+ in:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M12 17v-7M12 13a3 3 0 0 1 6 0v4"/><circle cx="8" cy="7" r=".6" fill="currentColor"/>'
+};
+var L=[[C.email,'mailto:'+C.email,C.email,P.mail],[C.telefone,'tel:+55'+(C.telefone||'').replace(/\D/g,''),C.telefone,P.tel],[C.instagram,C.instagram,'Instagram',P.ig],[C.linkedin,C.linkedin,'LinkedIn',P.in]];
+var ul=$('#clist');
+L.forEach(function(x){
+  if(!x[0])return;
+  var li=document.createElement('li'),a=document.createElement('a'),ext=x[1].indexOf('http')===0;
+  a.href=x[1];if(ext){a.target='_blank';a.rel='noopener'}
+  a.innerHTML='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+x[3]+'</svg><span></span>';
+  a.lastChild.textContent=x[2];li.appendChild(a);ul.appendChild(li);
+});
+if(!ul.children.length)ul.parentNode.style.display='none';
+
+/* Termos de uso */
+var tm=$('#termos');
+if(C.termos){tm.href=C.termos}else{tm.remove()}
+
+/* Política de privacidade */
+var dlg=$('#priv');
+$('#abrir-priv').addEventListener('click',function(){dlg.showModal()});
+$('#fechar-priv').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+
+/* Dados estruturados para buscadores */
+$('#ld').textContent=JSON.stringify({"@context":"https://schema.org","@type":"Psychologist","name":C.nome,"description":C.titulo+", "+C.crp+". "+C.servico+".","areaServed":"BR"});
+
+/* Menu móvel */
+var b=$('.burger'),m=$('#menu');
+function set(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')}
+b.addEventListener('click',function(){set(!m.classList.contains('open'))});
+$$('a',m).forEach(function(a){a.addEventListener('click',function(){set(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+
+/* Foto: sem arquivo, mostra as iniciais */
+var img=$('#photo img'),box=$('#photo');
+function miss(){box.classList.add('nophoto')}
+img.addEventListener('error',miss);
+if(img.complete&&img.naturalWidth===0)miss();
+
+/* Calendário de demonstração (usado só quando CONFIG.calendly está vazio) */
+function mockCalendar(root){
+  var M=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var D=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  var T=['08:00','09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
+  var now=new Date();now.setHours(0,0,0,0);
+  var max=new Date(now);max.setDate(max.getDate()+60);
+  var st={y:now.getFullYear(),m:now.getMonth(),d:null,step:0,t:null,tipo:'Adulto',nome:'',email:'',err:''};
+  function ok(dt){var x=dt.getDay();return dt>now&&dt<=max&&x>0&&x<6}
+  function slots(dt){return T.filter(function(_,i){return (dt.getDate()+i)%4!==0})}
+  function label(dt){return D[dt.getDay()]+', '+dt.getDate()+' de '+M[dt.getMonth()]}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function side(){return '<div class="mc-side"><span class="gm" aria-hidden="true">'+esc(I)+'</span><p class="mc-n">'+esc(C.nome)+'</p><h3>Sessão de psicoterapia</h3><ul><li>Duração: 50 min</li><li>Videochamada (on-line)</li>'+(st.d&&st.step>0?'<li><b>'+label(st.d)+', '+st.t+'</b></li>':'')+'</ul></div>'}
+  function cal(){
+    var first=new Date(st.y,st.m,1),n=new Date(st.y,st.m+1,0).getDate(),h='';
+    var wd=['D','S','T','Q','Q','S','S'].map(function(x){return '<div class="mc-wd">'+x+'</div>'}).join('');
+    for(var i=0;i<first.getDay();i++)h+='<span></span>';
+    for(var d=1;d<=n;d++){
+      var dt=new Date(st.y,st.m,d),av=ok(dt),on=st.d&&st.d.getTime()===dt.getTime(),td=dt.getTime()===now.getTime();
+      h+='<button class="mc-day'+(av?' av':'')+(on?' on':'')+(td?' today':'')+'" '+(av?'data-a="day" data-v="'+d+'"':'disabled')+' aria-label="'+d+' de '+M[st.m]+(av?'':' indisponível')+'">'+d+'</button>';
+    }
+    var prevOff=(st.y===now.getFullYear()&&st.m<=now.getMonth());
+    return '<div><div class="mc-head"><button class="mc-nav" data-a="prev" aria-label="Mês anterior"'+(prevOff?' disabled':'')+'>‹</button><strong>'+M[st.m]+' de '+st.y+'</strong><button class="mc-nav" data-a="next" aria-label="Próximo mês">›</button></div><div class="mc-grid">'+wd+h+'</div><p class="mc-tz">Fuso horário: Brasília (GMT−3)</p></div>';
+  }
+  function draw(){
+    var body='';
+    if(st.step===0){
+      body='<p class="mc-title">Selecione a data e o horário</p><div class="mc-body'+(st.d?' two':'')+'">'+cal();
+      if(st.d)body+='<div class="mc-slots"><h4>'+label(st.d)+'</h4>'+slots(st.d).map(function(t){return '<button class="mc-t" data-a="time" data-v="'+t+'">'+t+'</button>'}).join('')+'</div>';
+      body+='</div>';
+    }else if(st.step===1){
+      body='<p class="mc-title">Informe seus dados</p><div class="mc-f"><label>Atendimento para<span class="mc-r"><label><input type="radio" name="tipo" value="Adolescente"'+(st.tipo==='Adolescente'?' checked':'')+'> Adolescente</label><label><input type="radio" name="tipo" value="Adulto"'+(st.tipo==='Adulto'?' checked':'')+'> Adulto</label></span></label><label>Nome<input type="text" id="mc-nome" autocomplete="name" value="'+esc(st.nome)+'"></label><label>E-mail<input type="email" id="mc-email" autocomplete="email" value="'+esc(st.email)+'"></label><p class="mc-err" role="alert">'+st.err+'</p><button class="btn" data-a="ok">Confirmar agendamento</button><button class="mc-link" data-a="back">Voltar</button></div>';
+    }else{
+      body='<div class="mc-ok"><h3>Agendamento solicitado</h3><p>'+st.tipo+' · '+label(st.d)+', '+st.t+' (Brasília)</p><p>Uma confirmação seria enviada para '+esc(st.email)+'.</p><p class="mc-demo">Visualização de exemplo: nenhum horário foi reservado. Para ativar o calendário real, preencha "calendly" no CONFIG.</p></div>';
+    }
+    root.innerHTML='<div class="mc">'+side()+'<div class="mc-main">'+body+'</div></div>';
+  }
+  function read(){var a=$('#mc-nome',root),e=$('#mc-email',root),r=$('input[name=tipo]:checked',root);if(a)st.nome=a.value;if(e)st.email=e.value;if(r)st.tipo=r.value}
+  root.addEventListener('click',function(e){
+    var x=e.target.closest('[data-a]');if(!x)return;var a=x.getAttribute('data-a');read();
+    if(a==='prev'){st.m--;if(st.m<0){st.m=11;st.y--}}
+    else if(a==='next'){st.m++;if(st.m>11){st.m=0;st.y++}}
+    else if(a==='day'){st.d=new Date(st.y,st.m,+x.getAttribute('data-v'))}
+    else if(a==='time'){st.t=x.getAttribute('data-v');st.step=1;st.err=''}
+    else if(a==='back'){st.step=0}
+    else if(a==='ok'){if(!st.nome.trim()||st.email.indexOf('@')<1){st.err='Preencha seu nome e um e-mail válido.'}else{st.step=2;st.err=''}}
+    draw();
+  });
+  draw();
+}
+var cal=$('#calendly');
+if(C.calendly){
+  var f=document.createElement('iframe');
+  f.src=C.calendly+(C.calendly.indexOf('?')>-1?'&':'?')+'hide_gdpr_banner=1&primary_color=19c995&text_color=091b2b';
+  f.title='Agendamento de sessão';f.loading='lazy';cal.appendChild(f);
+}else{mockCalendar(cal)}
+$('#ano').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
